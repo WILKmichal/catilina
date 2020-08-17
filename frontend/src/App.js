@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import HelloWorld from './Components/HelloWorld'
 
 function App() {
   return (
-    <div className="App">
-      <h1>clean up</h1>
+    <div>
+      <HelloWorld />
     </div>
   );
 }
