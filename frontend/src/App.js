@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './tailwind.css';
 import HelloWorld from './Components/HelloWorld'
 import Tst from './Components/tst'
 
