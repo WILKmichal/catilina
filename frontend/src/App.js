@@ -20,7 +20,7 @@ function App() {
         <NavigationMenu />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home/>
           </Route>
           <Route path="/Register">
             <Register />

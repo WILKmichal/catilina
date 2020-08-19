@@ -47,7 +47,7 @@ function Home() {
         if(concours.data){
                 content=
                 concours.data.map((concour,key)=>
-                <div>
+                <div >
                         <ConcoursCard
                         concour={concour}/>
                 </div>
@@ -56,10 +56,7 @@ function Home() {
 
 
         return (
-                <div>
-                        <h1 className="border-b font-bold p-3">
-                                Vous etes sur la page /Home
-                        </h1>
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-10">
                         {content}
                 </div>
         );
