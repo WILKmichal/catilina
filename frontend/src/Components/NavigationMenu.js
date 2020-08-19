@@ -6,6 +6,7 @@ import {
 
 function NavigationMenu(){
         return (
+          <div>
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -14,6 +15,7 @@ function NavigationMenu(){
                 <Link to="/Register">Register</Link>
               </li>
             </ul>
+            </div>
     
         );
 }

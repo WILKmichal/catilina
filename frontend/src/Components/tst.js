@@ -1,16 +1,27 @@
-import React from "react";
-import Button from '@material-ui/core/Button';
+import React from 'react';
 
-
-function tst() {
-    return (
-        <div>
-            <Button>One</Button>
-            <Button>Two</Button>
-            <Button>Three</Button>
-            
+class tst extends React.Component {
+    constructor(props) {
+      super(props);
+      this.handleMouseMove = this.handleMouseMove.bind(this);
+      this.state = { x: 0, y: 0 };
+    }
+  
+    handleMouseMove(event) {
+      this.setState({
+        x: event.clientX,
+        y: event.clientY
+      });
+    }
+  
+    render() {
+      return (
+        <div style={{ height: '20vh' }} onMouseMove={this.handleMouseMove}>
+          <h1>Move the mouse around!</h1>
+          <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
         </div>
-    )
-}
+      );
+    }
+  }
 
-export default tst
+  export default tst;

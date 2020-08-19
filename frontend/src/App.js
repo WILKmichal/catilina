@@ -1,6 +1,5 @@
 import React from 'react';
 import './tailwind.css';
-import HelloWorld from './Components/HelloWorld'
 import Home from "./Views/Home"
 import Register from "./Views/Register"
 import Tst from './Components/tst'
@@ -18,12 +17,7 @@ function App() {
   return (
     <div>
       <Router>
-        <HelloWorld />
-        <Tst />
-        <Concours />
         <NavigationMenu />
-
-
         <Switch>
           <Route exact path="/">
             <Home />
@@ -32,7 +26,8 @@ function App() {
             <Register />
           </Route>
         </Switch>
-
+        <Tst />
+        <Concours />
       </Router>
 
 
