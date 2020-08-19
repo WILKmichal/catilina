@@ -1,24 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './tailwind.css';
+import HelloWorld from './Components/HelloWorld'
+import Home from "./Views/Home"
+import Register from "./Views/Register"
+import Tst from './Components/tst'
+import Concours from './Components/Concours'
+import NavigationMenu from './Components/NavigationMenu';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+}
+  from "react-router-dom"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <HelloWorld />
+        <Tst />
+        <Concours />
+        <NavigationMenu />
+
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/Register">
+            <Register />
+          </Route>
+        </Switch>
+
+      </Router>
+
+
     </div>
   );
 }
