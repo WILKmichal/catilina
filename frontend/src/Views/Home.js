@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Home(){
+function Home() {
         return (
-            <h1>
-              tst /
-              </h1>
+                <div className = "border-b font-bold p-3">
+                        <h1>
+                                Vous etes sur la page /Home
+                        </h1>
+                </div>
         );
 }
 
