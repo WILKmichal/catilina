@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import Icon from '@mdi/react'
-import { mdiSchool } from '@mdi/js'
+import SchoolIcon from '@material-ui/icons/School';
 
 function NavigationMenu() {
   return (
@@ -12,14 +11,11 @@ function NavigationMenu() {
 
         </li>
         <li>
-          <Link to="/"><Icon path={mdiSchool}
-            title="User Profile"
-            size={8}
-            horizontal
-            vertical
-            rotate={90}
-            color="red"
-            spin={4} /></Link>
+          <Link to="/">
+
+            {/* pour les icones https://heroicons.dev */}
+            <SchoolIcon style={{fontSize: '5vw'}}></SchoolIcon>
+            </Link>
         </li>
         <li>
           <Link to="/Register">Register</Link>

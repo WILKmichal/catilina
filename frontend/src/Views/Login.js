@@ -2,7 +2,7 @@ import React from 'react';
 
 function Login() {
         return (
-                <div className="italic border-b p-3">
+                <div className="border-b p-3">
 
                         <h1>
                                 Vous etes sur la page /Login
