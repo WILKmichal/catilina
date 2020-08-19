@@ -2,8 +2,7 @@ import React from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Register from "./Views/Register"
-import Tst from './Components/tst'
-import Concours from './Components/Concours'
+import Login from "./Views/Login"
 import NavigationMenu from './Components/NavigationMenu';
 import {
   BrowserRouter as Router,
@@ -25,10 +24,12 @@ function App() {
           <Route path="/Register">
             <Register />
           </Route>
+          <Route path="/Login">
+            <Login />
+          </Route>
         </Switch>
-        <Tst />
-        <Concours />
       </Router>
+      <Router></Router>
 
 
     </div>
