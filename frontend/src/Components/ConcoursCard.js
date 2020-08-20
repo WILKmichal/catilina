@@ -12,7 +12,7 @@ function ConcoursCard(props) {
         //     {props.concour.id_sous_theme}
         //     
         // </div>
-        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+        <div className="max-w-sm rounded overflow-hidden shadow-lg hover:opacity-50">
             <img className="w-full" src={props.concour.image} alt="Sunset in the mountains"></img>
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{props.concour.libel_sh}</div>

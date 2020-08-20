@@ -14,7 +14,7 @@ function NavigationMenu() {
           <Link to="/">
 
             {/* pour les icones https://heroicons.dev */}
-            <SchoolIcon style={{fontSize: '5vw'}}></SchoolIcon>
+            <SchoolIcon fontSize="large" ></SchoolIcon>            
             </Link>
         </li>
         <li>
