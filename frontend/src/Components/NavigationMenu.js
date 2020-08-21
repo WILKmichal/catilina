@@ -6,6 +6,7 @@ import { mdiSchool } from '@mdi/js'
 function NavigationMenu() {
   return (
     <div>
+      
       <ul>
         <li>
           
@@ -15,11 +16,12 @@ function NavigationMenu() {
           <Link to="/"><Icon path={mdiSchool}
             title="User Profile"
             size={8}
-            horizontal
-            vertical
-            rotate={90}
+            // horizontal
+            // vertical
+            // rotate={180}
             color="red"
-            spin={4} /></Link>
+            // spin={4} 
+            /></Link>
         </li>
         <li>
           <Link to="/Register">Register</Link>
