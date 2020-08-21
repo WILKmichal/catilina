@@ -14442,6 +14442,13 @@ video {
   animation: bounce 1s infinite;
 }
 
+.centered{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+};
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

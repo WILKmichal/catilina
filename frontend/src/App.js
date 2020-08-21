@@ -4,6 +4,7 @@ import Home from "./Views/Home"
 import Register from "./Views/Register"
 import Login from "./Views/Login"
 import NavigationMenu from './Components/NavigationMenu';
+import Footer from "./Components/Footer"
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,7 @@ function App() {
   return (
     <div>
       <Router>
-        <NavigationMenu />
+        <NavigationMenu className="fix-text-5xl" />
         <Switch>
           <Route exact path="/">
             <Home/>
@@ -29,7 +30,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <Router></Router>
+      <Footer />
+     
 
 
     </div>

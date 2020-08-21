@@ -1,14 +1,13 @@
-import React from 'react';
 
-function Login() {
-        return (
-                <div className="border-b p-3">
+import React from "react";
+import LoginComponent from "../Components/LoginComponent"
 
-                        <h1>
-                                Vous etes sur la page /Login
-              </h1>
-                </div>
-        );
+function Login(){
+    return(
+     <div>
+         <LoginComponent />
+     </div>
+    )
 }
 
-export default Login;
+export default Login
