@@ -57,7 +57,7 @@ function ListeAleatoirConcours() {
 
 
         return (
-                <div>
+                <div className="p-5">
                         <div className="centered">
                         {loader}
                         </div>
