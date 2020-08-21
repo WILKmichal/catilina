@@ -1,8 +1,9 @@
 import React from "react";
+import SchoolIcon from '@material-ui/icons/School';
 
 function Loader(){
     return(
-        <h1>....LOADING.....</h1>
+        <SchoolIcon className="animate-bounce" style={{fontSize: '5vw'}}></SchoolIcon>
     )
 }
 
