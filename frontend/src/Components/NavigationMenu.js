@@ -5,6 +5,7 @@ import SchoolIcon from '@material-ui/icons/School';
 function NavigationMenu() {
   return (
     <div>
+      
       <ul>
         <li>
           
@@ -16,6 +17,7 @@ function NavigationMenu() {
             {/* pour les icones https://heroicons.dev */}
             <SchoolIcon fontSize="large" ></SchoolIcon>            
             </Link>
+
         </li>
         <li>
           <Link to="/Register">Register</Link>
