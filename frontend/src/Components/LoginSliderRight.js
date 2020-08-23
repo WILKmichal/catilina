@@ -1,0 +1,56 @@
+import React, { useState } from "react";
+import LoginComponent from "./LoginComponent"
+import SchoolIcon from '@material-ui/icons/School';
+import { useTransition, animated } from 'react-spring'
+
+
+function LoginSliderRight() {
+    const [showLogin, setShowLogin] = useState(false)
+
+    const maskTransitions = useTransition(showLogin, null, {
+        from: { position: 'absolute', opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+    })
+
+    const loginTransitions = useTransition(showLogin, null, {
+        from: { opacity: 0, transform: "translateX(100%)" },
+        enter: { opacity: 1, transform: "translateX(0%)" },
+        leave: { opacity: 0, transform: "translateX(100%)" },
+    })
+
+    return (
+        <div>
+            <div className="text-xl">
+                appui sur l'icone
+                <SchoolIcon onClick={() => setShowLogin(!showLogin)} />
+
+            </div>
+            {
+                maskTransitions.map(({ item, key, props }) =>
+                    item && <animated.div
+                        key={key}
+                        style={props}
+                        className="bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
+                        onClick={() => setShowLogin(false)}>
+                    </animated.div>
+                )
+            }
+
+            {
+                loginTransitions.map(({ item, key, props }) =>
+                    item && <animated.div
+                        key={key}
+                        style={props}
+                        className="fixed bg-white top-0 right-0 w-4/5 h-full z-50 shadow">
+                        <LoginComponent />
+                    </animated.div>
+                )
+            }
+        </div>
+
+
+    )
+}
+
+export default LoginSliderRight

@@ -9,7 +9,6 @@ function NavigationMenu() {
       <div class="flex justify-between">
         <div class="flex items-center flex-shrink">
           <span class="fill-current text-teal-500 font-semibold text-xl"> <Link to="/">
-            {/* pour les icones https://heroicons.dev */}
 
             <SchoolIcon style={{ fontSize: '50px' }} ></SchoolIcon></Link></span>
         </div>
@@ -38,8 +37,8 @@ function NavigationMenu() {
             class="mt-4 inline-block  hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">
             Thèmes
                 </a>
-
-          <a><Link to="/Login" class=" float-right inline-block mt-4  hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">Login</Link></a>
+                {/*eslint-disable-next-line */}
+          <a><Link to="/Login" class=" float-right inline-block mt-4  hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">Login</Link></a>{/*eslint-disable-next-line */}
           <a> <Link to="/Register" class=" float-right inline-block mt-4  hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">Register</Link></a>
         </div>
         <div class="flex justify-end">
@@ -49,6 +48,7 @@ function NavigationMenu() {
       </div>
 
     </nav>
+
   );
 }
 
