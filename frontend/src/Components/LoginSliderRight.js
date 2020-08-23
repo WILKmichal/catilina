@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginComponent from "./LoginComponent"
 import SchoolIcon from '@material-ui/icons/School';
-import { useTransition, animated } from 'react-spring'
+import { useTransition, animated } from 'react-spring';
 
 
 function LoginSliderRight() {
@@ -22,7 +22,7 @@ function LoginSliderRight() {
     return (
         <div>
             <div className="text-xl">
-                appui sur l'icone
+                on click icon
                 <SchoolIcon onClick={() => setShowLogin(!showLogin)} />
 
             </div>
