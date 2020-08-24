@@ -9,13 +9,14 @@ function LandingPage() {
             <Parallax
                 bgImage={require('./img/happy-bunch.png')}
                 bgImageAlt="the cat"
-                strength={200}
+                strength={-120}
                 style={{
-                    left: '50%',
-                    top: '200px',
+                    right: '10%',
+                    top: '60%',
                     backgroundsize: "contain",
-                    width: "200px",
-                    height: "100px"
+                    width: "400px",
+                    height: "355px",
+                    position: 'absolute'
                 }}
             >
             </Parallax>
