@@ -2,7 +2,7 @@ import React from "react";
 
 function Model(){
     return(
-     <div>model</div>
+     <div>ceci est un model</div>
     )
 }
 

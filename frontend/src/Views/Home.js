@@ -1,11 +1,11 @@
 import React from "react";
-// import ConcoursCardPlaceHolder from "../Components/ConcoursCardPlaceHolder"
-import ListeAleatoireConcours from "../Components/ListeAleatoireConcours";
+import ListeAleatoireConcours from "../Components/ListeConcours";
+import LandingPage from "../Components/LandingPage"
 
 function Home(){
     return(
         <div>
-            {/* <ConcoursCardPlaceHolder /> */}
+            <LandingPage />
             <ListeAleatoireConcours />
         </div>
     )

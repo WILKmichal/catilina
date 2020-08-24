@@ -26,7 +26,7 @@ function ConcoursCard(props) {
     //++ changement fond en fonction de jour restant
 
     if (differenceJour <= 7) {
-        dateClassName = "bg-red-600 absolute rounded bg-opacity-75";
+        dateClassName = "bg-red-600 absolute rounded bg-opacity-75 z-0";
         finDateInfo = "fin des inscription dans " + differenceJour + " jour";
     }
     else if (differenceJour <= 14 && differenceJour > 7) {
