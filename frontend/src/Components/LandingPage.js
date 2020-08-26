@@ -35,7 +35,7 @@ function LandingPage() {
                 {/* eslint-disable-next-line */}
                 <a className="text-2xl tracking-tight font-semibold">bullshit descriptif again the zouk</a>
                 <div className="h-24"></div>
-                <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold px-10 rounded inline-flex items-center py-6">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold px-10 rounded inline-flex items-center py-6">
                     < ArrowForwardIosIcon />
                     <span className="text-xl">Register</span>
                 </button>
