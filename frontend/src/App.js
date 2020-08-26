@@ -4,7 +4,6 @@ import Home from "./Views/Home"
 import Register from "./Views/Register"
 import NavigationMenu from './Components/NavigationMenu';
 import Footer from "./Components/Footer"
-import LoginSliderRight from "./Components/LoginSliderRight"
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,9 +16,8 @@ function App() {
   return (
     <div>
       <Router>
-        <NavigationMenu className="fix-text-5xl" />
-
-        <LoginSliderRight />
+        <NavigationMenu  />
+        {/* className="fix-text-5xl" */}
         <Switch>
           <Route exact path="/">
             <Home/>
