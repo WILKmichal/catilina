@@ -17,7 +17,6 @@ function App() {
     <div>
       <Router>
         <NavigationMenu  />
-        {/* className="fix-text-5xl" */}
         <Switch>
           <Route exact path="/">
             <Home/>

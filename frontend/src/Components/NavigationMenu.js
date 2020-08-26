@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import SchoolIcon from '@material-ui/icons/School';
-import LoginSliderRight from "./LoginSliderRight";
+//import LoginSliderRight from "./LoginSliderRight";
 import MenuSliderRight from "./MenuSliderRight";
 
 

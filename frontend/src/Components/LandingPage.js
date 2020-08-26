@@ -1,28 +1,9 @@
 import React from "react";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Parallax } from "react-parallax";
 
 function LandingPage() {
     return (
         <div>
-
-            <Parallax
-                bgImage={require('./img/happy-bunch.png')}
-                bgImageAlt="the cat"
-                strength={-120}
-                style={{
-                    right: '10%',
-                    top: '60%',
-                    backgroundsize: "contain",
-                    width: "400px",
-                    height: "355px",
-                    position: 'absolute'
-                }}
-            >
-            </Parallax>
-
-
-
             <div className="text-center font-sans">
                 {/* eslint-disable-next-line */}
                 <div className="h-32"></div>
