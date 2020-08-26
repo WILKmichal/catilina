@@ -4,7 +4,7 @@ import LandingPage from "../Components/LandingPage"
 
 function Home(){
     return(
-        <div>
+        <div >
             <LandingPage />
             <ListeAleatoireConcours />
         </div>
