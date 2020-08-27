@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 module.exports = app;*/
 
-//route de recuperation
+//route de recuperation acces au front
 const express = require('express');
 
 const app = express();
