@@ -6,6 +6,7 @@ import LandingPage from "../Components/LandingPage"
 import Tst from "../Components/Tst"
 import ConcoursFoisTrois from "../Components/ConcoursFoisTrois"
 import { ParallaxProvider } from 'react-scroll-parallax';
+import PresentationSite from "../Components/PresentationSite";
 
 function Home() {
     return (
@@ -15,10 +16,8 @@ function Home() {
                     <LandingPage />
                     {/* <Tst /> */}
                     <ThemeAleatoire />
+                    <PresentationSite/>
                     <ConcoursFoisTrois />
-
-
-
                     {/* a modifer pour la recherche */}
                     <ListeAleatoireConcours />
                 </ParallaxProvider>
