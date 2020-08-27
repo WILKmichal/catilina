@@ -14,7 +14,7 @@ import {
 
 function App() {
   return (
-    <div>
+    <div className = "relative pb-10 min-h-screen">
       <Router>
         <NavigationMenu  />
         <Switch>
@@ -27,9 +27,6 @@ function App() {
         </Switch>
       </Router>
       <Footer />
-     
-
-
     </div>
   );
 }

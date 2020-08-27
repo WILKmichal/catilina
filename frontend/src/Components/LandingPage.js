@@ -8,7 +8,7 @@ function LandingPage() {
                 {/* eslint-disable-next-line */}
                 <div className="h-32"></div>
                 {/* eslint-disable-next-line */}
-                <a className="text-2xl tracking-tight font-semibold">lorem ipsum</a>
+                <a className="text-2xl tracking-tight font-semibold md:text-base">lorem ipsum</a>
                 <div className="h-8"></div>
                 {/* eslint-disable-next-line */}
                 <span className="text-6xl font-extrabold tracking-widest">RANDOMISATION ANDOCRINIENT</span>
