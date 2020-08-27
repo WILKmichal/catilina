@@ -20,7 +20,7 @@ function RegisterSliderRight() {
 
     return (
         <div>
-            <div className="text-l">
+            <div className=" text-l block float-left px-5 py-5">
                 <button onClick={() => setShowLogin(!showLogin)}>Register</button>
 
             </div>
@@ -40,7 +40,7 @@ function RegisterSliderRight() {
                     item && <animated.div
                         key={key}
                         style={props}
-                        className="fixed bg-white top-0 right-0 w-4/5 h-full z-50 shadow">
+                        className="fixed bg-white top-0 right-0 w-full h-full z-50 shadow">
                         <RegisterComponent />
                     </animated.div>
                 )

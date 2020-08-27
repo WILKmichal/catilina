@@ -59,9 +59,10 @@ function NavigationMenu() {
             <SchoolIcon style={{ fontSize: '50px' }} ></SchoolIcon></Link></span>
         </div>
         <div className="	display: inline-flex px-5 mt-3 rounded  mr-2">
-        <button className="bg-white text-teal-500  font-mono my-1 px-3 border-2 border-teal-500 rounded ">
+
+        <div className="bg-white text-teal-500  font-mono my-1 px-3 border-2 border-teal-500 rounded ">
   <MenuSliderRight />
-</button>
+</div>
           
           <div>
 
