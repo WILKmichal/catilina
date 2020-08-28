@@ -40,7 +40,7 @@ function RegisterSliderRight() {
                     item && <animated.div
                         key={key}
                         style={props}
-                        className="fixed bg-white top-0 right-0 w-full h-full z-50 shadow">
+                        className="fixed bg-white top-0 right-0 w-2/3 h-full z-50 shadow">
                         <RegisterComponent />
                     </animated.div>
                 )
