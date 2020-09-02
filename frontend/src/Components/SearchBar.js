@@ -5,14 +5,14 @@ function SearchBar() {
     return (
 
 
-        <div className="relative mx-full text-gray-600 ">
-            <input className="bg-white text-teal-500 font-mono my-4 px-auto  border-2 border-teal-500 rounded"
+         <div className="py-8 items-center text-gray-600 ">
+           <input className="bg-white text-teal-500 font-mono h-10 px-5  rounded-lg border-2 border-teal-500"
                 type="search" name="search" placeholder="Search">
 
-            </input>
-            <button type="submit" className="absolute right-0 top-0 mt-4 mr-2 text-teal-500"><SearchIcon style={{ fontSize: '25px' }} ></SearchIcon>
-            </button>
-        </div>
+             </input>
+             <button type="submit" className="right top-0 mt-4 mr-2 text-teal-500 inline-flex"><SearchIcon style={{ fontSize: '25px' }} ></SearchIcon>
+             </button>
+         </div>
 
     )
 }
