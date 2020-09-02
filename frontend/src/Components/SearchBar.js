@@ -5,8 +5,8 @@ function SearchBar() {
     return (
 
 
-         <div className="py-8 items-center text-gray-600 ">
-           <input className="bg-white text-teal-500 font-mono h-10 px-5  rounded-lg border-2 border-teal-500"
+         <div className="pt-8 items-center text-gray-600 ">
+           <input className="bg-white text-teal-500 font-mono h-10 px-5 mb-4 rounded-lg border-2 border-teal-500"
                 type="search" name="search" placeholder="Search">
 
              </input>
