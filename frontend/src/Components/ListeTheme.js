@@ -37,7 +37,7 @@ function ListTheme() {
             <div className="centered">
                 {loader}
             </div>
-            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 ">
+            <div className="grid h-8 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
                 {content}
             </div>
         </div>
