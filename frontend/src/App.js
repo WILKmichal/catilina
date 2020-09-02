@@ -29,7 +29,6 @@ function App() {
         <Footer />
       </Router>
       <Postuler/>
-      <Footer />
     </div>
   );
 }
