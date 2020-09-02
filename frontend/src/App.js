@@ -14,19 +14,20 @@ import {
 
 function App() {
   return (
-    <div className = "relative pb-10 min-h-screen">
+    <div className="relative pb-10 min-h-screen">
       <Router>
-        <NavigationMenu  />
+        <NavigationMenu />
         <Switch>
           <Route exact path="/">
-            <Home/>
+            <Home />
           </Route>
           <Route path="/Register">
             <Register />
           </Route>
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
+
     </div>
   );
 }

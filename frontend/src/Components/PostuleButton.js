@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 import { useSpring, animated } from 'react-spring'
 
 
@@ -18,7 +17,7 @@ function Demo() {
   const [state, toggle] = useState(true)
   const { x } = useSpring({ from: { x: 0 }, x: state ? 1 : 0, config: { duration: 1000 } })
   return (
-    <div onMouseOver={() => toggle(!state)}>
+    <div onMouseEnter={() => toggle(!state)}>
       <animated.div
         style={{
           opacity: x.interpolate({ range: [0, 1], output: [0.3, 1] }),
@@ -38,5 +37,4 @@ function Demo() {
   )
 }
 
-ReactDOM.render(<Demo />, document.getElementById('root'));
 export default Demo;
