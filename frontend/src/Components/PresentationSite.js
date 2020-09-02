@@ -7,7 +7,7 @@ import InfoSiteBg from './img/InfoSiteBg.jpg';
 
 function PresentationSite() {
     return (
-        <div className="py-20 px-4">
+        <div className="block px-4">
             <div className=" bg-no-repeat bg-cover bg-center" style={{
                 backgroundImage: `url("${InfoSiteBg}")`
             }}>
