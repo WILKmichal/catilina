@@ -3,6 +3,7 @@ import './tailwind.css';
 import Home from "./Views/Home"
 import Register from "./Views/Register"
 import NavigationMenu from './Components/NavigationMenu';
+import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer"
 import {
   BrowserRouter as Router,
@@ -27,7 +28,8 @@ function App() {
         </Switch>
         <Footer />
       </Router>
-
+      <Postuler/>
+      <Footer />
     </div>
   );
 }
