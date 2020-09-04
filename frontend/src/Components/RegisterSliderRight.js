@@ -20,8 +20,8 @@ function RegisterSliderRight() {
 
     return (
         <div>
-            <div className=" text-l block float-left px-5 py-5">
-                <button onClick={() => setShowLogin(!showLogin)}>Register</button>
+            <div className="text-center w-20 p-2 text-l my-15 mx-2 bg-teal-500 text-white font-semibold border-teal-600 rounded hover:border-white hover:bg-teal-600">
+                <button onClick={() => setShowLogin(!showLogin)} > Register </button>
 
             </div>
             {
@@ -29,7 +29,7 @@ function RegisterSliderRight() {
                     item && <animated.div
                         key={key}
                         style={props}
-                        className="bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
+                        className="text-center bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
                         onClick={() => setShowLogin(false)}>
                     </animated.div>
                 )

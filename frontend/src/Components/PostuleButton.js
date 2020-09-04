@@ -30,7 +30,7 @@ function Demo() {
         }}>
         <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold px-6 rounded inline-flex items-center py-3 z-50">
           
-          <span className="text-3xl">JE POSTULE </span>
+          <span className="text-3xl">REGISTER</span>
         </button>
       </animated.div>
     </div>
