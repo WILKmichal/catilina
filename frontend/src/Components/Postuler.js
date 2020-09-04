@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+//ajouter { useState } a import
 
-function DatePicker() {
-    const [showDatePicker, setDatePicker] = useState(false)}
+// function DatePicker() {
+//     const [showDatePicker, setDatePicker] = useState(false)}
 
 // prenom
 // Nom 
