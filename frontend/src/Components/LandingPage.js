@@ -1,5 +1,4 @@
 import React from "react";
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Demo from './PostuleButton.js';
 import Graduation from './img/Graduation.jpg'
 
@@ -18,10 +17,10 @@ function LandingPage() {
                 {/* eslint-disable-next-line */}
                 <a className="text-2xl tracking-tight font-semibold">Votre avenir à la portée d'un clic</a>
                 <div className="h-24"></div>
-                <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold px-6 rounded inline-flex items-center py-3 z-40">
-                    < ArrowForwardIosIcon />
-                    <span className="text-xl"><Demo /></span>
-                </button>
+               
+                    
+                   <Demo />
+                
                 <div className="h-32"></div>
             </div>
         </div>

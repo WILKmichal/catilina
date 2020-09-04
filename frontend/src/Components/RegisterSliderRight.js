@@ -20,8 +20,8 @@ function RegisterSliderRight() {
 
     return (
         <div>
-            <div className="text-center w-20 p-2 text-l my-15 mx-2 bg-teal-500 text-white font-semibold border-teal-600 rounded hover:border-white hover:bg-teal-600">
-                <button onClick={() => setShowLogin(!showLogin)} > Register </button>
+            <div>
+                <button  className="text-center w-20 p-2 text-l my-15 mx-2 bg-teal-500 text-white font-semibold border-teal-600 rounded hover:border-white hover:bg-teal-600 shadow-xl" onClick={() => setShowLogin(!showLogin)} > Register </button>
 
             </div>
             {
