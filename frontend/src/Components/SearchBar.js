@@ -5,7 +5,7 @@ function SearchBar() {
     return (
 
 
-         <div className="bg-white flex items-center rounded-lg shadow-xl text-gray-600">
+         <div className="bg-white flex items-center rounded-lg shadow-xl text-gray-600 rounded border border-teal-500">
            <input className="bg-white w-full text-teal-500 font-mono rounded-lg"
                 type="search" name="search" placeholder=" Search">
              </input>
