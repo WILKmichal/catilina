@@ -4,7 +4,8 @@ import Home from "./Views/Home"
 import Register from "./Views/Register"
 import NavigationMenu from './Components/NavigationMenu';
 import Postuler from './Components/Postuler';
-import Footer from "./Components/Footer"
+import Footer from "./Components/Footer";
+import Tst from "./Components/Tst"
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="relative pb-10 min-h-screen">
       <Router>
+        <Tst/>
         <NavigationMenu />
         <Switch>
           <Route exact path="/">
