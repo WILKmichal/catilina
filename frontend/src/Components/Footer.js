@@ -8,11 +8,11 @@ function footer() {
             <div className="text-sm w-2/12">
                 <p>LINKS</p>
                 <ul className="text-xs mb-6">
-                    <li className="mt-2 mr-2 block sm:mr-0"><a href="#">FAQ</a>
-
+                    <li className="mt-2 mr-2 block sm:mr-0">
+                    <Link to="/">FAQ</Link>
                     </li>
                     <li className="mt-2 mr-2 block sm:mr-0">
-                        <a href="#"> Help</a>
+                    <Link to="/">Help</Link>
                     </li>
                 </ul>
             </div>
@@ -20,7 +20,7 @@ function footer() {
                 <p>LEGAL</p>
                 <ul className="text-xs mb-6">
                     <li className="mt-2 mr-2 block sm:mr-0">
-                        <a href="#">Terms</a>
+                    <Link to="/">Terms</Link>
                     </li>
                 </ul>
             </div>
@@ -28,13 +28,13 @@ function footer() {
                 <p>SOCIAL</p>
                 <ul className="text-xs mb-6">
                     <li className="mt-2 mr-2 block sm:mr-0">
-                        <a href="#"> Facebook</a>
+                    <Link to="/">Facebook</Link>
                     </li>
                     <li className="mt-2 mr-2 block sm:mr-0">
-                        <a href="#"> Twitter</a>
+                    <Link to="/">Twitter</Link>
                     </li>
                     <li className="mt-2 mr-2 block sm:mr-0">
-                        <a href="#"> Instagram</a>
+                    <Link to="/">Instagram</Link>
                     </li>
                 </ul>
             </div>
@@ -42,10 +42,10 @@ function footer() {
                 <p className="text-sm w-2/12">COMPAGNY</p>
                 <ul className="text-xs mb-6">
                     <li className="mt-2 mr-2 block sm:mr-0">
-                    <a href="#"> About us</a>
+                    <Link to="/">About us</Link>
                     </li>
                     <li className="mt-2 mr-2 block sm:mr-0">
-                    <a href="#"> Contact</a>
+                    <Link to="/">Contact</Link>
                     </li>
 
                 </ul>
@@ -54,7 +54,7 @@ function footer() {
 
             </div>
             <div className="w-3/12">
-                <a><Link to="/"><img className="w-full mt-3 md:h-20 md:w-auto" src={logo} alt="Maxiconcours"></img></Link></a>
+                <Link to="/"><img className="w-full mt-3 md:h-20 md:w-auto" src={logo} alt="Maxiconcours"></img></Link>
 
 
             </div>

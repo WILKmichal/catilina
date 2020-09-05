@@ -12,10 +12,10 @@ function NavigationMenu() {
 
     <div className=" w-full fixed z-50 bg-teal-100 text-white p-1 md:pt-4 md:grid grid-cols-3 md:gap-4 md:items-center">
       <div>
-        <a className="flex justify-center "><Link to="/"><img className="m-3 h-16 md:h-20 lg:h-32" src={logo2} alt="Maxiconcours"></img></Link></a>
+        <span className="flex justify-center "><Link to="/"><img className="m-3 h-16 md:h-20 lg:h-32" src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>
-      <div class="flex justify-center">
-        <a class="mb-4 text-teal-500 lg:w-full"><SearchBar /></a>
+      <div className="flex justify-center">
+        <span className="mb-4 text-teal-500 lg:w-full"><SearchBar /></span>
       </div>
       <div className="mb-4 flex justify-center">
         <LoginSliderRight />
