@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Register from "./Views/Register"
@@ -14,6 +14,11 @@ import {
 
 
 function App() {
+
+  const [showLogin, setShowLogin] = useState(false);
+  const [connected, setConnected] = useState("");
+
+
   return (
     <div className="relative pb-10 min-h-screen">
       <Router>
