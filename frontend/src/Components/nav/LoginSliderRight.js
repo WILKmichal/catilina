@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import RegisterComponent from "./RegisterComponent"
+import LoginComponent from "./LoginComponent"
 import { useTransition, animated } from 'react-spring';
 
 
-function RegisterSliderRight() {
+function LoginSliderRight() {
     const [showLogin, setShowLogin] = useState(false)
 
     const maskTransitions = useTransition(showLogin, null, {
@@ -20,16 +20,15 @@ function RegisterSliderRight() {
 
     return (
         <div>
-            <div>
-                <button  className="text-center w-20 text-l p-2 my-15 mx-2 bg-white text-teal-500 font-semibold border-gray-100 rounded border border-teal-500 hover:border-teal-500 hover:bg-gray-100 shadow-xl" onClick={() => setShowLogin(!showLogin)} > Register </button>
-
+            <div >
+                <button className="text-center w-20 text-l p-2 my-15 mx-2 bg-white text-teal-500 font-semibold  rounded border border-teal-500 hover:border-teal-500 hover:bg-gray-100 shadow-xl" onClick={() => setShowLogin(!showLogin)}>Login</button>
             </div>
             {
                 maskTransitions.map(({ item, key, props }) =>
                     item && <animated.div
                         key={key}
                         style={props}
-                        className="text-center bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
+                        className="bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
                         onClick={() => setShowLogin(false)}>
                     </animated.div>
                 )
@@ -41,7 +40,7 @@ function RegisterSliderRight() {
                         key={key}
                         style={props}
                         className="fixed bg-white top-0 right-0 w-2/3 h-full z-50 shadow">
-                        <RegisterComponent />
+                        <LoginComponent />
                     </animated.div>
                 )
             }
@@ -51,4 +50,4 @@ function RegisterSliderRight() {
     )
 }
 
-export default RegisterSliderRight
+export default LoginSliderRight

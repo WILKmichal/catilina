@@ -25,8 +25,7 @@ function ListTheme() {
         content =
             themes.data.map((theme, key) =>
                 <div key={key}>
-                    <ThemeBoutton
-                        theme={theme} />
+                    <ThemeBoutton theme={theme} />
                 </div>
             )
     }

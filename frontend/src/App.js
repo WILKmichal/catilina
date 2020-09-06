@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Register from "./Views/Register"
-import NavigationMenu from './Components/NavigationMenu';
+import NavigationMenu from './Components/nav/NavigationMenu';
 import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer";
 import Tst from "./Components/Tst"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar";
-import logo2 from './img/LogoMaxiconcourHibou3.png';
+import logo2 from '../img/LogoMaxiconcourHibou3.png';
 import RegisterSliderRight from "./RegisterSliderRight";
 import LoginSliderRight from "./LoginSliderRight";
 import HiddenButton from "./HiddenButton";

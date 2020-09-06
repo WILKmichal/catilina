@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import LoginComponent from "./LoginComponent"
+import RegisterComponent from "./RegisterComponent"
 import { useTransition, animated } from 'react-spring';
 
 
-function LoginSliderRight() {
+function RegisterSliderRight() {
     const [showLogin, setShowLogin] = useState(false)
 
     const maskTransitions = useTransition(showLogin, null, {
@@ -20,15 +20,16 @@ function LoginSliderRight() {
 
     return (
         <div>
-            <div >
-                <button className="text-center w-20 text-l p-2 my-15 mx-2 bg-white text-teal-500 font-semibold border-gray-100 rounded border border-teal-500 hover:border-teal-500 hover:bg-gray-100 shadow-xl" onClick={() => setShowLogin(!showLogin)}>Login</button>
+            <div>
+                <button  className="text-center w-20 text-l p-2 my-15 mx-2 bg-white text-teal-500 font-semibold rounded border border-teal-500 hover:border-teal-500 hover:bg-gray-100 shadow-xl" onClick={() => setShowLogin(!showLogin)} > Register </button>
+
             </div>
             {
                 maskTransitions.map(({ item, key, props }) =>
                     item && <animated.div
                         key={key}
                         style={props}
-                        className="bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
+                        className="text-center bg-black-t-50 fixed top-0 right-0  h-full w-full z-50"
                         onClick={() => setShowLogin(false)}>
                     </animated.div>
                 )
@@ -40,7 +41,7 @@ function LoginSliderRight() {
                         key={key}
                         style={props}
                         className="fixed bg-white top-0 right-0 w-2/3 h-full z-50 shadow">
-                        <LoginComponent />
+                        <RegisterComponent />
                     </animated.div>
                 )
             }
@@ -50,4 +51,4 @@ function LoginSliderRight() {
     )
 }
 
-export default LoginSliderRight
+export default RegisterSliderRight
