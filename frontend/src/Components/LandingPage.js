@@ -9,7 +9,7 @@ function LandingPage() {
                 {/* eslint-disable-next-line */}
                 <div className="h-48"></div>
                 {/* eslint-disable-next-line */}
-                <a className="text-base tracking-tight font-semibold md:text-base text-3xl"></a>
+                <a className=" tracking-tight font-semibold md:text-base text-3xl"></a>
                 <div className="h-8"></div>
                 {/* eslint-disable-next-line */}
                 <span className="text-4xl font-extrabold tracking-widest md:text-6xl ">MAXICONCOURS</span>
