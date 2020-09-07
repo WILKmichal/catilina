@@ -1,11 +1,11 @@
 import React from 'react';
-import Loader from './Loader'
+import Loader from '../Loader'
 import ThemeBoutton from './ThemeBoutton';
-import { useAxiosGet } from '../Hooks/HttpRequest'
+import { useAxiosGet } from '../../Hooks/HttpRequest'
 
 function ListTheme() {
 
-    const url = `https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/theme?page=1&limit=6`
+    const url = `https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/theme`
 
     let themes = useAxiosGet(url)
 
@@ -36,7 +36,7 @@ function ListTheme() {
             <div className="centered">
                 {loader}
             </div>
-            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 ">
+            <div className="">
                 {content}
             </div>
         </div>
