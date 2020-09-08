@@ -5,6 +5,13 @@ import logo2 from '../img/LogoMaxiconcourHibou3.png';
 import RegisterSliderRight from "./RegisterSliderRight";
 import LoginSliderRight from "./LoginSliderRight";
 import ProfilButton from "./ProfilButton";
+import ArchiveButton from "./role0/ArchiveButton";
+import SaveButton from "./role0/SaveButton";
+import GestionThemeButton from "./role1/GestionThemeButton";
+import GestionConcoursButton from "./role1/GestionConcoursButton";
+import GestionCandidatButton from "./role2/GestionCandidatButton";
+import GestionEqRecrutButton from "./role3/GestionEqRecrutButton";
+import GestionEqGestConcoursButton from "./role3/GestionEqGestConcoursButton";
 
 
 
@@ -34,37 +41,36 @@ function NavigationMenu(props) {
         <LoginSliderRight />
         <RegisterSliderRight />
       </div>
-      }
-  
+  }
+
   if (props.role === "0") {
     affBouton =
-      <div className="mb-4 flex justify-center"><p>candidat</p>
-        <ProfilButton />
-        <ProfilButton />
+      <div className="mb-4 flex justify-center">
+        <ArchiveButton />
+        <SaveButton />
         <ProfilButton />
       </div>
   }
   if (props.role === "1") {
     affBouton =
-      <div className="mb-4 flex justify-center"><p>concours</p>
-        <ProfilButton />
-        <ProfilButton />
+      <div className="mb-4 flex justify-center">
+        <GestionThemeButton />
+        <GestionConcoursButton />
         <ProfilButton />
       </div>
   }
   if (props.role === "2") {
     affBouton =
-      <div className="mb-4 flex justify-center"><p>recrut</p>
-        <ProfilButton />
-        <ProfilButton />
+      <div className="mb-4 flex justify-center">
+        <GestionCandidatButton />
         <ProfilButton />
       </div>
   }
   if (props.role === "3") {
     affBouton =
-      <div className="mb-4 flex justify-center"><p>admin</p>
-        <ProfilButton />
-        <ProfilButton />
+      <div className="mb-4 flex justify-center">
+        <GestionEqRecrutButton />
+        <GestionEqGestConcoursButton />
         <ProfilButton />
       </div>
   }
@@ -79,10 +85,10 @@ function NavigationMenu(props) {
       </div>
       {affBouton}
       <div>
-        <button onClick={setRole0} className="bg-gray-500 rounded mx-2">0</button>
-        <button onClick={setRole1} className="bg-gray-500 rounded mx-2">1</button>
-        <button onClick={setRole2} className="bg-gray-500 rounded mx-2">2</button>
-        <button onClick={setRole3} className="bg-gray-500 rounded mx-2">3</button>
+        <button onClick={setRole0} className="bg-gray-500 rounded mx-2">candidat</button>
+        <button onClick={setRole1} className="bg-gray-500 rounded mx-2">concours</button>
+        <button onClick={setRole2} className="bg-gray-500 rounded mx-2">recrut</button>
+        <button onClick={setRole3} className="bg-gray-500 rounded mx-2">admin</button>
       </div>
     </div>
   );
