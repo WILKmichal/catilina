@@ -20,23 +20,33 @@ function App() {
   // eslint-disable-next-line
   const [connected, setConnected] = useState("");
 
+  const [userRole, setUserRole] = useState(null);
+  const role = [
+    {role:0, name:'candidat'},
+    {role:1, name:'gestionconcours'},
+    {role:2, name:'recrutement'},
+    {role:3, name:'admin'},
+  ]
+
+
+
 
   return (
     <div className="relative pb-10 min-h-screen">
       <Router>
-        <Tst/>
-        <NavigationMenu />
+        <Tst />
+        <NavigationMenu role={userRole} setRole={setUserRole} />
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/Register">
+          <Route path="">
             <Register />
           </Route>
         </Switch>
         <Footer />
       </Router>
-      <Postuler/>
+      <Postuler />
     </div>
   );
 }
