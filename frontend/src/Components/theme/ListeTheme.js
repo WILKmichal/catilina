@@ -32,11 +32,14 @@ function ListTheme() {
 
 
     return (
-        <div className="p-5">
+        <div>
+            <div>
+                <h1 className="p-5">THEME</h1>
+            </div>
             <div className="centered">
                 {loader}
             </div>
-            <div className="">
+            <div className="w-full flex overflow-hidden p-4" >
                 {content}
             </div>
         </div>
