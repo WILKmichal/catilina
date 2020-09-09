@@ -9,7 +9,7 @@ router.post('/theme', async(req, res) => {
         let id = req.body.id
         //console.log(params)
         let results = await db.theme(id)
-        res.json()
+        res.json(results)
     }
      catch (e) {
         //console.log(e)
