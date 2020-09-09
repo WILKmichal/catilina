@@ -1,44 +1,26 @@
 import React from "react";
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Parallax } from "react-parallax";
+import Demo from './PostuleButton.js';
+import Graduation from './img/Graduation.jpg'
 
 function LandingPage() {
     return (
-        <div>
-
-            <Parallax
-                bgImage={require('./img/happy-bunch.png')}
-                bgImageAlt="the cat"
-                strength={-120}
-                style={{
-                    right: '10%',
-                    top: '60%',
-                    backgroundsize: "contain",
-                    width: "400px",
-                    height: "355px",
-                    position: 'absolute'
-                }}
-            >
-            </Parallax>
-
-
-
-            <div className="text-center font-sans">
+        <div className="bg-cover bg-center opacity-50" style={{ backgroundImage:`url(${Graduation})` }}>
+            <div className="text-center text-white font-sans">
                 {/* eslint-disable-next-line */}
-                <div className="h-32"></div>
+                <div className="h-48"></div>
                 {/* eslint-disable-next-line */}
-                <a className="text-2xl tracking-tight font-semibold">lorem ipsum</a>
+                <a className=" tracking-tight font-semibold md:text-base text-3xl"></a>
                 <div className="h-8"></div>
                 {/* eslint-disable-next-line */}
-                <span className="text-6xl font-extrabold tracking-widest">RANDOMISATION ANDOCRINIENT</span>
+                <span className="text-4xl font-extrabold tracking-widest md:text-6xl ">MAXICONCOURS</span>
                 <div className="h-8"></div>
                 {/* eslint-disable-next-line */}
-                <a className="text-2xl tracking-tight font-semibold">bullshit descriptif again the zouk</a>
+                <a className="text-2xl tracking-tight font-semibold">Votre avenir à la portée d'un clic</a>
                 <div className="h-24"></div>
-                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold px-10 rounded inline-flex items-center py-6">
-                    < ArrowForwardIosIcon />
-                    <span className="text-xl">Register</span>
-                </button>
+               
+                    
+                   <Demo />
+                
                 <div className="h-32"></div>
             </div>
         </div>

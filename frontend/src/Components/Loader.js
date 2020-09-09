@@ -3,7 +3,7 @@ import SchoolIcon from '@material-ui/icons/School';
 
 function Loader(){
     return(
-        <SchoolIcon className="animate-bounce" style={{fontSize: '50vw'}}></SchoolIcon>
+        <SchoolIcon className="animate-bounce" style={{fontSize: '10px'}}></SchoolIcon>
     )
 }
 

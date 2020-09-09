@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Register from "./Views/Register"
-import NavigationMenu from './Components/NavigationMenu';
-import Footer from "./Components/Footer"
+import NavigationMenu from './Components/nav/NavigationMenu';
+import Postuler from './Components/Postuler';
+import Footer from "./Components/Footer";
+import Tst from "./Components/Tst"
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,24 +15,38 @@ import {
 
 
 function App() {
+  // eslint-disable-next-line
+  const [showLogin, setShowLogin] = useState(false);
+  // eslint-disable-next-line
+  const [connected, setConnected] = useState("");
+
+  const [userRole, setUserRole] = useState(null);
+  const role = [
+    {role:0, name:'candidat'},
+    {role:1, name:'gestionconcours'},
+    {role:2, name:'recrutement'},
+    {role:3, name:'admin'},
+  ]
+
+
+
+
   return (
-    <div>
+    <div className="relative pb-10 min-h-screen">
       <Router>
-        <NavigationMenu  />
-        {/* className="fix-text-5xl" */}
+        <Tst />
+        <NavigationMenu role={userRole} setRole={setUserRole} />
         <Switch>
           <Route exact path="/">
-            <Home/>
+            <Home />
           </Route>
-          <Route path="/Register">
+          <Route path="">
             <Register />
           </Route>
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
-     
-
-
+      <Postuler />
     </div>
   );
 }
