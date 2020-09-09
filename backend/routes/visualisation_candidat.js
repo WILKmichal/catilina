@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 const router = require("express").Router();
-const db = require('../db/app.js')
+const db = require('../db/index.js')
 
 
 
@@ -10,7 +10,8 @@ router.post('/visualistation', async(req, res) => {
         //console.log(params)
         let results = await db.app()
         res.json(params)
-    } catch (e) {
+    } 
+    catch (e) {
         //console.log(e)
         res.sendStatus(500)
     }

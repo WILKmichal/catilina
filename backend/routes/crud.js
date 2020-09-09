@@ -1,31 +1,29 @@
 const mysql = require('mysql');
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+const router = require("express").Router();
+const db = require('../db/index');
 
-app.use(bodyParser.json());
-
-app.get('/........', (req, res) => {
+router.get('/........', async(req, res) => {
     const articles = [];
     // code to retrieve...
     res.json(articles);
 });
 
-app.post('/.......', (req, res) => {
+router.post('/.......', async (req, res) => {
     // code to add...
     res.json(req.body);
 });
 
-app.put('/....../:id', (req, res) => {
+router.put('/....../:id', async (req, res) => {
     const { id } = req.params;
     // code to update...
     res.json(req.body);
 });
 
-app.delete('/....../:id', (req, res) => {
+router.delete('/....../:id', async (req, res) => {
     const { id } = req.params;
     // code to delete...
     res.json({ deleted: id });
 });
 
-app.listen(3306)
+
+module.exports = router;

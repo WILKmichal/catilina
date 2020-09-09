@@ -1,11 +1,13 @@
 const router = require("express").Router();
-const db = require('../db/app.js')
+const db = require('../db/index.js')
+
 
 router.post('/app', async(req, res) => {
     try {
-        let results = await db.app()
+        let results = await db.photo()
         res.json(results)
-    } catch (e) {
+    } catch (e) 
+    {
         //console.log(e)
         res.json("res1")
     }
