@@ -45,7 +45,7 @@ function NavigationMenu(props) {
 
   if (props.role === "0") {
     affBouton =
-      <div className="mb-4 flex justify-center">
+      <div className="flex justify-center">
         <ArchiveButton />
         <SaveButton />
         <ProfilButton />
@@ -53,7 +53,7 @@ function NavigationMenu(props) {
   }
   if (props.role === "1") {
     affBouton =
-      <div className="mb-4 flex justify-center">
+      <div className="flex justify-center">
         <GestionThemeButton />
         <GestionConcoursButton />
         <ProfilButton />
@@ -61,14 +61,14 @@ function NavigationMenu(props) {
   }
   if (props.role === "2") {
     affBouton =
-      <div className="mb-4 flex justify-center">
+      <div className="flex justify-center">
         <GestionCandidatButton />
         <ProfilButton />
       </div>
   }
   if (props.role === "3") {
     affBouton =
-      <div className="mb-4 flex justify-center">
+      <div className="flex justify-center">
         <GestionEqRecrutButton />
         <GestionEqGestConcoursButton />
         <ProfilButton />
@@ -81,7 +81,7 @@ function NavigationMenu(props) {
         <span className="flex justify-center "><Link to="/"><img className="m-3 h-16 md:h-20 lg:h-32" src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>
       <div className="flex justify-center">
-        <span className="mb-4 text-teal-500 lg:w-full"><SearchBar /></span>
+        <span className="mb-2 text-teal-500 lg:w-full"><SearchBar /></span>
       </div>
       {affBouton}
       <div>

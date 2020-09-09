@@ -18,7 +18,7 @@ function App() {
   // eslint-disable-next-line
   const [showLogin, setShowLogin] = useState(false);
   // eslint-disable-next-line
-  const [connected, setConnected] = useState("");
+  const [state, setState] = useState(false);
 
   const [userRole, setUserRole] = useState(null);
   const role = [
@@ -35,7 +35,7 @@ function App() {
     <div className="relative pb-10 min-h-screen">
       <Router>
         <Tst />
-        <NavigationMenu role={userRole} setRole={setUserRole} />
+        <NavigationMenu role={userRole} setRole={setUserRole} state={state} setState={setState} />
         <Switch>
           <Route exact path="/">
             <Home />
