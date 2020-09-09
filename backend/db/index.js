@@ -47,9 +47,9 @@ data.visualisation = () => {
     })
 }
 
-data.theme = () => {
+data.theme = (id) => {
     return new Promise((resolve, reject) => {
-        con.query('SELECT * from Theme', (err, results) => {
+        con.query('SELECT * from theme WHERE ID_THEME ="'+ id + '"', (err, results) => {
             if (err) {
                 return reject(err)
             }

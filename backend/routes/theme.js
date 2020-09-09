@@ -6,10 +6,10 @@ const db = require('../db/index.js')
 
 router.post('/theme', async(req, res) => {
     try {
-        let params = req.body;
+        let params = req.body.id
         //console.log(params)
-        let results = await db.theme()
-        res.json(params)
+        let results = await db.theme(id)
+        res.json(results)
     }
      catch (e) {
         //console.log(e)
