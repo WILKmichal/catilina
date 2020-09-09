@@ -2,7 +2,7 @@ const mysql = require('mysql')
 
 //connection pool pour ne pas avoir a faire conect etc..
 const con = mysql.createPool({
-    password: 'root',
+    password: '',
     user: 'root',
     database: "mydb",
     host: "localhost",
@@ -61,7 +61,7 @@ data.theme = () => {
 
 data.soustheme = (id) => {
     return new Promise((resolve, reject) => {
-        con.query('SELECT * from SousTheme WHERE id ="'+ id + '"', (err, results) => {
+        con.query('SELECT * from soustheme WHERE ID_SOUS_THEME ="'+ id + '"', (err, results) => {
             if (err) {
                 return reject(err)
             }

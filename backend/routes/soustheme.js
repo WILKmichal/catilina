@@ -8,8 +8,8 @@ router.post('/soustheme', async(req, res) => {
 
     try {
         let id = req.body.id;
-        //console.log(params)
-        //let results = await db.soustheme(id)
+        console.log(id)
+        let results = await db.soustheme(id)
         res.json(results)
     } 
     catch (e) {
