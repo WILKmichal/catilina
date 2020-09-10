@@ -13,7 +13,7 @@ const router5 = require('./routes/crud.js')
 const router6 = require('./routes/insert.js')
 //const router7 = require('./routes/update.js')
 const router8 = require('./routes/login.js')
-const router9 = require('./routes/login.js')
+const router9 = require('./routes/register.js')
 
 
 

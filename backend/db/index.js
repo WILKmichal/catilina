@@ -124,11 +124,11 @@ data.verificationPasswordDb = (user) => {
 
 data.recuperationInfo = (user) => {
     return new Promise((resolve, reject) => {
-        con.query  ("SELECT ID_USER, ROLE  FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+        con.query  ("SELECT ID_USER  FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
             if (err) {
                 return reject(err)
             }
-            return resolve(results)
+            return resolve(results[0].ID_USER)
 
         })
     })
@@ -137,7 +137,10 @@ data.recuperationInfo = (user) => {
 
 data.register = (courriel,password) => {
     return new Promise((resolve, reject) => {
-        con.query  ("INSERT INTO USER  (COURRIEL,MDP) VALUE ( " + courriel + ", " + password +")", (err, results) => {
+        // INSERT INTO user (COURRIEL,MDP) VALUES ('lel','loul')
+        console.log(courriel , passwo)
+
+        con.query  ('INSERT INTO user  (COURRIEL,MDP) VALUES ("' + courriel +'" , "' + password +'" );', (err, results) => {
             if (err) {
                 return reject(err)
             }
