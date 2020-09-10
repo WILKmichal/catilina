@@ -71,8 +71,68 @@ data.soustheme = (id) => {
     })
 }
 
+data.insert = (id) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("INSERT INTO User (name, address) VALUES ()" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
 
+        })
+    })
+}
 
+// data.update = (id) => {
+//     return new Promise((resolve, reject) => {
+//         con.query  ("UPDATE User  WHERE id=$id"),(err, results)
+//         => {
+//             if (err) {
+//                 return reject(err)
+//             }
+//             return resolve(results)
 
+//         })
+//     })
+// }
+
+data.user = (user) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT * FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
+data.verificationPasswordDb = (user) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT MDP FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
+data.recuperationInfo = (user) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT ID_USER, ROLE  FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
 
 module.exports = data;
