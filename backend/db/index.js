@@ -135,4 +135,17 @@ data.recuperationInfo = (user) => {
 
 }
 
+data.register = (courriel,password) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("INSERT INTO USER  (COURRIEL,MDP) VALUE ( " + courriel + ", " + password +")", (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
 module.exports = data;
