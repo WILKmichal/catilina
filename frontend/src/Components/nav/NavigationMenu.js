@@ -37,7 +37,7 @@ function NavigationMenu(props) {
 
   if (props.role === null) {
     affBouton =
-      <div className="mb-4 flex justify-center">
+    <div className="flex justify-center col-start-8 col-end-12 md:pt-4">
         <LoginSliderRight />
         <RegisterSliderRight />
       </div>
@@ -45,7 +45,7 @@ function NavigationMenu(props) {
 
   if (props.role === "0") {
     affBouton =
-      <div className="flex justify-center">
+    <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <ArchiveButton />
         <SaveButton />
         <ProfilButton />
@@ -53,7 +53,7 @@ function NavigationMenu(props) {
   }
   if (props.role === "1") {
     affBouton =
-      <div className="flex justify-center">
+    <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionThemeButton />
         <GestionConcoursButton />
         <ProfilButton />
@@ -61,14 +61,14 @@ function NavigationMenu(props) {
   }
   if (props.role === "2") {
     affBouton =
-      <div className="flex justify-center">
+    <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionCandidatButton />
         <ProfilButton />
       </div>
   }
   if (props.role === "3") {
     affBouton =
-      <div className="flex justify-center">
+      <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
         <GestionEqRecrutButton />
         <GestionEqGestConcoursButton />
         <ProfilButton />
@@ -76,15 +76,15 @@ function NavigationMenu(props) {
   }
   return (
 
-    <div className="w-full fixed z-50 bg-teal-100 text-white p-1 md:pt-4 md:grid grid-cols-3 md:gap-4 md:items-center">
+    <div className="w-full fixed z-50 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
       <div>
-        <span className="flex justify-center "><Link to="/"><img className="m-3 h-16 md:h-20 lg:h-32" src={logo2} alt="Maxiconcours"></img></Link></span>
+        <span className="flex justify-center "><Link to="/"><img className="m-3 h-16 md:h-auto md:w-auto"src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>
-      <div className="flex justify-center">
-        <span className="mb-2 text-teal-500 lg:w-full"><SearchBar /></span>
+      <div className="flex justify-center col-start-4 col-end-7 md:pt-4">
+        <span className="my-4 text-teal-500  lg:w-full"><SearchBar /></span>
       </div>
       {affBouton}
-      <div>
+      <div className="absolute">
         <button onClick={setRole0} className="bg-gray-500 rounded mx-2">candidat</button>
         <button onClick={setRole1} className="bg-gray-500 rounded mx-2">concours</button>
         <button onClick={setRole2} className="bg-gray-500 rounded mx-2">recrut</button>
