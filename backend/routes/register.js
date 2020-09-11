@@ -12,11 +12,11 @@ router.post('/register', async(req, res) => {
     
     try {
         await db.register(user,password)
-        res.json("lel")
+        res.json("user cree")
     } catch (e) 
     {
         //console.log(e)
-        res.json("res1")
+        res.json("erreur creation user")
     }
 })
 
