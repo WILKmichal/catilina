@@ -48,7 +48,7 @@ function NavigationMenu(props) {
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <ArchiveButton />
         <SaveButton />
-        <ProfilButton />
+        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
       </div>
   }
   if (props.role === "1") {
@@ -56,14 +56,14 @@ function NavigationMenu(props) {
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionThemeButton />
         <GestionConcoursButton />
-        <ProfilButton />
+        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
       </div>
   }
   if (props.role === "2") {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionCandidatButton />
-        <ProfilButton />
+        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
       </div>
   }
   if (props.role === "3") {
@@ -71,14 +71,14 @@ function NavigationMenu(props) {
       <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
         <GestionEqRecrutButton />
         <GestionEqGestConcoursButton />
-        <ProfilButton />
+        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
       </div>
   }
   return (
 
     <div className="w-full fixed z-50 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
       <div>
-        <span className="flex justify-center "><Link to="/"><img className="m-3 h-16 md:h-auto md:w-auto"src={logo2} alt="Maxiconcours"></img></Link></span>
+        <span className="flex justify-center "><Link to="/"><img className="m-3"src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>
       <div className="flex justify-center col-start-4 col-end-7 md:pt-4">
         <span className="my-4 text-teal-500  lg:w-full"><SearchBar /></span>
