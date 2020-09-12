@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, useTransition, animated } from 'react-spring';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
@@ -14,9 +14,12 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 100 % { transform: scale(1); }
 `*/
 
-function Demo() {
+function RegisterButton(props) {
+
   const [state, toggle] = useState(true)
-  const { x } = useSpring({ from: { x: 0 }, x: state ? 1 : 0, config: { duration: 1000 } })
+
+  const { x } = useSpring({ from: { x: 0 }, x: state ? 1 : 0, config: { duration: 1000 } }) 
+  
   return (
     <div onMouseEnter={() => toggle(!state)}>
       <animated.div
@@ -29,13 +32,14 @@ function Demo() {
             })
             .interpolate(x => `scale(${x})`)
         }}>
-        <button className="bg-teal-500 p-4 hover:bg-teal-700 text-white font-bold rounded inline-flex items-center z-50 text-3xl">
+        <button className="bg-teal-500 p-4 hover:bg-teal-700 text-white font-bold rounded inline-flex items-center z-50 text-3xl" onClick={() => props.setShow(!props.show)}>
           
           < ArrowForwardIosIcon />REGISTER
         </button>
       </animated.div>
+       
     </div>
   )
 }
 
-export default Demo;
+export default RegisterButton;

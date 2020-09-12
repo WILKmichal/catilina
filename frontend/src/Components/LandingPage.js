@@ -1,8 +1,8 @@
 import React from "react";
-import Demo from './PostuleButton.js';
+import RegisterButton from './RegisterButton.js';
 import Graduation from './img/Graduation.jpg'
 
-function LandingPage() {
+function LandingPage(props) {
     return (
         <div className="bg-cover bg-center opacity-50" style={{ backgroundImage:`url(${Graduation})` }}>
             <div className="text-center text-white font-sans">
@@ -19,7 +19,7 @@ function LandingPage() {
                 <div className="h-24"></div>
                
                     
-                   <Demo />
+                   <RegisterButton show={props.showR} setShow={props.setShowR}/>
                 
                 <div className="h-32"></div>
             </div>
