@@ -27,7 +27,7 @@ function Postuler() {
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             Prénom
-      </label>
+                         </label>
                         {/* voir ligne 18 , incorporer dans le classeName de input*/}
                         {/* border-red-500  */}
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border
@@ -38,7 +38,7 @@ function Postuler() {
                     <div className="w-full md:w-1/2 px-3">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Nom de famille
-      </label>
+                     </label>
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"></input>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ function Postuler() {
                     <div className="w-full px-3">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             COURRIEL
-      </label>
+                        </label>
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="info@theBigLob.ster"></input>
                         <p className="text-gray-600 text-xs italic">azy frère sauce toi</p>
                     </div>
@@ -55,7 +55,7 @@ function Postuler() {
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             sex
-      </label>
+                        </label>
                         {/* voir ligne 18 , incorporer dans le classeName de input*/}
                         {/* border-red-500  */}
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border
@@ -66,7 +66,7 @@ function Postuler() {
                     <div className="w-full md:w-1/2 px-3">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             date de naissance
-      </label>
+                        </label>
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"></input>
                     </div>
                 </div>
@@ -74,14 +74,14 @@ function Postuler() {
                     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
                             VILLE
-      </label>
+                        </label>
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="puteau"></input>
                     </div>
                     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
                             Nationalité
                             
-      </label>
+                        </label>
                         <div className="relative">
                             <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                                 <option>New Mexico</option>
@@ -96,7 +96,7 @@ function Postuler() {
                     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                             Zip
-      </label>
+                         </label>
                         <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210"></input>
                     </div>
                 </div>

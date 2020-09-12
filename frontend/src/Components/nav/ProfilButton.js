@@ -1,7 +1,7 @@
 // import React from "react";
 import React, { useState } from 'react';
-import RegisterSliderRight from "./RegisterSliderRight";
-import LoginSliderRight from "./LoginSliderRight";
+import RegisterSliderRight from "./NavRegisterButton";
+import LoginSliderRight from "./NavLoginButton";
 import { Link } from "react-router-dom";
 
 function ProfilButton(props) {
@@ -9,7 +9,7 @@ function ProfilButton(props) {
     const [state, setState] = useState(false);
 
     let affBtn
-    let logout = <button onClick={() => props.setRoleb(null)} className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white">Logout</button>
+    let logout = <button onClick={() => props.setRoleB(null)} className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white">Logout</button>
 
 
     if (state === false) {

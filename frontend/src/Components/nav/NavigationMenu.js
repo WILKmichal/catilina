@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar";
 import logo2 from '../img/LogoMaxiconcourHibou3.png';
-import RegisterSliderRight from "./RegisterSliderRight";
-import LoginSliderRight from "./LoginSliderRight";
+import RegisterSliderRight from "./NavRegisterButton";
+import LoginSliderRight from "./NavLoginButton";
 import ProfilButton from "./ProfilButton";
 import ArchiveButton from "./role0/ArchiveButton";
 import SaveButton from "./role0/SaveButton";
@@ -16,7 +16,7 @@ import GestionEqGestConcoursButton from "./role3/GestionEqGestConcoursButton";
 
 
 function NavigationMenu(props) {
-
+  console.log(props)
 
   let affBouton
   function setRole1() {
@@ -38,8 +38,8 @@ function NavigationMenu(props) {
   if (props.role === null) {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 md:pt-4">
-        <LoginSliderRight />
-        <RegisterSliderRight />
+        <LoginSliderRight showL={props.showLog} setShowL={props.setShowLog} />
+        <RegisterSliderRight show={props.showR} setShow={props.setShowR}/>
       </div>
   }
 
@@ -48,7 +48,7 @@ function NavigationMenu(props) {
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <ArchiveButton />
         <SaveButton />
-        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
+        <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
   if (props.role === "1") {
@@ -56,14 +56,14 @@ function NavigationMenu(props) {
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionThemeButton />
         <GestionConcoursButton />
-        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
+        <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
   if (props.role === "2") {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionCandidatButton />
-        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
+        <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
   if (props.role === "3") {
@@ -71,12 +71,12 @@ function NavigationMenu(props) {
       <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
         <GestionEqRecrutButton />
         <GestionEqGestConcoursButton />
-        <ProfilButton roleb={props.role} setRoleb={props.setRole}/>
+        <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
   return (
 
-    <div className="w-full fixed z-50 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
+    <div className="w-full fixed z-40 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
       <div>
         <span className="flex justify-center "><Link to="/"><img className="m-3"src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>

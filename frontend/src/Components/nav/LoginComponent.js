@@ -1,13 +1,18 @@
 import React from "react";
+import logo2 from '../img/LogoMaxiconcourHibou3.png';
+import { Link } from "react-router-dom"
 // import { useAxiosPost } from '../Hooks/HttpRequest'
 
 function Login() {
 
     return (
         <div className="p-4">
-            <form className="w-full max-w-sm">
-                <div className="md:flex md:items-center mb-6">
-                    <div className="md:w-1/3">
+            <div>
+                <span className="flex justify-center "><Link to="/"><img className="m-3" src={logo2} alt="Maxiconcours"></img></Link></span>
+            </div>
+            <form className="w-full ml-3 md:ml-0 pt-8">
+                <div className="md:flex items-center mb-6">
+                    <div className=" md:w-1/3">
                         <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">Full-Name</label>
                     </div>
                     <div className="md:w-2/3">

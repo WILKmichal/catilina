@@ -6,11 +6,11 @@ import ListeTheme from "../Components/theme/ListeTheme"
 // import Tst from "../Components/Tst"
 import PresentationSite from "../Components/PresentationSite";
 
-function Home() {
+function Home(props) {
     return (
         <div>
             <div className="overflow-hidden">
-                    <LandingPage />
+                    <LandingPage showR={props.showRe} setShowR={props.setShowRe}/>
                     <ListeTheme/>
                     <PresentationSite/>
                     <ListeAleatoireConcours />
