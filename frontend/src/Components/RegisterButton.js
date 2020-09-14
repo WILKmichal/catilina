@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSpring, useTransition, animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 

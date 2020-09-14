@@ -1,7 +1,5 @@
 // import React from "react";
 import React, { useState } from 'react';
-import RegisterSliderRight from "./NavRegisterButton";
-import LoginSliderRight from "./NavLoginButton";
 import { Link } from "react-router-dom";
 
 function ProfilButton(props) {

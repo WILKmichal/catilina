@@ -16,7 +16,6 @@ import GestionEqGestConcoursButton from "./role3/GestionEqGestConcoursButton";
 
 
 function NavigationMenu(props) {
-  console.log(props)
 
   let affBouton
   function setRole1() {

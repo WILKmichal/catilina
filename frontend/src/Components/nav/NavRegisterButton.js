@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import logo2 from '../img/LogoMaxiconcourHibou3.png';
-import RegisterComponent from "./RegisterComponent"
-import { useTransition, animated } from 'react-spring';
+import React from "react";
+
 
 
 function RegisterSliderRight(props) {
-    console.log(props)
-
+    
     return (
         <div>
             
