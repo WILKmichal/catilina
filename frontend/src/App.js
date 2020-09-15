@@ -5,7 +5,7 @@ import Register from "./Views/Register"
 import NavigationMenu from './Components/nav/NavigationMenu';
 import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer";
-import Tst from "./Components/Tst"
+import TstListeUsers from "./Components/TstListeUsers"
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +14,7 @@ import {
   from "react-router-dom";
 import RegisterComponent from "./Components/nav/RegisterComponent.js";
 import LoginComponent from "./Components/nav/LoginComponent.js";
-import { useSpring, useTransition, animated } from 'react-spring';
+import { useTransition, animated } from 'react-spring';
 
 
 function App() {
@@ -47,12 +47,12 @@ function App() {
   })
 
 
-  const role = [
-    { role: 0, name: 'candidat' },
-    { role: 1, name: 'gestionconcours' },
-    { role: 2, name: 'recrutement' },
-    { role: 3, name: 'admin' },
-  ]
+  // const role = [
+  //   { role: 0, name: 'candidat' },
+  //   { role: 1, name: 'gestionconcours' },
+  //   { role: 2, name: 'recrutement' },
+  //   { role: 3, name: 'admin' },
+  // ]
 
 
 
@@ -63,6 +63,7 @@ function App() {
         {
           maskTransitions.map(({ item, key, props }) =>
             item && <animated.div
+
               key={key}
               style={props}
               className="text-center bg-black-t-50 fixed top-0 right-0 h-full w-full z-50"
@@ -104,9 +105,9 @@ function App() {
           )
         }
 
-
-        <Tst />
+        
         <NavigationMenu role={userRole} setRole={setUserRole} showLog={showLogin} setShowLog={setShowLogin} showR={showReg} setShowR={setShowReg} />
+        <TstListeUsers />
         <Switch>
           <Route exact path="/">
             <Home showRe={showReg} setShowRe={setShowReg}/>

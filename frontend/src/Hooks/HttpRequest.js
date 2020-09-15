@@ -10,25 +10,31 @@ export function useAxiosGet(url) {
     })
 
     useEffect(() => {
+let mounted = true
+
         setRequests({
             loading: true,
             data: null,
             error: false
         })
         Axios.get(url).then(response => {
+            if (mounted){
             setRequests({
                 loading: false,
                 data: response.data,
                 error: false
-            })
+            })}
         })
             .catch(() => {
+                if (mounted){
                 setRequests({
                     loading: false,
                     data: null,
                     error: true
-                })
+                })}
             })
+
+            return () => mounted = false;
     }, [url])
 
     return requests
