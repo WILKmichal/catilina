@@ -83,18 +83,17 @@ data.insert = (id) => {
     })
 }
 
-// data.update = (id) => {
-//     return new Promise((resolve, reject) => {
-//         con.query  ("UPDATE User  WHERE id=$id"),(err, results)
-//         => {
-//             if (err) {
-//                 return reject(err)
-//             }
-//             return resolve(results)
+data.update = () => {
+    return new Promise((resolve, reject) => {
+        con.query  ("UPDATE User  WHERE id=$id",(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
 
-//         })
-//     })
-// }
+        })
+    })
+}
 
 data.user = (user) => {
     return new Promise((resolve, reject) => {
@@ -137,8 +136,9 @@ data.recuperationInfo = (user) => {
 
 data.register = (courriel,password) => {
     return new Promise((resolve, reject) => {
+
         // INSERT INTO user (COURRIEL,MDP) VALUES ('lel','loul')
-        console.log(courriel , passwo)
+        //console.log(courriel , passwo)
 
         con.query  ('INSERT INTO user  (COURRIEL,MDP) VALUES ("' + courriel +'" , "' + password +'" );', (err, results) => {
             if (err) {
