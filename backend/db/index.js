@@ -47,9 +47,9 @@ data.visualisation = () => {
     })
 }
 
-data.theme = () => {
+data.theme = (id) => {
     return new Promise((resolve, reject) => {
-        con.query('SELECT * from Theme', (err, results) => {
+        con.query('SELECT * from theme WHERE ID_THEME ="'+ id + '"', (err, results) => {
             if (err) {
                 return reject(err)
             }
@@ -71,8 +71,84 @@ data.soustheme = (id) => {
     })
 }
 
+data.insert = (id) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("INSERT INTO User (name, address) VALUES ()" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+}
+
+data.update = () => {
+    return new Promise((resolve, reject) => {
+        con.query  ("UPDATE User  WHERE id=$id",(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+}
+
+data.user = (user) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT * FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
+data.verificationPasswordDb = (user) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT MDP FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
+data.recuperationInfo = (user) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT ID_USER  FROM User WHERE COURRIEL = '"+ user + "'" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results[0].ID_USER)
+
+        })
+    })
+
+}
+
+data.register = (courriel,password) => {
+    return new Promise((resolve, reject) => {
+
+        // INSERT INTO user (COURRIEL,MDP) VALUES ('lel','loul')
 
 
+        con.query  ('INSERT INTO user(COURRIEL,MDP) VALUES ("' + courriel +'" , "' + password +'" ); ', (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
 
+        })
+    })
+
+}
 
 module.exports = data;

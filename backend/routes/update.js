@@ -4,11 +4,11 @@ const db = require('../db/index.js')
 
 
 
-router.post('/theme', async(req, res) => {
+router.post('/update', async(req, res) => {
     try {
         let id = req.body.id
         //console.log(params)
-        let results = await db.theme(id)
+        let results = await db.update(id)
         res.json(results)
     }
      catch (e) {
