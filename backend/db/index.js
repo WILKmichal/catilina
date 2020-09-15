@@ -138,9 +138,9 @@ data.register = (courriel,password) => {
     return new Promise((resolve, reject) => {
 
         // INSERT INTO user (COURRIEL,MDP) VALUES ('lel','loul')
-        //console.log(courriel , passwo)
 
-        con.query  ('INSERT INTO user  (COURRIEL,MDP) VALUES ("' + courriel +'" , "' + password +'" );', (err, results) => {
+
+        con.query  ('INSERT INTO user(COURRIEL,MDP) VALUES ("' + courriel +'" , "' + password +'" ); ', (err, results) => {
             if (err) {
                 return reject(err)
             }
