@@ -5,7 +5,7 @@ import TstFormHeader from './TstFormHeader.js'
 import Loader from './Loader'
 import { useAxiosGet } from '../Hooks/HttpRequest'
 
-function ListTheme() {
+function ListTheme(props) {
 
 
     const url = `https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/user`
@@ -26,9 +26,9 @@ function ListTheme() {
 
     if (user.data) {
         content =
-            user.data.map((photo, key) =>
+            user.data.map((data, key) =>
                 <div key={key}>
-                    <TstFormBody user={photo} />
+                    <TstFormBody user={data} showP={props.showPro} setShowP={props.setShowPro}/>
                 </div>
             )
     }
@@ -47,19 +47,9 @@ function ListTheme() {
                     <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table className="min-w-full leading-normal">
                             <TstFormHeader />
-                            <tbody>
-                            <tr>
-                <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            
                                 {content}
-                                </td>
-                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p className="text-gray-900 whitespace-no-wrap">
-                        Jan 21, 2020
-                                    </p>
-                </td>
-            </tr>
-
-                            </tbody>
+                                
 
                         </table>
                         <div

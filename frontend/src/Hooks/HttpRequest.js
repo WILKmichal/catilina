@@ -10,7 +10,7 @@ export function useAxiosGet(url) {
     })
 
     useEffect(() => {
-let mounted = true
+        let mounted = true
 
         setRequests({
             loading: true,
@@ -18,23 +18,25 @@ let mounted = true
             error: false
         })
         Axios.get(url).then(response => {
-            if (mounted){
-            setRequests({
-                loading: false,
-                data: response.data,
-                error: false
-            })}
-        })
-            .catch(() => {
-                if (mounted){
+            if (mounted) {
                 setRequests({
                     loading: false,
-                    data: null,
-                    error: true
-                })}
+                    data: response.data,
+                    error: false
+                })
+            }
+        })
+            .catch(() => {
+                if (mounted) {
+                    setRequests({
+                        loading: false,
+                        data: null,
+                        error: true
+                    })
+                }
             })
 
-            return () => mounted = false;
+        return () => mounted = false;
     }, [url])
 
     return requests
@@ -47,9 +49,9 @@ export function useAxiosPost(url, params) {
     // const params = JSON.stringify({
 
     //     "email": email,
-     
+
     //     "password": password,
-     
+
     //   });
 
     const [requests, setRequests] = useState({
@@ -78,7 +80,7 @@ export function useAxiosPost(url, params) {
                     error: true
                 })
             })
-    }, [url,params])
+    }, [url, params])
 
     return requests
 

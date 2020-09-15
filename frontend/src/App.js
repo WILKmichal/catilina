@@ -5,6 +5,7 @@ import Register from "./Views/Register"
 import NavigationMenu from './Components/nav/NavigationMenu';
 import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer";
+import InfoProfil from "./Components/InfoProfil";
 import TstListeUsers from "./Components/TstListeUsers"
 import {
   BrowserRouter as Router,
@@ -20,6 +21,7 @@ import { useTransition, animated } from 'react-spring';
 function App() {
   // eslint-disable-next-line
   const [userRole, setUserRole] = useState(null);
+
 
   const [showLogin, setShowLogin] = useState(false)
   const maskTransitions = useTransition(showLogin, null, {
@@ -45,6 +47,20 @@ function App() {
     enter: { opacity: 1, transform: "translateX(0%)" },
     leave: { opacity: 0, transform: "translateX(100%)" },
   })
+
+
+  const [showProfil, setShowProfil] = useState(false)
+  const maskProfilTransitions = useTransition(showProfil, null, {
+    from: { position: 'absolute', opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  })
+  const profilTransitions = useTransition(showProfil, null, {
+    from: { opacity: 0, transform: "translateX(100%)" },
+    enter: { opacity: 1, transform: "translateX(0%)" },
+    leave: { opacity: 0, transform: "translateX(100%)" },
+  })
+
 
 
   // const role = [
@@ -105,9 +121,32 @@ function App() {
           )
         }
 
+
+{
+          maskProfilTransitions.map(({ item, key, props }) =>
+            item && <animated.div
+              key={key}
+              style={props}
+              className="text-center bg-black-t-50 fixed top-0 right-0 h-full w-full z-50"
+              onClick={() => setShowProfil(false)}>
+            </animated.div>
+          )
+        }
+
+        {
+          profilTransitions.map(({ item, key, props }) =>
+            item && <animated.div
+              key={key}
+              style={props}
+              className="fixed bg-white top-0 right-0 w-2/3 h-full z-50 shadow">
+              <InfoProfil />
+            </animated.div>
+          )
+        }
+
         
         <NavigationMenu role={userRole} setRole={setUserRole} showLog={showLogin} setShowLog={setShowLogin} showR={showReg} setShowR={setShowReg} />
-        <TstListeUsers />
+        <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
         <Switch>
           <Route exact path="/">
             <Home showRe={showReg} setShowRe={setShowReg}/>
