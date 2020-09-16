@@ -9,11 +9,10 @@ const router1 = require('./routes/photo.js')
 const router2 = require('./routes/theme.js')
 const router3 = require('./routes/soustheme.js')
 const router4 = require('./routes/visualisation_candidat.js')
-const router5 = require('./routes/crud.js')
-const router6 = require('./routes/insert.js')
-const router7 = require('./routes/update.js')
-const router8 = require('./routes/login.js')
-const router9 = require('./routes/register.js')
+const router5 = require('./routes/insert.js')
+const router6 = require('./routes/update.js')
+const router7 = require('./routes/login.js')
+const router8 = require('./routes/register.js')
 
 
 
@@ -25,11 +24,10 @@ app.use('/maxiconcours', router5)
 app.use('/maxiconcours', router6)
 app.use('/maxiconcours', router7)
 app.use('/maxiconcours', router8)
-app.use('/maxiconcours', router9)
 
 
 
 
 
 
-app.listen(3000, () => console.log('lancé'))
+app.listen(3000, () => console.log('server lancé sur le port 3000'))

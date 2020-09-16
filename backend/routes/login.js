@@ -24,6 +24,7 @@ router.post('/login', async (req, res) => {
 
             if (booleenVerificationPassword) {
                 let idI = await db.recuperationInfo(user)
+                console.log(IdI);
                 const token = jwt.sign({ 'id': idI, "lokk": "1313" }, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf")
 
                 res.header({ 'token': token }).json("token send in the header")
