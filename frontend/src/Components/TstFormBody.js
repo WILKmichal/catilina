@@ -1,4 +1,5 @@
 import React from "react";
+import InfoProfilButton from "./InfoProfilButton";
 
 function TstFormBody(props) {
     console.log(props.user.photo)
@@ -30,11 +31,7 @@ function TstFormBody(props) {
                                     </p></div>
                     </td>
                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <div className="flex items-start m-3">
-                            <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" onClick={() => props.setShowP(!props.showP)}>
-                                Info
-                              </button>
-                        </div>
+                        <InfoProfilButton user={props.user}/>
                     </td>
 
                 </tr>

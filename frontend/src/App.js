@@ -7,6 +7,7 @@ import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer";
 import InfoProfil from "./Components/InfoProfil";
 import TstListeUsers from "./Components/TstListeUsers"
+import TstDashboard from "./Components/TstDashboard";
 import {
   BrowserRouter as Router,
   Switch,
@@ -146,6 +147,7 @@ function App() {
 
         
         <NavigationMenu role={userRole} setRole={setUserRole} showLog={showLogin} setShowLog={setShowLogin} showR={showReg} setShowR={setShowReg} />
+        <TstDashboard/>
         <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
         <Switch>
           <Route exact path="/">
