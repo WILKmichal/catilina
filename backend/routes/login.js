@@ -2,30 +2,26 @@ const mysql = require('mysql')
 const router = require("express").Router();
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const db = require('../db/index.js')
+const db = require('../db/loginDb.js')
 
-
-
-var Users = [];
 
 
 
 router.post('/login', async (req, res) => {
 
-    let password = req.body.password
-    let user = req.body.user
+    let password = req.body.MDP
+    let courriel = req.body.COURRIEL
 
-    if (password && user) {
-        let results = await db.user(user)
+    if (password && courriel) {
+        let results = await db.loginCheck(courriel)
 
-        if (results) {
-            let verificationPassword = await db.verificationPasswordDb(user)
+        if (results != 0) {
+            let verificationPassword = await db.verificationPasswordDb(courriel)
             let booleenVerificationPassword = await bcrypt.compare(password, verificationPassword[0].MDP)
 
             if (booleenVerificationPassword) {
-                let idI = await db.recuperationInfo(user)
-                console.log(IdI);
-                const token = jwt.sign({ 'id': idI, "lokk": "1313" }, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf")
+                let userInfo = await db.recuperationInfo(courriel)
+                const token = jwt.sign({ 'id': userInfo[0].ID_USER, "role": userInfo[0].ID_ROLE }, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf")
 
                 res.header({ 'token': token }).json("token send in the header")
 
