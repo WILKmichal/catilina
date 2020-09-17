@@ -45,13 +45,13 @@ function ListTheme(props) {
 
                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                        <table className="min-w-full leading-normal">
+                        
                             <TstFormHeader />
-                            
+                            {loader}
                                 {content}
                                 
 
-                        </table>
+                        
                         <div
                             className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
                             <span className="text-xs xs:text-sm text-gray-900">
