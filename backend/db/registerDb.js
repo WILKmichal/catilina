@@ -1,18 +1,18 @@
-const con = require('./variableEnvironment')
+const con = require('./1variableEnvironment')
 
 data = {}
 
-data.verifDuplicataUser = (courriel) => {
+data.verifDuplicataUser = (COURRIEL) => {
     return new Promise((resolve, reject) => {
 
-        con.query("SELECT COURRIEL  FROM User WHERE COURRIEL = '" + courriel + "'", (err, results) => {
+        con.query(" SELECT * FROM user WHERE COURRIEL = '" + COURRIEL + "'", (err, results) => {
             if (err) {
                 return reject(err)
             }
             return resolve(results)
 
         })
-    }).catch(() => {return "Promise Rejected for db.verifDuplicataUser"});
+    })
 
 }
 
@@ -27,8 +27,39 @@ data.register = (keys, data) => {
             return resolve(results)
 
         })
-    }).catch(() => {return "Promise Rejected for db.register  "});
+    })
 
 }
+
+
+data.getID = (COURRIEL) => {
+    return new Promise((resolve, reject) => {
+
+        con.query("SELECT ID_USER FROM user WHERE COURRIEL ='" +COURRIEL + "'", (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
+
+data.photoInsert = (IDuser , photo) => {
+    return new Promise((resolve, reject) => {
+
+        con.query("INSERT INTO PHOTO(PATH_IMG,ID_PATH) VALUES('"+ photo + "','"+ IDuser + "');", (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+
+        })
+    })
+
+}
+
 
 module.exports = data;
