@@ -2,7 +2,6 @@ const router = require("express").Router();
 const db = require('../db/registerDb.js');
 const bcrypt = require('bcryptjs')
 const registerValidation = require("../models/schemaRegister");
-const data = require("../db/registerDb.js");
 
 router.post('/register', async (req, res) => {
 

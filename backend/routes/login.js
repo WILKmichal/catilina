@@ -1,7 +1,8 @@
-const mysql = require('mysql')
 const router = require("express").Router();
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
+
 const db = require('../db/loginDb.js')
 const loginValidation = require("../models/schemaLogin")
 
@@ -28,7 +29,7 @@ router.post('/login', async (req, res) => {
                 let userInfo = await db.recuperationInfo(jsonData.COURRIEL)
                 const token = jwt.sign({ 'id': userInfo[0].ID_USER, "role": userInfo[0].ID_ROLE }, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf")
 
-                res.header({ 'token': token }).json("token send in the header")
+                res.header({ 'token': token }).json({"role" : userInfo[0].ID_ROLE })
 
             }
             
