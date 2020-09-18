@@ -1,11 +1,20 @@
 const router = require("express").Router();
-const db = require('../../db/SousthemeDb.js')
-// const loginValidation = require("../../models/schemaTheme")
+const db = require('../../db/sousThemeDb.js')
+ const sousThemeValidation = require("../../models/schemaSousTheme.js")
 
 
-router.get('/theme', async (req, res) => {
+router.get('/sousTheme', async (req, res) => {
+    
+    jsonData = req.body
 
-    let listeTheme = await db.listeSousTheme()
+    const value = sousThemeValidation(jsonData)
+
+    if (value.error) {
+        res.status(400).json(value.error.details[0].message)
+        return
+    }
+
+    let listeTheme = await db.listeSousTheme(jsonData.ID_THEME)
 
     res.json(listeTheme)
     return
