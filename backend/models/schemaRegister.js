@@ -36,7 +36,7 @@ const registerValidation = (data) => {
 
         ID_NATIONALITE: Joi.string().length(2),
 
-        ID_ROLE: Joi.any().valid("1"),
+        ID_ROLE: Joi.any().valid("0"),
 
         PATH_IMG: Joi.string()
 
