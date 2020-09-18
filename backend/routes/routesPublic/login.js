@@ -1,10 +1,9 @@
 const router = require("express").Router();
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
 
-const db = require('../db/loginDb.js')
-const loginValidation = require("../models/schemaLogin")
+const db = require('../../db/loginDb.js')
+const loginValidation = require("../../models/schemaLogin")
 
 
 
@@ -17,6 +16,7 @@ router.post('/login', async (req, res) => {
 
     if (value.error) {
         res.status(400).json(value.error.details[0].message)
+        return
     }
 
         let results = await db.loginCheck(jsonData.COURRIEL)
@@ -35,11 +35,13 @@ router.post('/login', async (req, res) => {
             
             else {
                 res.json("mot de passe faux")
+                return
             }
         } 
         
         else {
             res.json("user doesnt exit")
+            return
         }
 });
 

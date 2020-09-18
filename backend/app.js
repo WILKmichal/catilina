@@ -2,16 +2,15 @@ const express = require('express')
 const app = express()
 var bodyParser = require("body-parser")
 
-const dotenv = require("dotenv")
-dotenv.config()
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const routeLogin = require('./routes/login.js')
-const routerRegister = require('./routes/register.js')
+const routeLogin = require('./routes/routesPublic/login.js')
+const routerRegister = require('./routes/routesPublic/register.js')
 
-const insertionConcours = require('./routes/insertionConcours.js')
+
+const theme = require('./routes/routesPublic/theme.js')
+const creationTheme = require('./routes/routePrivee/creationTheme.js')
 
 
 
@@ -19,6 +18,7 @@ const insertionConcours = require('./routes/insertionConcours.js')
 app.use('/maxiconcours', routeLogin)
 app.use('/maxiconcours', routerRegister)
 
- app.use('/maxiconcours', insertionConcours)
+ app.use('/maxiconcours', creationTheme)
+ app.use('/maxiconcours', theme)
 
-app.listen(3000, () => console.log('server lancé sur le port 3000'))
+app.listen(3001, () => console.log('server lancé sur le port 3001'))

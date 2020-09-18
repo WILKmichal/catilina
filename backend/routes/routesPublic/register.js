@@ -1,19 +1,19 @@
 const router = require("express").Router();
-const db = require('../db/registerDb.js');
+const db = require('../../db/registerDb.js');
 const bcrypt = require('bcryptjs')
-const registerValidation = require("../models/schemaRegister");
+const registerValidation = require("../../models/schemaRegister");
 
 router.post('/register', async (req, res) => {
 
-   
+
     let jsonData = req.body
-   
 
     //validation du body de la requete
     const value = registerValidation(jsonData)
 
     if (value.error) {
         res.status(400).json(value.error.details[0].message)
+        return
     }
 
     //renvoie un select du le courriel
@@ -27,6 +27,7 @@ router.post('/register', async (req, res) => {
     //verfie si le courriel existe
     if (verifDuplicataUser.length !== 0) {
         res.json("user exite deja")
+        return
     }
 
     //hash le password
@@ -35,11 +36,11 @@ router.post('/register', async (req, res) => {
 
 
     //recupere les keys du req.body et les places dans un tableau
-    let keyReqArray = Object.keys(req.body)
+    let keyReqArray = Object.keys(jsonData)
 
-//position dans l'array de l'image
+    //position dans l'array de l'image
 
-let positionImgTableau
+    let positionImgTableau
 
     for (var i = 0; i < keyReqArray.length; i++) {
         if (keyReqArray[i] == 'PATH_IMG') {
@@ -52,17 +53,17 @@ let positionImgTableau
 
     //recupere les valeures du req.body et les places dans une string
     onlyValuesOfJsonData = Object.values(jsonData)
-   
+
     //valeur  de PATH_IMG
-    
-  PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]
+    if(positionImgTableau){
+    PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]}
 
-  //remove IMG path from array of values
-  onlyValuesOfJsonData.splice(positionImgTableau, 1)
+    //remove IMG path from array of values
+    onlyValuesOfJsonData.splice(positionImgTableau, 1)
 
-  //recupere les keys du req.body remove l'image et les places dans une string
-  keyReqArray.splice(positionImgTableau, 1)
-  let keysReq = keyReqArray.toString()
+    //recupere les keys du req.body remove l'image et les places dans une string
+    keyReqArray.splice(positionImgTableau, 1)
+    let keysReq = keyReqArray.toString()
 
 
     //recupere les valeurs du req.body et les places dans une string (ajoute des guillemets pour l'insertion)
@@ -73,13 +74,20 @@ let positionImgTableau
 
     //insertion
     try {
-        
+
+        await db.removeConstrain()
         await db.register(keysReq, stringData)
-        let idUser = await db.getID(jsonData.COURRIEL)
-        await db.photoInsert(idUser,PATH_IMGVal)
+
+        if (positionImgTableau) {
+            let idUser = await db.getID(jsonData.COURRIEL)
+            await db.photoInsert(idUser[0].ID_USER, PATH_IMGVal)
+        }
+
         res.json("user cree")
+        return
     } catch (e) {
         res.status(422).json(e)
+        return
     }
 })
 
