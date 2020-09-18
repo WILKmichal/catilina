@@ -7,7 +7,7 @@ router.get('/concours', async (req, res) => {
     
     jsonData = req.body
 
-    const value = concoursValidation(jsonData)
+    const value = concoursValidation.concoursListeValidation(jsonData)
 
     if (value.error) {
         res.status(400).json(value.error.details[0].message)
@@ -20,5 +20,21 @@ router.get('/concours', async (req, res) => {
     return
 });
 
+router.post('/concours', async (req, res) => {
+    
+    jsonData = req.body
+
+    const value = concoursValidation.concoursValidation(jsonData)
+
+    if (value.error) {
+        res.status(400).json(value.error.details[0].message)
+        return
+    }
+    
+    let concoursSpecifique = await db.concours(jsonData.ID_CONCOURS)
+
+    res.json(concoursSpecifique)
+    return
+});
 
 module.exports = router;

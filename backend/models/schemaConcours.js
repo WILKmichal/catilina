@@ -1,6 +1,8 @@
 const Joi = require('joi');
 
-const concoursValidation = (data) => {
+const schemaValidation = {}
+
+schemaValidation.concoursListeValidation = (data) => {
 
     const schema = Joi.object({
 
@@ -12,4 +14,18 @@ const concoursValidation = (data) => {
     return schema.validate(data);
 }
 
-module.exports = concoursValidation
+
+schemaValidation.concoursValidation = (data) => {
+
+    const schema = Joi.object({
+
+        ID_CONCOURS : Joi.string().required(),
+
+    })
+
+
+    return schema.validate(data);
+}
+
+
+module.exports = schemaValidation
