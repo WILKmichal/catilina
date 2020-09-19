@@ -17,6 +17,7 @@ router.post('/register', async (req, res) => {
     }
 
     //renvoie un select du le courriel
+    
     let verifDuplicataUser = await db.verifDuplicataUser(jsonData.COURRIEL)
 
     // console.log(verifDuplicataUser.length)
@@ -48,21 +49,22 @@ router.post('/register', async (req, res) => {
         }
     }
 
-
+    
 
 
     //recupere les valeures du req.body et les places dans une string
     onlyValuesOfJsonData = Object.values(jsonData)
 
+
     //valeur  de PATH_IMG
     if(positionImgTableau){
-    PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]}
-
+    PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]
     //remove IMG path from array of values
     onlyValuesOfJsonData.splice(positionImgTableau, 1)
-
     //recupere les keys du req.body remove l'image et les places dans une string
     keyReqArray.splice(positionImgTableau, 1)
+    }
+  
     let keysReq = keyReqArray.toString()
 
 

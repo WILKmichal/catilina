@@ -13,7 +13,8 @@ const theme = require('./routes/routesPublic/theme.js')
 const soustheme = require('./routes/routesPublic/themeSous.js')
 const concours = require('./routes/routesPublic/concours.js')
 const creationTheme = require('./routes/routePrivee/creationTheme.js')
-
+const creationSousTheme = require('./routes/routePrivee/creationSousTheme.js')
+const creationConcours = require('./routes/routePrivee/creationConcours.js')
 
 
 
@@ -24,5 +25,7 @@ app.use('/maxiconcours', theme)
 app.use('/maxiconcours', soustheme)
 app.use('/maxiconcours', concours)
 app.use('/maxiconcours', creationTheme)
+app.use('/maxiconcours', creationSousTheme)
+app.use('/maxiconcours', creationConcours)
 
 app.listen(3001, () => console.log('server lancé sur le port 3001'))

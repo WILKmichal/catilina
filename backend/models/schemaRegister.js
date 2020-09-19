@@ -15,7 +15,7 @@ const registerValidation = (data) => {
         NOM: Joi.string(),
 
         PRENOM: Joi.string(),
-
+// TODO attention format americain insertion hazardeuse (ne marche pas traiter la chaine de character(?) avant)
         D_NAISS: Joi.date(),
 
         SEXE: Joi.boolean(),
