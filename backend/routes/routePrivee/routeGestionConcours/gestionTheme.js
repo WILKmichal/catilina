@@ -2,6 +2,8 @@ const router = require("express").Router();
 const verified = require("../../../middleware/verifToken")
 const validation = require("../../../models/schemaGestionTheme")
 const db = require("../../../db/gestionThemeDb.js")
+const dbUtil = require('../../../db/utilities/foreignKeyConstrain')
+const dbConcour = require('../../../db/gestionSousThemeDb')
 
 router.post('/gestionTheme', verified, async (req, res) => {
     MiddlePass = req.user
@@ -33,6 +35,8 @@ router.post('/gestionTheme', verified, async (req, res) => {
 
 });
 
+//TODO tester que cq delete beien le theme les sousthemes de ce theme et les concours des sousthemes
+
 router.delete('/gestionTheme', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
@@ -51,14 +55,23 @@ router.delete('/gestionTheme', verified, async (req, res) => {
     }
 
     try {
-        await db.removeConstrain()
-        await db.deleteTheme(jsonData.ID_THEME)
+        await dbUtil.removeConstrain()
 
-        let sousTheme = await db.getSousTheme(jsonData.ID_THEME)
-        sousTheme = sousTheme.toString()
-        
-        await db.deleteSousTheme(jsonData.ID_THEME)
-        await db.deleteConcours(sousTheme)
+        let idSousTheme = await db.selectSousThemebyTheme(jsonData.ID_THEME)
+
+        await db.deleteTheme(jsonData.ID_THEME)
+        await db.deleteSousThemeByTheme(jsonData.ID_THEME)
+
+        idSousTheme = idSousTheme.map(function (item) {
+            return item['ID_SOUS_THEME'];
+        });
+
+        //TODO ghetto de ouf changer en concatenation OR au lieu d'une boucle de delete 
+
+        for (i = 0; i < idSousTheme.length; i++) {
+            await dbConcour.deleteConcoursBySousTheme(idSousTheme[i])
+          }
+
     }
     // TODO changer "e" en une erreur string
     catch (e) {

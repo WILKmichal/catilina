@@ -1,4 +1,4 @@
-const con = require('./1variableEnvironment')
+const con = require('./utilities/1variableEnvironment')
 
 let data = {}
 
@@ -14,5 +14,19 @@ data.insertConcours = (libel_sh,libel_L,date_fin,id_sous_theme) => {
     })
 
 }
+
+data.deleteConcours = (id_concours) => {
+    return new Promise((resolve, reject) => {
+        con.query  ("DELETE FROM `concours` WHERE `ID_CONCOURS`= '" + id_concours+"'",(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve( results )
+
+        })
+    })
+
+}
+
 
 module.exports = data;

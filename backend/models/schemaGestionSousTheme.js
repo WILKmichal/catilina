@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 let verif = {}
 
-verif.creationSousTheme = (data) => {
+verif.sousThemeCreation = (data) => {
 
     const schema = Joi.object({
 
@@ -10,6 +10,18 @@ verif.creationSousTheme = (data) => {
 
         ID_THEME: Joi.string().required()
         
+    })
+
+
+    return schema.validate(data);
+}
+
+verif.sousThemeSuppr = (data) => {
+
+    const schema = Joi.object({
+
+        ID_SOUS_THEME: Joi.string().required()
+            
     })
 
 

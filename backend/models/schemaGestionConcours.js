@@ -20,4 +20,18 @@ verif.concoursValidationCreation = (data) => {
     return schema.validate(data);
 }
 
+
+verif.concoursValidationSuppr = (data) => {
+
+    const schema = Joi.object({
+
+        ID_CONCOURS: Joi.string().required()
+        
+    })
+
+
+    return schema.validate(data);
+}
+
+
 module.exports = verif
