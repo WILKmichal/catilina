@@ -20,9 +20,20 @@ router.post('/gestionConcours', verified, async (req, res) => {
         res.status(401).json("vous n'avez pas les droits")
         return
     }
+    //TODO tst si insert marche (probablement pas importer dbUtil pour retirer  LES PUTAINS DE VERIFIACTION DE FoReIgN KeY)
 
     try {
         await db.insertConcours(jsonData.LIBEL_SH,jsonData.LIBEL_L,jsonData.DATE_FIN,jsonData.ID_SOUS_THEME)
+
+        //TODO je me souviens plus si un objet vide est egal a false shalom ca mere, a tst
+        if(jsonData.PATH_IMG){
+
+            // TODO pour le moment on va dire que LIBEL_SH est unique meme si il ny a pas de condition qui dit ca  ( a faire )
+            let idConcours = await db.getIdConcours(jsonData.LIBEL_SH)
+
+            //TODO Dans register on insert des photos aussi a deplacer dans db util pour avoir moins de ligne de code en  + de *2
+            await db.insertPhoto(idConcours,jsonData.PATH_IMG)
+        }
     }
     // TODO changer "e" en une erreur string
     catch (e) {

@@ -12,7 +12,11 @@ verif.concoursValidationCreation = (data) => {
 
         DATE_FIN: Joi.date().required(),
 
-        ID_SOUS_THEME: Joi.string().required()
+        ID_SOUS_THEME: Joi.string().required(),
+
+        PATH_IMG:Joi.string()
+
+
         
     })
 

@@ -66,7 +66,7 @@ router.delete('/gestionTheme', verified, async (req, res) => {
             return item['ID_SOUS_THEME'];
         });
 
-        //TODO ghetto de ouf changer en concatenation OR au lieu d'une boucle de delete 
+        //TODO ghetto de ouf changer en concatenation OR au lieu d'une boucle de delete rappel dans app.js
 
         for (i = 0; i < idSousTheme.length; i++) {
             await dbConcour.deleteConcoursBySousTheme(idSousTheme[i])
