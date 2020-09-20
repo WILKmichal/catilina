@@ -5,6 +5,7 @@ const db = require('../../db/themeDb.js')
 
 router.get('/theme', async (req, res) => {
 
+    // TODO try catch a ajouter
     let listeTheme = await db.listeTheme()
 
     res.json(listeTheme)

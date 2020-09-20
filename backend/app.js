@@ -12,9 +12,9 @@ const routerRegister = require('./routes/routesPublic/register.js')
 const theme = require('./routes/routesPublic/theme.js')
 const soustheme = require('./routes/routesPublic/themeSous.js')
 const concours = require('./routes/routesPublic/concours.js')
-const creationTheme = require('./routes/routePrivee/creationTheme.js')
-const creationSousTheme = require('./routes/routePrivee/creationSousTheme.js')
-const creationConcours = require('./routes/routePrivee/creationConcours.js')
+const creationTheme = require('./routes/routePrivee/routeGestionConcours/gestionTheme.js')
+const creationSousTheme = require('./routes/routePrivee/routeGestionConcours/gestionSousTheme.js')
+const creationConcours = require('./routes/routePrivee/routeGestionConcours/gestionConcours.js')
 
 
 

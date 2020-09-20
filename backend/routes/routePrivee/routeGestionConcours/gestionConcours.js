@@ -1,13 +1,13 @@
 const router = require("express").Router();
-const verified = require("../../middleware/verifToken")
-const sousThemeValidation = require("../../models/schemaCreationSousTheme")
-const db = require("../../db/insertSousThemeDb.js")
+const verified = require("../../../middleware/verifToken")
+const concoursValidationCreation = require("../../../models/schemaGestionConcours")
+const db = require("../../../db/insertConcours.js")
 
-router.post('/creationSousTheme', verified, async (req, res) => {
+router.post('/gestionConcours', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
-    const value = sousThemeValidation(jsonData)
+    const value = concoursValidationCreation(jsonData)
 
     if (value.error) {
         res.status(400).json(value.error.details[0].message)
@@ -21,14 +21,14 @@ router.post('/creationSousTheme', verified, async (req, res) => {
     }
 
     try {
-        await db.insertSousTheme(jsonData.NOM_SOUS_THEME,jsonData.ID_THEME)
+        await db.insertConcours(jsonData.LIBEL_SH,jsonData.LIBEL_L,jsonData.DATE_FIN,jsonData.ID_SOUS_THEME)
     }
     // TODO changer "e" en une erreur string
     catch (e) {
         res.json(e)
         return
     }
-    res.status(200).json("insert success")
+    res.status(200).json("insert Concours success")
     return
 
 });

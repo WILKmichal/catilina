@@ -17,6 +17,8 @@ router.post('/register', async (req, res) => {
     }
 
     //renvoie un select du le courriel
+
+    // TODO try catch a ajouter
     
     let verifDuplicataUser = await db.verifDuplicataUser(jsonData.COURRIEL)
 
@@ -32,6 +34,8 @@ router.post('/register', async (req, res) => {
     }
 
     //hash le password
+
+    // TODO try catch a ajouter
     let salt = await bcrypt.genSalt(10)
     jsonData.MDP = await bcrypt.hash(jsonData.MDP, salt)
 

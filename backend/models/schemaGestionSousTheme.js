@@ -1,6 +1,8 @@
 const Joi = require('joi');
 
-const creationSousTheme = (data) => {
+let verif = {}
+
+verif.creationSousTheme = (data) => {
 
     const schema = Joi.object({
 
@@ -14,4 +16,4 @@ const creationSousTheme = (data) => {
     return schema.validate(data);
 }
 
-module.exports = creationSousTheme
+module.exports = verif

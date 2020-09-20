@@ -13,7 +13,7 @@ router.get('/concours', async (req, res) => {
         res.status(400).json(value.error.details[0].message)
         return
     }
-    
+    // TODO try catch a ajouter
     let listeTheme = await db.listeConcours(jsonData.ID_SOUS_THEME)
 
     res.json(listeTheme)
@@ -31,6 +31,7 @@ router.post('/concours', async (req, res) => {
         return
     }
     
+    // TODO try catch a ajouter
     let concoursSpecifique = await db.concours(jsonData.ID_CONCOURS)
 
     res.json(concoursSpecifique)

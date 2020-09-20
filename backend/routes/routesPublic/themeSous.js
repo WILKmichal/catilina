@@ -14,6 +14,7 @@ router.get('/sousTheme', async (req, res) => {
         return
     }
 
+    // TODO try catch a ajouter
     let listeTheme = await db.listeSousTheme(jsonData.ID_THEME)
 
     res.json(listeTheme)

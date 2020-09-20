@@ -1,6 +1,8 @@
 const Joi = require('joi');
 
-const concoursValidationCreation = (data) => {
+let verif = {}
+
+verif.concoursValidationCreation = (data) => {
 
     const schema = Joi.object({
 
@@ -18,4 +20,4 @@ const concoursValidationCreation = (data) => {
     return schema.validate(data);
 }
 
-module.exports = concoursValidationCreation
+module.exports = verif
