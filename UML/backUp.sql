@@ -806,6 +806,11 @@ ALTER TABLE `concours`
 ALTER TABLE `theme`
   MODIFY `ID_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
+-- AUTO_INCREMENT pour la table `theme`
+--
+ALTER TABLE `soustheme`
+  MODIFY `ID_SOUS_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT pour la table `user`
 --
