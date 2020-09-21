@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const verified = require("../../../models/schemaRegisterAdmin")
-const db = require("../../../db/gestionAdminDb")
+const verified = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
+const db = require("../../../db/gestionAdminDb/gestionAdminDb")
 
 router.post('/gestionAdmin', verified, async (req, res) => {
     MiddlePass = req.user

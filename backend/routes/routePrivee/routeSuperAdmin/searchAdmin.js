@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const verified = require("../../../models/schemaSearchAdmin")
-const db = require("../../../db/searchAdminDb")
+const verified = require("../../../models/schemaGestionAdmins/schemaSearchAdmin")
+const db = require("../../../db/gestionAdminDb/searchAdminDb")
 
 
 router.post('/gestionAdmin', verified, async (req, res) => {
@@ -32,3 +32,5 @@ router.post('/gestionAdmin', verified, async (req, res) => {
     }
 
 });
+
+module.exports = router;
