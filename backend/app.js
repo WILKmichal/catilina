@@ -16,8 +16,8 @@ const gestionTheme = require('./routes/routePrivee/routeGestionConcours/gestionT
 const gestionSousTheme = require('./routes/routePrivee/routeGestionConcours/gestionSousTheme.js')
 const gestionConcours = require('./routes/routePrivee/routeGestionConcours/gestionConcours.js')
 
-const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
- const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
+// const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
+//  const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
 
 
 
@@ -31,8 +31,8 @@ app.use('/maxiconcours', gestionTheme)
 app.use('/maxiconcours', gestionSousTheme)
 app.use('/maxiconcours', gestionConcours)
 
-app.use('/maxiconcours',gestionAdmin)
- app.use('/maxiconcours',searchAdmin)
+// app.use('/maxiconcours',gestionAdmin)
+//  app.use('/maxiconcours',searchAdmin)
 
 app.listen(3001, () => console.log('server lancé sur le port 3001'))
 
