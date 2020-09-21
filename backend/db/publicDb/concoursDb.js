@@ -1,4 +1,4 @@
-const con = require('./utilities/1variableEnvironment')
+const con = require('../utilities/1variableEnvironment')
 
 let data = {}
 
@@ -9,7 +9,7 @@ data.listeConcours = (idSousTheme) => {
                 return reject(err)
             }
             return resolve( results )
-
+ 
         })
     })
 

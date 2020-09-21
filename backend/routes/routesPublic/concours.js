@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const db = require('../../db/concoursDb.js')
- const concoursValidation = require("../../models/schemaConcours.js")
+const db = require('../../db/publicDb/concoursDb.js')
+ const concoursValidation = require("../../models/schemaPublic/schemaConcours.js")
 
 
 router.get('/concours', async (req, res) => {

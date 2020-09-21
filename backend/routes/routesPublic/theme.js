@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require('../../db/themeDb.js')
+const db = require('../../db/publicDb/themeDb.js')
 // const loginValidation = require("../../models/schemaTheme")
 
 

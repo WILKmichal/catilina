@@ -1,4 +1,4 @@
-const con = require('./utilities/1variableEnvironment')
+const con = require('../../utilities/1variableEnvironment')
 
 let data = {}
 

@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const db = require('../../db/sousThemeDb.js')
- const sousThemeValidation = require("../../models/schemaSousTheme.js")
+const db = require('../../db/publicDb/sousThemeDb.js')
+ const sousThemeValidation = require("../../models/schemaPublic/schemaSousTheme.js")
 
 
 router.get('/sousTheme', async (req, res) => {

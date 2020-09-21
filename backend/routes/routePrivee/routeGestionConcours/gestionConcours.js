@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const verified = require("../../../middleware/verifToken")
-const validation = require("../../../models/schemaGestionConcours")
-const db = require("../../../db/gestionConcours.js")
+const validation = require("../../../models/schemaGestionConcours/schemaGestionConcours")
+const db = require("../../../db/gestionConcoursDb/gestionConcours.js")
 const dbUtil = require("../../../db/utilities/foreignKeyConstrain")
 
 router.post('/gestionConcours', verified, async (req, res) => {

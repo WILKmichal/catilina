@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const verified = require("../../../middleware/verifToken")
-const validation = require("../../../models/schemaGestionTheme")
-const db = require("../../../db/gestionThemeDb.js")
+const validation = require("../../../models/schemaGestionConcours/schemaGestionTheme")
+const db = require("../../../db/gestionConcoursDb/gestionThemeDb.js")
 const dbUtil = require('../../../db/utilities/foreignKeyConstrain')
-const dbConcour = require('../../../db/gestionSousThemeDb')
+const dbConcour = require('../../../db/gestionConcoursDb/gestionSousThemeDb')
 
 router.post('/gestionTheme', verified, async (req, res) => {
     MiddlePass = req.user

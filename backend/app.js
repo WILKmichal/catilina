@@ -38,6 +38,6 @@ app.listen(3001, () => console.log('server lancé sur le port 3001'))
 //TODO route super admin pas Importer dans app.js (je crois ??????)
 
 //TODO envoye par email le mot de passe du user (?)
-//TODO au lieu de mettre un mot de passe, envoyer un mot de passe aleatoire a changer pour les compte admin
+//TODO au lieu de mettre un mot de passe, envoyer un mot de passe aleatoire a changer pour les compte admin ou alors juste générer une string dans le fronte
 
-//TODO revamp des try catch ils sont VRAIMENT  DE-GEU-LASSE les reecrire (code bon juste changer les position des try et en rajouter)
+//TODO revamp des try catch ils sont VRAIMENT  DE-GEU-LASSE les reecrire (code bon juste changer les position des try et en rajouter la ou ca manque)

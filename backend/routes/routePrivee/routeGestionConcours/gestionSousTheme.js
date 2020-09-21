@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const verified = require("../../../middleware/verifToken")
-const validation = require("../../../models/schemaGestionSousTheme")
-const db = require("../../../db/gestionSousThemeDb.js")
+const validation = require("../../../models/schemaGestionConcours/schemaGestionSousTheme")
+const db = require("../../../db/gestionConcoursDb/gestionSousThemeDb.js")
 const dbUtil = require('../../../db/utilities/foreignKeyConstrain')
 
 router.post('/gestionSousTheme', verified, async (req, res) => {
