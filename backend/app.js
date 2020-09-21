@@ -17,7 +17,7 @@ const gestionSousTheme = require('./routes/routePrivee/routeGestionConcours/gest
 const gestionConcours = require('./routes/routePrivee/routeGestionConcours/gestionConcours.js')
 
 // const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
-//  const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
+ const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
 
 
 
@@ -32,12 +32,12 @@ app.use('/maxiconcours', gestionSousTheme)
 app.use('/maxiconcours', gestionConcours)
 
 // app.use('/maxiconcours',gestionAdmin)
-//  app.use('/maxiconcours',searchAdmin)
+ app.use('/maxiconcours',searchAdmin)
 
 app.listen(3001, () => console.log('server lancé sur le port 3001'))
 
 //TODO modification dossier db pour tout les routes de routeGestionConcours (optimisation)
-//TODO rajouter middle  ware verifiaction role au lieu de ce truc degeulasse ecrit a chaque route (if(ROLE!= X ))
+//TODO rajouter middleware verifiaction role au lieu de ce truc degeulasse ecrit a chaque route (if(ROLE!= X ))
 
 //TODO UPDATE des donner pour les routes gestionTheme,gestionSousTheme,gestionConcours URGENT A FAIRE RAPIDEMENT
 

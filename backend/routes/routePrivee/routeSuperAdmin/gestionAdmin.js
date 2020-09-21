@@ -19,10 +19,10 @@ router.post('/gestionAdmin', verified, async (req, res) => {
         retur
     }
 
-    try{ 
+    try {
         //TODO a tst probablement OK (95%)
-       await db.registerAdmin(jsonData.COURRIEL,jsonData.MDP,jsonData.NOM,jsonData.PRENOM,jsonData.ID_ROLE)
-    }catch(e){
+        await db.registerAdmin(jsonData.COURRIEL, jsonData.MDP, jsonData.NOM, jsonData.PRENOM, jsonData.ID_ROLE)
+    } catch (e) {
         res.json(e)
         return
     }
@@ -46,9 +46,9 @@ router.delete('/gestionAdmin', verified, async (req, res) => {
         retur
     }
 
-    try{ 
-       await db.deleteAdmin(jsonData.ID_USER)
-    }catch(e){
+    try {
+        await db.deleteAdmin(jsonData.ID_USER)
+    } catch (e) {
         res.json(e)
         return
     }
@@ -73,11 +73,11 @@ router.options('/gestionAdmin', verified, async (req, res) => {
         retur
     }
 
-    try{ 
+    try {
 
         //TODO cette requet db n'existe pas a cree
-       await db.ModifeAdmin(jsonData.ID_USER)
-    }catch(e){
+        await db.ModifeAdmin(jsonData.ID_USER)
+    } catch (e) {
         res.json(e)
         return
     }
