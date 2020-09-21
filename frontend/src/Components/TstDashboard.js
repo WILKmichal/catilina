@@ -173,7 +173,7 @@ return(
 
 
                                 <div className="shadow w-full bg-grey-300 mt-2">
-                                    <div className="bg-red-800 text-xs leading-none py-1 text-center text-white w-3/4" >75%
+                                    <div className="bg-red-500 text-xs leading-none py-1 text-center text-white w-3/4" >75%
                             </div>
                                 </div>
                             </div>
