@@ -37,7 +37,7 @@ app.use('/maxiconcours',gestionAdmin)
 app.listen(3001, () => console.log('server lancé sur le port 3001'))
 
 //TODO modification dossier db pour tout les routes de routeGestionConcours (optimisation)
-//TODO rajouter middleware verifiaction role au lieu de ce truc degeulasse ecrit a chaque route (if(ROLE!= X ))
+//TODO rajouter middle  ware verifiaction role au lieu de ce truc degeulasse ecrit a chaque route (if(ROLE!= X ))
 
 //TODO UPDATE des donner pour les routes gestionTheme,gestionSousTheme,gestionConcours URGENT A FAIRE RAPIDEMENT
 
