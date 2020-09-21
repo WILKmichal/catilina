@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const validation
+const validation = {}
 
 validation.registerValidation = (data) => {
 
@@ -14,7 +14,12 @@ validation.registerValidation = (data) => {
         MDP: Joi.string()
             .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
 
-        ID_ROLE: Joi.any().valid("1", '2'),
+        NOM: Joi.string().required(),
+
+        PRENOM: Joi.string().required(),
+
+
+        ID_ROLE: Joi.any().valid("1", '2').required()
 
     });
 

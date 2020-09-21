@@ -35,6 +35,8 @@ app.listen(3001, () => console.log('server lancé sur le port 3001'))
 
 //TODO UPDATE des donner pour les routes gestionTheme,gestionSousTheme,gestionConcours URGENT A FAIRE RAPIDEMENT
 
+//TODO route super admin pas Importer dans app.js (je crois ??????)
+
 //TODO envoye par email le mot de passe du user (?)
 //TODO au lieu de mettre un mot de passe, envoyer un mot de passe aleatoire a changer pour les compte admin
 
