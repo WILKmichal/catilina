@@ -147,9 +147,7 @@ function App() {
 
         
         <NavigationMenu role={userRole} setRole={setUserRole} showLog={showLogin} setShowLog={setShowLogin} showR={showReg} setShowR={setShowReg} />
-        <TstDashboard/>
-        <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
-        <Switch>
+         <Switch>
           <Route exact path="/">
             <Home showRe={showReg} setShowRe={setShowReg}/>
           </Route>
@@ -159,6 +157,8 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      <TstDashboard/>
+      <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
       <Postuler />
     </div>
   );
