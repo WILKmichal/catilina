@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const db = require('../../db/registerDb.js');
+const db = require('../../db/publicDb/registerDb.js');
 const bcrypt = require('bcryptjs')
-const registerValidation = require("../../models/schemaRegister");
+const registerValidation = require("../../models/schemaPublic/schemaRegister");
 
 router.post('/register', async (req, res) => {
 
@@ -17,6 +17,9 @@ router.post('/register', async (req, res) => {
     }
 
     //renvoie un select du le courriel
+
+    // TODO try catch a ajouter
+    
     let verifDuplicataUser = await db.verifDuplicataUser(jsonData.COURRIEL)
 
     // console.log(verifDuplicataUser.length)
@@ -31,6 +34,8 @@ router.post('/register', async (req, res) => {
     }
 
     //hash le password
+
+    // TODO try catch a ajouter
     let salt = await bcrypt.genSalt(10)
     jsonData.MDP = await bcrypt.hash(jsonData.MDP, salt)
 
@@ -48,21 +53,22 @@ router.post('/register', async (req, res) => {
         }
     }
 
-
+    
 
 
     //recupere les valeures du req.body et les places dans une string
     onlyValuesOfJsonData = Object.values(jsonData)
 
+
     //valeur  de PATH_IMG
     if(positionImgTableau){
-    PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]}
-
+    PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]
     //remove IMG path from array of values
     onlyValuesOfJsonData.splice(positionImgTableau, 1)
-
     //recupere les keys du req.body remove l'image et les places dans une string
     keyReqArray.splice(positionImgTableau, 1)
+    }
+  
     let keysReq = keyReqArray.toString()
 
 

@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 18 sep. 2020 à 15:07
+-- Généré le : ven. 18 sep. 2020 à 17:10
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.4.7
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -37,6 +38,12 @@ CREATE TABLE `concours` (
   `DATE_FIN` date NOT NULL,
   `ID_SOUS_THEME` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONS POUR LA TABLE `concours`:
+--   `ID_SOUS_THEME`
+--       `soustheme` -> `ID_SOUS_THEME`
+--
 
 --
 -- Déchargement des données de la table `concours`
@@ -74,6 +81,16 @@ CREATE TABLE `inscription` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `inscription`:
+--   `ID_USER`
+--       `user` -> `ID_USER`
+--   `ID_STATUT`
+--       `statut` -> `ID_STATUT`
+--   `ID_CONCOURS`
+--       `concours` -> `ID_CONCOURS`
+--
+
+--
 -- Déchargement des données de la table `inscription`
 --
 
@@ -105,6 +122,12 @@ CREATE TABLE `log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `log`:
+--   `ID_USER`
+--       `user` -> `ID_USER`
+--
+
+--
 -- Déchargement des données de la table `log`
 --
 
@@ -124,6 +147,10 @@ CREATE TABLE `nationalité` (
   `ID_NATIONALITE` varchar(3) NOT NULL,
   `NOM_NATIONALITE` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONS POUR LA TABLE `nationalité`:
+--
 
 --
 -- Déchargement des données de la table `nationalité`
@@ -382,6 +409,14 @@ CREATE TABLE `photo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `photo`:
+--   `ID_PATH`
+--       `user` -> `ID_USER`
+--   `ID_PATH`
+--       `concours` -> `ID_CONCOURS`
+--
+
+--
 -- Déchargement des données de la table `photo`
 --
 
@@ -436,6 +471,10 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `role`:
+--
+
+--
 -- Déchargement des données de la table `role`
 --
 
@@ -457,6 +496,12 @@ CREATE TABLE `soustheme` (
   `NOM_SOUS_THEME` varchar(255) NOT NULL,
   `ID_THEME` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONS POUR LA TABLE `soustheme`:
+--   `ID_THEME`
+--       `theme` -> `ID_THEME`
+--
 
 --
 -- Déchargement des données de la table `soustheme`
@@ -482,6 +527,10 @@ CREATE TABLE `statut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `statut`:
+--
+
+--
 -- Déchargement des données de la table `statut`
 --
 
@@ -504,10 +553,15 @@ CREATE TABLE `theme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `theme`:
+--
+
+--
 -- Déchargement des données de la table `theme`
 --
 
 INSERT INTO `theme` (`ID_THEME`, `NOM_THEME`) VALUES
+(0, 'elle'),
 (1, 'theme aide a la personne'),
 (2, 'theme dev'),
 (3, ' theme reseau');
@@ -535,8 +589,16 @@ CREATE TABLE `user` (
   `MDP` varchar(255) NOT NULL,
   `PRENOM` varchar(255) NOT NULL,
   `ID_NATIONALITE` varchar(3) NOT NULL DEFAULT 'FR',
-  `ID_ROLE` int(11) NOT NULL DEFAULT 1
+  `ID_ROLE` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONS POUR LA TABLE `user`:
+--   `ID_NATIONALITE`
+--       `nationalité` -> `ID_NATIONALITE`
+--   `ID_ROLE`
+--       `role` -> `ID_ROLE`
+--
 
 --
 -- Déchargement des données de la table `user`
@@ -739,6 +801,16 @@ ALTER TABLE `user`
 ALTER TABLE `concours`
   MODIFY `ID_CONCOURS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
+-- AUTO_INCREMENT pour la table `theme`
+--
+ALTER TABLE `theme`
+  MODIFY `ID_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+-- AUTO_INCREMENT pour la table `theme`
+--
+ALTER TABLE `soustheme`
+  MODIFY `ID_SOUS_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT pour la table `user`
 --
@@ -788,6 +860,7 @@ ALTER TABLE `soustheme`
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`ID_NATIONALITE`) REFERENCES `nationalité` (`ID_NATIONALITE`),
   ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`ID_ROLE`) REFERENCES `role` (`ID_ROLE`);
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

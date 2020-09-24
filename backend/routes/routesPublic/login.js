@@ -2,8 +2,8 @@ const router = require("express").Router();
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-const db = require('../../db/loginDb.js')
-const loginValidation = require("../../models/schemaLogin")
+const db = require('../../db/PublicDb/loginDb.js')
+const loginValidation = require("../../models/schemaPublic/schemaLogin")
 
 
 
