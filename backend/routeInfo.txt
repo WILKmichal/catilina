@@ -104,6 +104,26 @@ localhost:3001/maxiconcours/gestionTheme => POST
 localhost:3001/maxiconcours/gestionTheme => DELETE
 	ID_THEME -string -obligatoire
 
+	DELETE UN THEME LES SOUS THEMES ET CONCOURS
+
+localhost:3001/maxiconcours/gestionAdmin => POST
+	COURRIEL -string -email -obligatoir
+	MDP -string -'^[a-zA-Z0-9]{3,30}$' -obligatoire
+	NOM -string -obligatoire
+	PRENOM -string -obligatoire
+	ID-ROLE -'1' ou  '2'
+
+localhost:3001/maxiconcours/gestionAdmin => DELETE
+	ID_USER -string -obligatoire
+
+	SUPPRIME LE USER
+
+
+localhost:3001/maxiconcours/searchAdmin => POST
+	ID_ROLE -'1', '2'
+	
+	RENVOIE TOUT LES USERS AVEC CE ROLE
+
 
 
 	
