@@ -1,0 +1,67 @@
+localhost:3001/maxiconcours/concours => GET
+	ID_SOUS_THEME - string - obligatoire
+
+	LISTE DES CONCOURS DE CE SOUSTHEME
+
+localhost:3001/maxiconcours/concours => POST
+	ID_CONCOURS - string - obligatoire
+
+	DONNER LES INFOS DU CONCOURS
+
+
+localhost:3001/maxiconcours/login => POST
+	COURRIEL - string - obligatoire
+	MDP - string - "^[a-zA-Z0-9]{3,30}$" - obligatoire
+
+	res.body exemple
+	{
+ 	   "role": 0
+	}
+
+	res.header exemple
+	token: zdefe37347FJFJFJFJ384884484.F4F4F4FFRrf4444
+
+
+localhost:3001/maxiconcours/register => POST
+	COURRIEL - string - obligatoire
+	MDP - string - "^[a-zA-Z0-9]{3,30}$" - obligatoire
+	NOM - string
+	PRENOM - string
+	D_NAISS -string
+	SEXE -boolean
+	ADRESSE -string
+	TEL -number
+	ETAT_CIVIL -string
+	ID_P -string
+	FACEBOOK -string
+	TWITTER -string
+	INSTAGRAM -string
+	ID_NATIONALITE -string -2 character
+	ID_ROLE -"doit etre 0"
+	PATH_IMG -string
+
+localhost:3001/maxiconcours/theme => GET
+
+	pas de payload juste une requette get
+
+	retourne tout les themes
+
+localhost:3001/maxiconcours/sousTheme => GET
+	ID_THEME -string -obligatoire
+
+	retourne les sousthemes de ce theme
+
+localhost:3001/maxiconcours/concours => GET
+	 ID_SOUS_THEME -string -obligatoire
+
+	retourne les concours de ce soustheme
+	
+
+
+localhost:3001/maxiconcours/concours => POST
+	ID_CONCOURS -string -obligatoire
+
+	retourne les infos de ce concours
+
+
+	
