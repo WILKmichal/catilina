@@ -113,6 +113,8 @@ localhost:3001/maxiconcours/gestionAdmin => POST
 	PRENOM -string -obligatoire
 	ID-ROLE -'1' ou  '2'
 
+	CREE UN USER AVEC CE ROLE
+
 localhost:3001/maxiconcours/gestionAdmin => DELETE
 	ID_USER -string -obligatoire
 
