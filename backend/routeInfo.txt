@@ -1,3 +1,5 @@
+ROUTE PUBLIC
+
 localhost:3001/maxiconcours/concours => GET
 	ID_SOUS_THEME - string - obligatoire
 
@@ -62,6 +64,46 @@ localhost:3001/maxiconcours/concours => POST
 	ID_CONCOURS -string -obligatoire
 
 	retourne les infos de ce concours
+
+ROUTE GESTION CONCOURS
+
+
+localhost:3001/maxiconcours/gestionConcours => POST
+	AVOIR LE TOKEN GESTION DE CONCOURS
+
+	LIBEL_SH -string -obligatoire
+	LIBEL_L -string -obligatoire
+	DATE_FIN -string -obligatoire
+	ID_SOUS_THEME -string -obligatoire
+	PATH_IMG -string
+
+	AJOUE DE CONCOURS
+
+localhost:3001/maxiconcours/gestionConcours => DELETE
+	ID_CONCOURS -string -obligatoire
+
+	SUPPRESSION CONCOURS
+
+
+localhost:3001/maxiconcours/gestionSousTheme => POST
+	NOM_SOUS_THEME -string -obligatoire
+	ID_THEME -string -obligatoire
+
+	AJOUE DE SOUS THEME
+
+localhost:3001/maxiconcours/gestionSousTheme => DELETE
+	ID_SOUS_THEME -string -obligatoire
+
+	delete tout le sous theme (et les concours de ce soustheme)
+
+localhost:3001/maxiconcours/gestionTheme => POST
+	NOM_THEME -string -obligatoire
+
+	CREE UN THEME
+
+localhost:3001/maxiconcours/gestionTheme => DELETE
+	ID_THEME -string -obligatoire
+
 
 
 	
