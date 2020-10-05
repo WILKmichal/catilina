@@ -17,8 +17,10 @@ function Login() {
 
     const submit = async (e) => {
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
-        const newUser = {COURRIEL, MDP};
-        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser)
+        const newUser = {"COURRIEL":COURRIEL, "MDP":MDP};
+        let res 
+        let err 
+        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser).then(res => {console.log(res)}).catch(err => {console.log(err)})
         setUserData({
             token: loginRes.data.token,
             role: loginRes.data.role
