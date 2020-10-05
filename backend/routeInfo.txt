@@ -128,6 +128,7 @@ localhost:3001/maxiconcours/searchAdmin => POST
 
 
 localhost:3001/maxiconcours/InscriptionConcours => POST
+	COURRIEL -string -obligatoire
 
 
 	
