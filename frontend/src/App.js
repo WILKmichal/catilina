@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Archive from "./Views/Archive"
@@ -30,11 +30,12 @@ import { useTransition, animated } from 'react-spring';
 function App() {
   // eslint-disable-next-line
   const [userRole, setUserRole] = useState(null);
-  
+
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
   });
+
 
 
   const [showLogin, setShowLogin] = useState(false);
