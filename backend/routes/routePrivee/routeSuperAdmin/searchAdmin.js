@@ -4,7 +4,7 @@ const verified = require('../../../middleware/verifToken')
 const db = require("../../../db/gestionAdminDb/searchAdminDb")
 
 
-router.post('/gestionAdmin', verified, async (req, res) => {
+router.post('/searchAdmin', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 

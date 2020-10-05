@@ -54,34 +54,34 @@ router.delete('/gestionAdmin', verified, async (req, res) => {
     }
 });
 
-//TODO modif n'existe pas a completer
-router.options('/gestionAdmin', verified, async (req, res) => {
-    MiddlePass = req.user
-    jsonData = req.body
+// //TODO modif n'existe pas a completer
+// router.options('/gestionAdmin', verified, async (req, res) => {
+//     MiddlePass = req.user
+//     jsonData = req.body
 
-    //TODO schema n'existe pas a cree
-    const value = verified.modifAdmin(jsonData)
+//     //TODO schema n'existe pas a cree
+//     const value = verified.modifAdmin(jsonData)
 
-    if (value.error) {
-        res.status(400).json(value.error.details[0].message)
-        return
-    }
+//     if (value.error) {
+//         res.status(400).json(value.error.details[0].message)
+//         return
+//     }
 
-    //TODO changer le 0 en role admin (3 ? possible)
-    if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
-        retur
-    }
+//     //TODO changer le 0 en role admin (3 ? possible)
+//     if (MiddlePass.role != 0) {
+//         res.status(401).json("vous n'avez pas les droits")
+//         retur
+//     }
 
-    try {
+//     try {
 
-        //TODO cette requet db n'existe pas a cree
-        await db.ModifeAdmin(jsonData.ID_USER)
-    } catch (e) {
-        res.json(e)
-        return
-    }
-});
+//         //TODO cette requet db n'existe pas a cree
+//         await db.ModifeAdmin(jsonData.ID_USER)
+//     } catch (e) {
+//         res.json(e)
+//         return
+//     }
+// });
 
 
 
