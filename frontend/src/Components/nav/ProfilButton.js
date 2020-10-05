@@ -1,8 +1,11 @@
 // import React from "react";
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function ProfilButton(props) {
+    const history = useHistory();
+
+    const profil = () => history.push("/profil")
 
     const [state, setState] = useState(false);
 
@@ -17,7 +20,8 @@ function ProfilButton(props) {
     if (state === true) {
         affBtn =
             <div className="absolute right-0 bg-white text-teal-500 rounded border border-teal-500 text-xs">
-                <button className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white">Profil</button>
+                <button className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white"
+                 onClick = {profil}>Profil</button>
                 <Link to="/">{logout}</Link>
             </div>
     }

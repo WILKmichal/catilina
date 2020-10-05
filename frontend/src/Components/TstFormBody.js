@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from './Loader';
 import InfoProfil from './InfoProfil';
-import { useAxiosGet } from '../Hooks/HttpRequest';
+import { useAxiosGet } from '../Hooks/GetRequest';
 
 function TstFormBody(props) {
     // console.log(props)   

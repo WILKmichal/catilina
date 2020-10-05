@@ -3,7 +3,7 @@ const db = require('../../db/publicDb/registerDb.js');
 const bcrypt = require('bcryptjs')
 const registerValidation = require("../../models/schemaPublic/schemaRegister");
 
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res) => { //req l'objet reçu du front , res ce qui est renvoyé
 
 
     let jsonData = req.body
@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
     //hash le password
 
     // TODO try catch a ajouter
-    let salt = await bcrypt.genSalt(10)
+    let salt = await bcrypt.genSalt(10) //generer une clé de hachage longueur 10
     jsonData.MDP = await bcrypt.hash(jsonData.MDP, salt)
 
 
