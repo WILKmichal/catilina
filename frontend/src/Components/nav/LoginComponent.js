@@ -1,15 +1,31 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import logo2 from '../img/LogoMaxiconcourHibou3.png';
 import { Link } from "react-router-dom"
 import {useAxiosPost} from "../../Hooks/PostRequest";
-// import { useAxiosGet } from '../Hooks/HttpRequest'
+import Axios from "axios";
+import UserContext from "../../Context/UserContext";
+import {useHistory} from "react-router-dom";
 
 function Login() {
 
     const [COURRIEL, setCourriel] = useState(undefined);
     const [MDP, setMdp] = useState(undefined);
 
-    const url = `localhost:3001/maxiconcours/login`
+    const {setUserData} = useContext(UserContext);
+
+    const history = useHistory();
+
+    const submit = async (e) => {
+        e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
+        const newUser = {COURRIEL, MDP};
+        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser)
+        setUserData({
+            token: loginRes.data.token,
+            role: loginRes.data.role
+        })
+        localStorage.setItem("token", loginRes.data.token);
+        history.push("/");
+    };
 
     
     // let login = useAxiosPost(url,{'COURRIEL': COURRIEL, 'MDP': MDP } );
@@ -26,7 +42,7 @@ function Login() {
             <div>
                 <span className="flex justify-center "><Link to="/"><img className="m-3" src={logo2} alt="Maxiconcours"></img></Link></span>
             </div>
-            <form className="w-full ml-3 md:ml-0 pt-8" >
+            <form className="w-full ml-3 md:ml-0 pt-8" onSubmit={submit}>
                 <div className="md:flex items-center mb-6">
                     <div className=" md:w-1/3">
                         <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">E-mail</label>
@@ -36,6 +52,7 @@ function Login() {
                         id="COURRIEL" 
                         type="text" 
                         placeholder="E-mail"
+                        onChange = {(e) => setCourriel(e.target.value) }
                        />
                     </div>
                 </div>
@@ -48,6 +65,7 @@ function Login() {
                         id="MDP" 
                         type="password" 
                         placeholder="******************" 
+                        onChange = {(e) => setMdp(e.target.value) }
                         
                         />
                     </div>
