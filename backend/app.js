@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 var bodyParser = require("body-parser")
-var express = require('express');
 var cors = require('cors');
 
+//TODO whitlister seulment les routes necessaire
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
