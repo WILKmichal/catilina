@@ -75,7 +75,7 @@ function NavigationMenu(props) {
   }
   return (
 
-    <div className="w-full fixed z-40 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
+    <div className="w-full relative z-40 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
       <div>
         <span className="flex justify-center "><Link to="/"><img className="m-3"src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>
