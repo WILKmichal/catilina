@@ -127,5 +127,7 @@ localhost:3001/maxiconcours/searchAdmin => POST
 	RENVOIE TOUT LES USERS AVEC CE ROLE
 
 
+localhost:3001/maxiconcours/InscriptionConcours => POST
+
 
 	
