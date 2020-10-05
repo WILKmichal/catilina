@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader'
 import ThemeBoutton from './ThemeBoutton';
-import { useAxiosGet } from '../../Hooks/HttpRequest'
+import { useAxiosGet } from '../../Hooks/GetRequest'
 
 function ListTheme() {
 
