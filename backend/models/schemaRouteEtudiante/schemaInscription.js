@@ -30,7 +30,9 @@ InscriptionValidation.inscriptionConcours = (data) => {
 
         ID_NATIONALITE: Joi.string().length(2),
 
-        PATH_IMG: Joi.string()
+        PATH_IMG: Joi.string(),
+
+        ID_CONCOURS: Joi.number().required()
 
 
     })
