@@ -17,7 +17,7 @@ function Register() {
     const submit = async (e) => {
 
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
-        const newUser = { "COURRIEL": COURRIEL, "MDP": MDP, "NOM": NOM };
+        const newUser = {  COURRIEL, MDP, NOM };
         console.log(newUser)
         // const response =await Axios.post("http://localhost:3001/maxiconcours/register",newUser).catch(console.log(err))
         // console.log(response)
@@ -28,19 +28,29 @@ function Register() {
         }
         
         
-        await Axios.post("http://localhost:3001/maxiconcours/register", newUser, headers).catch(e)
+        await Axios.post("http://localhost:3001/maxiconcours/register", newUser).then((response) => {
+            console.log('Everything is awesome.');
+        }).catch((error) => {
+            console.warn('Not good man :(');
+        })
         console.log("2")
         const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", {
             COURRIEL,
             MDP
+        }).then((response) => {
+            console.log('Everything is awesome.');
+        }).catch((error) => {
+            console.warn('Not good man :(');
         })
         console.log("3")
         setUserData({
             token: loginRes.data.token,
             role: loginRes.data.role
         })
+        console.log("4")
         localStorage.setItem("token", loginRes.data.token);
         history.push("/");
+        console.log("5")
     };
 
 

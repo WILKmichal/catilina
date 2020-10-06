@@ -1,10 +1,9 @@
 import React, {useContext, useState} from "react";
 import logo2 from '../img/LogoMaxiconcourHibou3.png';
-import { Link } from "react-router-dom"
+import { Link,useHistory } from "react-router-dom"
 import {useAxiosPost} from "../../Hooks/PostRequest";
 import Axios from "axios";
 import UserContext from "../../Context/UserContext";
-import {useHistory} from "react-router-dom";
 
 function Login() {
 
@@ -17,12 +16,12 @@ function Login() {
 
     const submit = async (e) => {
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
-        const newUser = {COURRIEL, MDP};
-        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser)
+        const loginUser = {COURRIEL, MDP};
+        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", loginUser);
         setUserData({
             token: loginRes.data.token,
-            role: loginRes.data.role
-        })
+            role: loginRes.data.role,
+        });
         localStorage.setItem("token", loginRes.data.token);
         history.push("/");
     };
@@ -74,7 +73,7 @@ function Login() {
                     <div className="md:w-1/3"></div>
                     <div className="md:w-2/3">
                         <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" 
-                        type="button" >Log In</button>
+                        type="submit" >Log In</button>
                     </div>
                 </div>
             </form>
