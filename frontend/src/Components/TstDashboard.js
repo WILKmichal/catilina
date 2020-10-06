@@ -1,12 +1,15 @@
 import React from "react";
-//import { useAxiosGet } from '../../Hooks/HttpRequest'
+//import { useAxiosGet } from '../../Hooks/GetRequest'
+import { axios } from '../../Hooks/GetRequest'
+var MockAdapter = require("axios-mock-adapter");
+import { useAxiosGet } from "../Hooks/GetRequest";
 
 
 function Dashboard() {
 
-    //const url = 'https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/Dashboard'
-    
-    //let Dashboard = useAxiosGet(url)
+    let Dashboard = useAxiosGet(url)
+    const url = 'https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/Dashboard'
+    var mock = new MockAdapter(axios);
     
 return(
     <div>

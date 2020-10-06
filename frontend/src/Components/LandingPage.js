@@ -7,8 +7,6 @@ function LandingPage(props) {
         <div className="bg-cover bg-center opacity-50" style={{ backgroundImage:`url(${Graduation})` }}>
             <div className="text-center text-white font-sans">
                 {/* eslint-disable-next-line */}
-                <div className="h-48"></div>
-                {/* eslint-disable-next-line */}
                 <a className=" tracking-tight font-semibold md:text-base text-3xl"></a>
                 <div className="h-8"></div>
                 {/* eslint-disable-next-line */}

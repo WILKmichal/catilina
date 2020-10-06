@@ -1,21 +1,15 @@
 const Joi = require('joi');
 
-const registerValidation = (data) => {
-
-    
+const InscriptionValidation = {}
+InscriptionValidation.inscriptionConcours = (data) => {
 
     const schema = Joi.object({
-        COURRIEL: Joi.string()
-            .required()
-            .email(),
-
-        MDP: Joi.string()
-            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+        COURRIEL: Joi.string().email(),
 
         NOM: Joi.string(),
 
         PRENOM: Joi.string(),
-
+        // TODO attention format date yankee insertion hazardeuse (ne marche pas traiter la chaine de character(?) avant , la flemme de le faire la)
         D_NAISS: Joi.date(),
 
         SEXE: Joi.boolean(),
@@ -36,14 +30,13 @@ const registerValidation = (data) => {
 
         ID_NATIONALITE: Joi.string().length(2),
 
-        ID_ROLE: Joi.any().valid("1"),
-
         PATH_IMG: Joi.string()
 
-    });
+
+    })
+
 
     return schema.validate(data);
 }
 
-module.exports = registerValidation
-
+module.exports = InscriptionValidation

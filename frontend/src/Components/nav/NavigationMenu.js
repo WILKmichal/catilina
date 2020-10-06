@@ -77,10 +77,10 @@ function NavigationMenu(props) {
 
     <div className="w-full relative z-40 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
       <div>
-        <span className="flex justify-center "><Link to="/"><img className="m-3"src={logo2} alt="Maxiconcours"></img></Link></span>
+        <span className="flex justify-center "><Link to="/"><img className=""src={logo2} alt="Maxiconcours"></img></Link></span>
       </div>
-      <div className="flex justify-center col-start-4 col-end-7 md:pt-4">
-        <span className="my-4 text-teal-500  lg:w-full"><SearchBar /></span>
+      <div className="flex justify-center md:col-start-4 md:col-end-7 md:pt-4">
+        <span className="my-4 text-teal-500 md:w-3/4  lg:w-full"><SearchBar /></span>
       </div>
       {affBouton}
       <div className="absolute">

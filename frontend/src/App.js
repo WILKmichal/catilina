@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
-import Register from "./Views/Register"
+import Archive from "./Views/Archive"
+import Profil from "./Views/Profil"
+import Sauvegarde from "./Views/Sauvegarde"
+import GestionTheme from "./Views/GestionTheme"
+import GestionConcours from "./Views/GestionConcours"
+import GestionCandidat from "./Views/GestionCandidat"
+import RecruitementTeam from "./Views/RecruitementTeam"
+import ManagingTeam from "./Views/ManagingTeam"
 import NavigationMenu from './Components/nav/NavigationMenu';
 import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer";
 import InfoProfil from "./Components/InfoProfil";
 import TstListeUsers from "./Components/TstListeUsers"
 import TstDashboard from "./Components/TstDashboard";
+import UserContext from "./Context/UserContext"
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,8 +31,14 @@ function App() {
   // eslint-disable-next-line
   const [userRole, setUserRole] = useState(null);
 
+  const [userData, setUserData] = useState({
+    token: undefined,
+    user: undefined,
+  });
 
-  const [showLogin, setShowLogin] = useState(false)
+
+
+  const [showLogin, setShowLogin] = useState(false);
   const maskTransitions = useTransition(showLogin, null, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
@@ -76,7 +90,9 @@ function App() {
 
   return (
     <div className="relative pb-10 min-h-screen">
+      
       <Router>
+      <UserContext.Provider value={{userData, setUserData}}>
         {
           maskTransitions.map(({ item, key, props }) =>
             item && <animated.div
@@ -147,18 +163,25 @@ function App() {
 
         
         <NavigationMenu role={userRole} setRole={setUserRole} showLog={showLogin} setShowLog={setShowLogin} showR={showReg} setShowR={setShowReg} />
-        <TstDashboard/>
-        <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
-        <Switch>
+         <Switch>
           <Route exact path="/">
             <Home showRe={showReg} setShowRe={setShowReg}/>
           </Route>
-          <Route path="">
-            <Register />
-          </Route>
+          <Route path="/archive" component={Archive} />
+          <Route path="/sauvegarde" component={Sauvegarde} />
+          <Route path="/Profil" component={Profil} />
+          <Route path="/gestiontheme" component={GestionTheme} />
+          <Route path="/gestionconcours" component={GestionConcours} />
+          <Route path="/gestioncandidat" component={GestionCandidat} />
+          <Route path="/recruitementteam" component={RecruitementTeam} />
+          <Route path="/managingteam" component={ManagingTeam} />
+           
         </Switch>
         <Footer />
+        </UserContext.Provider>
       </Router>
+      <TstDashboard/>
+      <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
       <Postuler />
     </div>
   );

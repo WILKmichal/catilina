@@ -1,4 +1,4 @@
-const con = require('./1variableEnvironment')
+const con = require('../utilities/1variableEnvironment')
 
 data = {}
 
@@ -16,7 +16,7 @@ data.removeConstrain = () => {
 }
 
 data.verifDuplicataUser = (COURRIEL) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => { 
 
         con.query(" SELECT * FROM user WHERE COURRIEL = '" + COURRIEL + "'", (err, results) => {
             if (err) {
