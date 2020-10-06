@@ -17,42 +17,31 @@ function Register() {
     const submit = async (e) => {
 
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
+
         const newUser = {  COURRIEL, MDP, NOM };
-        console.log(newUser)
+
         await Axios.post("http://localhost:3001/maxiconcours/register",newUser)
         .then(res => { console.log(res) })
-            .catch(err => { console.log(err) })
-        // console.log(response)
-        console.log("1")
+        .catch(err => { console.log(err) })
         
-        const headers = {
-            "Content-Type": "application/json"
-        }
-        
-        
-        await Axios.post("http://localhost:3001/maxiconcours/register", newUser).then((response) => {
-            console.log('Everything is awesome.');
-        }).catch((error) => {
-            console.warn('Not good man :(');
-        })
-        console.log("2")
+        await Axios.post("http://localhost:3001/maxiconcours/register", newUser)
+        .then(res => { console.log(res) })
+        .catch(err => { console.log(err) })
+
         const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", {
             COURRIEL,
             MDP
-        }).then((response) => {
-            console.log('Everything is awesome.');
-        }).catch((error) => {
-            console.warn('Not good man :(');
-        })
-        console.log("3")
+        }).then(res => { console.log(res) })
+        .catch(err => { console.log(err) })
+
         setUserData({
             token: loginRes.data.token,
             role: loginRes.data.role
         })
-        console.log("4")
+
         localStorage.setItem("token", loginRes.data.token);
         history.push("/");
-        console.log("5")
+
     };
 
 
