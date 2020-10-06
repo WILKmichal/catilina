@@ -19,6 +19,9 @@ function Register() {
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
         const newUser = { "COURRIEL": COURRIEL, "MDP": MDP, "NOM": NOM };
         console.log(newUser)
+        
+        let err 
+        let res
         await Axios.post("http://localhost:3001/maxiconcours/register",newUser)
         .then(res => { console.log(res.data) })
             .catch(err => { console.log(err) })

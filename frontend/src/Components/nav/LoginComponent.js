@@ -17,21 +17,21 @@ function Login() {
     const history = useHistory();
 
     const submit = async (e) => {
+        console.log("2")
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
 
         const newUser = { "COURRIEL": COURRIEL, "MDP": MDP };
         let res
         let err
         const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser)
-            .then(res => { console.log(res) })
+            .then(res => { console.log(res.data) })
             .catch(err => { console.log(err) })
-
-        setUserData({
-            token: loginRes.data.token,
-            role: loginRes.data.role,
-        });
-        localStorage.setItem("token", loginRes.data.token);
-        history.push("/");
+        // setUserData({
+        //     token: loginRes.data.token,
+        //     role: loginRes.data.role
+        // })
+        // localStorage.setItem("token", loginRes.data.token);
+        // history.push("/");
     };
 
 
@@ -82,7 +82,7 @@ function Login() {
                     <div className="md:w-2/3">
 
                         <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                            type="button" >Log In</button>
+                            type="submit" >Log In</button>
                     </div>
                 </div>
             </form>
