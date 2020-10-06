@@ -12,7 +12,7 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
     const value = registerValidation(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
@@ -92,7 +92,7 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
         res.json("user cree")
         return
     } catch (e) {
-        res.status(422).json(e)
+        res.status(200).json(e)
         return
     }
 })
