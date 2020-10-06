@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
                 let userInfo = await db.recuperationInfo(jsonData.COURRIEL)
                 const token = jwt.sign({ 'id': userInfo[0].ID_USER, "role": userInfo[0].ID_ROLE }, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf")
 
-                res.header({ 'token': token }).json({"role" : userInfo[0].ID_ROLE })
+                res.json({"role" : userInfo[0].ID_ROLE,'token': token })
 
             }
             

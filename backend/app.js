@@ -3,6 +3,10 @@ const app = express()
 var bodyParser = require("body-parser")
 var cors = require('cors');
 
+var corsOptions = {
+    exposeHeaders : 'Content-Range, X-Content-Range'
+};
+
 //TODO whitlister seulment les routes necessaire
 app.use(cors());
 
