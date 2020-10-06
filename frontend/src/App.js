@@ -33,10 +33,8 @@ function App() {
 
   const [userData, setUserData] = useState({
     token: undefined,
-    user: undefined,
+    role: null,
   });
-
-
 
   const [showLogin, setShowLogin] = useState(false);
   const maskTransitions = useTransition(showLogin, null, {

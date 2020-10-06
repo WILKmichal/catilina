@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 var bodyParser = require("body-parser")
+var cors = require('cors');
+
+//TODO whitlister seulment les routes necessaire
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -15,12 +19,10 @@ const concours = require('./routes/routesPublic/concours.js')
 const gestionTheme = require('./routes/routePrivee/routeGestionConcours/gestionTheme.js')
 const gestionSousTheme = require('./routes/routePrivee/routeGestionConcours/gestionSousTheme.js')
 const gestionConcours = require('./routes/routePrivee/routeGestionConcours/gestionConcours.js')
-const InscriptionConcours = require('./routes/routePrivee/routeEtudiante.js/Inscription')
+const InscriptionConcours = require('./routes/routePrivee/routeEtudiante/Inscription')
 
 // const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
  const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
-
-
 
 app.use('/maxiconcours', routeLogin)
 app.use('/maxiconcours', routerRegister)

@@ -1,15 +1,13 @@
 import React from "react";
-//import { useAxiosGet } from '../../Hooks/GetRequest'
-import { axios } from '../../Hooks/GetRequest'
-var MockAdapter = require("axios-mock-adapter");
-import { useAxiosGet } from "../Hooks/GetRequest";
+import { Axios } from '../Hooks/GetRequestDashboard'
+
 
 
 function Dashboard() {
 
-    let Dashboard = useAxiosGet(url)
+    let Dashboard = Axios()
     const url = 'https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/Dashboard'
-    var mock = new MockAdapter(axios);
+    
     
 return(
     <div>
