@@ -21,27 +21,29 @@ function Register() {
         const newUser = {  COURRIEL, MDP, NOM };
 
         await Axios.post("http://localhost:3001/maxiconcours/register",newUser)
-        .then(res => { console.log(res) })
-        .catch(err => { console.log(err) })
+        .then(res => { console.log(res.data) })
+            .catch(err => { console.log(err) })
+        // console.log(response)
+        // console.log("1")
         
-        await Axios.post("http://localhost:3001/maxiconcours/register", newUser)
-        .then(res => { console.log(res) })
-        .catch(err => { console.log(err) })
-
-        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", {
-            COURRIEL,
-            MDP
-        }).then(res => { console.log(res) })
-        .catch(err => { console.log(err) })
-
-        setUserData({
-            token: loginRes.data.token,
-            role: loginRes.data.role
-        })
-
-        localStorage.setItem("token", loginRes.data.token);
-        history.push("/");
-
+        // const headers = {
+        //     "Content-Type": "application/json"
+        // }
+        
+        
+        // await Axios.post("http://localhost:3001/maxiconcours/register", newUser, headers).catch(e)
+        // console.log("2")
+        // const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", {
+        //     COURRIEL,
+        //     MDP
+        // })
+        // console.log("3")
+        // setUserData({
+        //     token: loginRes.data.token,
+        //     role: loginRes.data.role
+        // })
+        // localStorage.setItem("token", loginRes.data.token);
+        // history.push("/");
     };
 
 
