@@ -17,7 +17,6 @@ function Login() {
     const history = useHistory();
 
     const submit = async (e) => {
-        console.log("2")
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
 
         const newUser = { "COURRIEL": COURRIEL, "MDP": MDP };
@@ -26,12 +25,15 @@ function Login() {
         const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser)
             .then(res => { console.log(res.data) })
             .catch(err => { console.log(err) })
+
+
         // setUserData({
         //     token: loginRes.data.token,
         //     role: loginRes.data.role
         // })
         // localStorage.setItem("token", loginRes.data.token);
-        // history.push("/");
+        
+        history.push("/");
     };
 
 
