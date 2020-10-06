@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 module.exports=  function(req,res,next){
     const token = req.header('token');
 
-    if (!token) return res.status(401).send("pas de token pas de chocolat");
+    if (!token) return res.status(401).send("pas de token");
 
     try{
         const verified = jwt.verify(token, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf" )
