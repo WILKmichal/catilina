@@ -1,0 +1,25 @@
+{
+  "name": "catilina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "folderFront": "cd backend",
+    "inst": "npm i",
+    "folderback":"cd ..",
+    "start": "nodemon backend/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WILKmichal/catilina.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WILKmichal/catilina/issues"
+  },
+  "homepage": "https://github.com/WILKmichal/catilina#readme",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

@@ -3,6 +3,10 @@ const app = express()
 var bodyParser = require("body-parser")
 var cors = require('cors');
 
+var corsOptions = {
+    exposeHeaders : 'Content-Range, X-Content-Range'
+};
+
 //TODO whitlister seulment les routes necessaire
 app.use(cors());
 
@@ -38,7 +42,7 @@ app.use('/maxiconcours', InscriptionConcours)
 // app.use('/maxiconcours',gestionAdmin)
  app.use('/maxiconcours',searchAdmin)
 
-app.listen(3001, () => console.log('server lancé sur le port 3001'))
+app.listen(3001,"0.0.0.0", () => console.log('server lancé sur le port 3001'))
 
 //TODO modification dossier db pour tout les routes de routeGestionConcours (optimisation)
 //TODO rajouter middleware verifiaction role au lieu de ce truc degeulasse ecrit a chaque route (if(ROLE!= X ))

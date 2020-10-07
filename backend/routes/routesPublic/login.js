@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
         const value = loginValidation(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
                 let userInfo = await db.recuperationInfo(jsonData.COURRIEL)
                 const token = jwt.sign({ 'id': userInfo[0].ID_USER, "role": userInfo[0].ID_ROLE }, "srtfyhgxfdfyjhcgxdyfhgsdhfcgxfsgdhfcgxsdhf")
 
-                res.header({ 'token': token }).json({"role" : userInfo[0].ID_ROLE })
+                res.json({"role" : userInfo[0].ID_ROLE,'token': token })
 
             }
             
