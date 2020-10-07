@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "folderFront": "cd backend",
+    "inst": "npm i",
+    "folderback":"cd ..",
     "start": "nodemon backend/app.js"
   },
   "repository": {
