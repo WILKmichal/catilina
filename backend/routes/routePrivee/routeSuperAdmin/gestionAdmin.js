@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const verified = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
+const verif = require("../../../middleware/verifToken")
 const db = require("../../../db/gestionAdminDb/gestionAdminDb")
 
-router.post('/gestionAdmin', verified, async (req, res) => {
+router.post('/gestionAdmin', verif, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
@@ -29,7 +30,7 @@ router.post('/gestionAdmin', verified, async (req, res) => {
 });
 
 
-router.delete('/gestionAdmin', verified, async (req, res) => {
+router.delete('/gestionAdmin', verif, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
