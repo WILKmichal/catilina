@@ -4,7 +4,7 @@ let data = {}
 
 data.gestionDashboard = (ID_STATUT) => {
     return new Promise((resolve, reject) => {
-        con.query  ("SELECT ID_STATUT FROM inscription  = '" + ID_STATUT  + "'" ,(err, results) => {
+        con.query  ("SELECT ID_STATUT FROM inscription WHERE ID_STATUT  = '" + ID_STATUT  + "'" ,(err, results) => {
             if (err) {
                 return reject(err)
             }
