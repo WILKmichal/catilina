@@ -30,7 +30,6 @@ router.get('/gestionDashboard',mid, async (req, res) => {
         res.status(401).json("vous n'avez pas les droits")
         return
     }
-    else{res.json('crvr')}
 
     try {
         await db.gestionDashboard(jsonData.ID_STATUT)
