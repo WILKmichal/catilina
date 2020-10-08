@@ -143,5 +143,9 @@ localhost:3001/maxiconcours/InscriptionConcours => POST
 	PATH_IMG -string
 	ID_CONCOURS -number -obligatoire
 
+localhost:3001/maxiconcours/sauvegarde => POST
+
+	retour les inscriptions de concours de ce user (token obligatoire)
+
 
 	
