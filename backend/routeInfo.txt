@@ -147,5 +147,9 @@ localhost:3001/maxiconcours/sauvegarde => POST
 
 	retour les inscriptions de concours de ce user (token obligatoire)
 
+localhost:3001/maxiconcours/archive => POST
+
+	retour les archives de concours de ce user (token obligatoire)
+
 
 	

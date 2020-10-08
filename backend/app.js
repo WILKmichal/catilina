@@ -25,6 +25,7 @@ const gestionSousTheme = require('./routes/routePrivee/routeGestionConcours/gest
 const gestionConcours = require('./routes/routePrivee/routeGestionConcours/gestionConcours.js')
 const InscriptionConcours = require('./routes/routePrivee/routeEtudiante/Inscription')
 const sauvegarde = require('./routes/routePrivee/routeEtudiante/sauvegarde.js')
+const archive = require('./routes/routePrivee/routeEtudiante/archive.js')
 
 // const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
  const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
@@ -40,6 +41,7 @@ app.use('/maxiconcours', gestionSousTheme)
 app.use('/maxiconcours', gestionConcours)
 app.use('/maxiconcours', InscriptionConcours)
 app.use('/maxiconcours', sauvegarde)
+app.use('/maxiconcours', archive)
 
 // app.use('/maxiconcours',gestionAdmin)
  app.use('/maxiconcours',searchAdmin)

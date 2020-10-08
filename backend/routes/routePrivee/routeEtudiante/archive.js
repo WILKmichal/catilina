@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const verified = require("../../../middleware/verifToken")
-// const validation = require("../../../models/schemaRouteEtudiante/schemaSauvgarde")
-const db = require("../../../db/gestionUserDb/sauvgardeDb")
+// const validation = require("../../../models/schemaRouteEtudiante/schemaArchive")
+const db = require("../../../db/gestionUserDb/gestionArchiveDb")
 
-router.post('/sauvegarde', verified, async (req, res) => {
+router.post('/archive', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
-    // const value = validation.listeSauvegarde(jsonData)
+    // const value = validation.listeArchive(jsonData)
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
@@ -17,7 +17,7 @@ router.post('/sauvegarde', verified, async (req, res) => {
 
     try {
 
-        dbRes = await db.listeInscription(MiddlePass.id)
+        dbRes = await db.listeArchive(MiddlePass.id)
 
     } catch (e) {
         res.status(422).json(e)
