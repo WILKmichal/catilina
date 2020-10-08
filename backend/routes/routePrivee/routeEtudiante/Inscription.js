@@ -93,8 +93,8 @@ router.post('/InscriptionConcours', verified, async (req, res) => {
         lastId = await db.ajoueProfile(keysReq, stringData)
         // res.json({"id":idUser,"idprofil":lastId.insertId,"role":"0","idconcours":jsonData.ID_CONCOURS})
         // return
-        info = await db.inscription(idUser, lastId.insertId, "0", jsonData.ID_CONCOURS)
-        res.json(info)
+        await db.inscription(idUser, lastId.insertId, "0", jsonData.ID_CONCOURS)
+        res.json("inscription reussi")
         return
         // res.json({ "keys": keysReq, "data": stringData, "user": idUser })
 
@@ -107,6 +107,13 @@ router.post('/InscriptionConcours', verified, async (req, res) => {
 
 
 
+});
+
+
+//TODO route modification
+router.options('/InscriptionConcours', verified, async (req, res) => {
+    MiddlePass = req.user
+    jsonData = req.body
 });
 
 
