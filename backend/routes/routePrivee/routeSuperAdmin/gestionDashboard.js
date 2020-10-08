@@ -26,7 +26,7 @@ router.get('/gestionDashboard',mid, async (req, res) => {
     
     //TODO changer role 0 en 3
 
-    if (MiddlePass.role != 3) {
+    if (MiddlePass.role != 0) {
         res.status(401).json("vous n'avez pas les droits")
         return
     }
