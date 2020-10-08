@@ -32,7 +32,9 @@ router.get('/gestionDashboard',mid, async (req, res) => {
     }
 
     try {
-        await db.gestionDashboard(jsonData.ID_STATUT)
+        const resp = await db.gestionDashboard(jsonData.ID_STATUT)
+        res.json(resp)
+        return
     } catch (e) {
         res.json(e)
         return
