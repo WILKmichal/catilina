@@ -6,7 +6,7 @@ const mid = require('../../../middleware/verifToken')
 
 router.get('/gestionDashboard',mid, async (req, res) => {
     
-    res.json('lel')
+   
     MiddlePass = req.user
     jsonData = req.body
     
