@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const db = require('../../db/gestionDashboard')
+const db = require('../../../db/gestionAdminDb/gestionDashboard')
 const mid = require('../../../middleware/verifToken')
 // const dash = require("../../models/shemaGestionAdmins/shemaGestionDashboard")
 
 
 router.get('/gestionDashboard',mid, async (req, res) => {
     
-
+    res.json('lel')
     MiddlePass = req.user
     jsonData = req.body
     
