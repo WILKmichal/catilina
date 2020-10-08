@@ -1,12 +1,13 @@
 const router = require("express").Router();
-const verified = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
+const verification = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
+const verified = require('../../../middleware/verifToken')
 const db = require("../../../db/gestionAdminDb/gestionAdminDb")
 
 router.post('/gestionAdmin', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
-    const value = verified.registerValidation(jsonData)
+    const value = verification.registerValidation(jsonData)
 
     if (value.error) {
         res.status(400).json(value.error.details[0].message)
@@ -33,7 +34,7 @@ router.delete('/gestionAdmin', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
-    const value = verified.deleteAdmin(jsonData)
+    const value = verification.deleteAdmin(jsonData)
 
     if (value.error) {
         res.status(400).json(value.error.details[0].message)
