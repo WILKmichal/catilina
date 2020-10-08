@@ -30,7 +30,7 @@ data.listeProfil = (id) => {
 
 data.listeConcours = (id) => {
     return new Promise((resolve, reject) => {
-        con.query  ("SELECT * FROM concours WHERE ID_CONCOURS IN(SELECT ID_PROFIL FROM inscription WHERE ID_USER = "+id+"  AND ACTIVATION = 0)" ,(err, results) => {
+        con.query  ("SELECT * FROM concours WHERE ID_CONCOURS IN(SELECT ID_CONCOURS FROM inscription WHERE ID_USER = "+id+"  AND ACTIVATION = 0)" ,(err, results) => {
             if (err) {
                 return reject(err)
             }
