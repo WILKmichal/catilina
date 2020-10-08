@@ -1,16 +1,17 @@
 const router = require("express").Router();
 const db = require('../../db/gestionDashboard')
-const gestionDashboard = require("../../models/shemaGestionAdmins/shemaGestionDashboard")
+const mid = require('../../../middleware/verifToken')
+// const dash = require("../../models/shemaGestionAdmins/shemaGestionDashboard")
 
 
-router.get('/gestionDashboard', async (req, res) => {
+router.get('/gestionDashboard',mid, async (req, res) => {
     
 
     MiddlePass = req.user
     jsonData = req.body
     
     //jsonData = req.body
-    //const value = gestionDashboard(jsonData)
+    // const value = dash.gestionDashboard(jsonData)
 
     // if (value.error) {
     //     res.status(400).json()
@@ -29,6 +30,7 @@ router.get('/gestionDashboard', async (req, res) => {
         res.status(401).json("vous n'avez pas les droits")
         return
     }
+    else{res.json('crvr')}
 
     try {
         await db.gestionDashboard(jsonData.ID_STATUT)

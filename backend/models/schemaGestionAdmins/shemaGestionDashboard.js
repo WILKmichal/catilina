@@ -21,7 +21,9 @@
 
 const Joi = require('joi');
 
-const gestionDashboard = (data) => {
+const dash = {}
+
+dash.gestionDashboard = (data) => {
 
     const schema = Joi.object({
 
@@ -33,4 +35,4 @@ const gestionDashboard = (data) => {
     return schema.validate(data);
 }
 
-module.exports = sousThemeValidation
+module.exports = dash
