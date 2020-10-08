@@ -16,8 +16,14 @@ router.post('/sauvegarde', verified, async (req, res) => {
     }
 
     try {
+        dbRes = {
+            "inscription": await db.listeInscription(MiddlePass.id),
+            "profil": await db.listeProfil(MiddlePass.id),
+            "concours": await db.listeConcours(MiddlePass.id)
+        }
 
-        dbRes = await db.listeInscription(MiddlePass.id)
+         
+
 
     } catch (e) {
         res.status(422).json(e)
