@@ -1,15 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 06 oct. 2020 à 13:24
--- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.3.12
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 08 oct. 2020 à 13:06
+-- Version du serveur :  10.4.13-MariaDB
+-- Version de PHP : 7.4.7
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `mydb`
+-- Base de données : `mydb`
 --
 CREATE DATABASE IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `mydb`;
@@ -32,15 +31,13 @@ USE `mydb`;
 --
 
 DROP TABLE IF EXISTS `concours`;
-CREATE TABLE IF NOT EXISTS `concours` (
-  `ID_CONCOURS` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `concours` (
+  `ID_CONCOURS` int(11) NOT NULL,
   `LIBEL_SH` varchar(255) DEFAULT NULL,
   `LIBEL_L` varchar(7000) DEFAULT NULL,
   `DATE_FIN` date DEFAULT NULL,
-  `ID_SOUS_THEME` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID_CONCOURS`),
-  KEY `ID_SOUS_THEME` (`ID_SOUS_THEME`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+  `ID_SOUS_THEME` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `concours`
@@ -72,34 +69,35 @@ INSERT INTO `concours` (`ID_CONCOURS`, `LIBEL_SH`, `LIBEL_L`, `DATE_FIN`, `ID_SO
 --
 
 DROP TABLE IF EXISTS `inscription`;
-CREATE TABLE IF NOT EXISTS `inscription` (
+CREATE TABLE `inscription` (
   `ID_USER` int(11) DEFAULT NULL,
   `ID_PROFIL` int(11) DEFAULT NULL,
   `ID_STATUT` int(11) DEFAULT NULL,
   `ID_CONCOURS` int(11) DEFAULT NULL,
-  KEY `ID_USER` (`ID_USER`),
-  KEY `ID_STATUT` (`ID_STATUT`),
-  KEY `ID_CONCOURS` (`ID_CONCOURS`)
+  `ACTIVATION` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `inscription`
 --
 
-INSERT INTO `inscription` (`ID_USER`, `ID_PROFIL`, `ID_STATUT`, `ID_CONCOURS`) VALUES
-(1, 0, 1, 1),
-(1, 0, 1, 2),
-(1, 0, 2, 3),
-(1, 0, 3, 4),
-(2, 0, 1, 1),
-(2, 0, 1, 2),
-(2, 0, 2, 3),
-(2, 0, 3, 4),
-(3, 0, 1, 1),
-(3, 0, 1, 2),
-(3, 0, 2, 3),
-(3, 0, 3, 4),
-(76, 303, 0, 2147483647);
+INSERT INTO `inscription` (`ID_USER`, `ID_PROFIL`, `ID_STATUT`, `ID_CONCOURS`, `ACTIVATION`) VALUES
+(1, 0, 1, 1, 0),
+(1, 0, 1, 2, 0),
+(1, 0, 2, 3, 0),
+(1, 0, 3, 4, 0),
+(2, 0, 1, 1, 0),
+(2, 0, 1, 2, 0),
+(2, 0, 2, 3, 0),
+(2, 0, 3, 4, 0),
+(3, 0, 1, 1, 0),
+(3, 0, 1, 2, 0),
+(3, 0, 2, 3, 0),
+(3, 0, 3, 4, 0),
+(76, 303, 0, 2147483647, 0),
+(76, 314, 0, 2147483647, 0),
+(76, 315, 0, 2, 0),
+(76, 316, 0, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -108,11 +106,10 @@ INSERT INTO `inscription` (`ID_USER`, `ID_PROFIL`, `ID_STATUT`, `ID_CONCOURS`) V
 --
 
 DROP TABLE IF EXISTS `log`;
-CREATE TABLE IF NOT EXISTS `log` (
+CREATE TABLE `log` (
   `ACTION` varchar(255) DEFAULT NULL,
   `DATE_LOG` date DEFAULT NULL,
-  `ID_USER` int(11) DEFAULT NULL,
-  KEY `ID_USER` (`ID_USER`)
+  `ID_USER` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -131,10 +128,9 @@ INSERT INTO `log` (`ACTION`, `DATE_LOG`, `ID_USER`) VALUES
 --
 
 DROP TABLE IF EXISTS `nationalité`;
-CREATE TABLE IF NOT EXISTS `nationalité` (
+CREATE TABLE `nationalité` (
   `ID_NATIONALITE` varchar(3) NOT NULL,
-  `NOM_NATIONALITE` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID_NATIONALITE`)
+  `NOM_NATIONALITE` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -388,10 +384,9 @@ INSERT INTO `nationalité` (`ID_NATIONALITE`, `NOM_NATIONALITE`) VALUES
 --
 
 DROP TABLE IF EXISTS `photo`;
-CREATE TABLE IF NOT EXISTS `photo` (
+CREATE TABLE `photo` (
   `PATH_IMG` varchar(255) DEFAULT NULL,
-  `ID_PATH` int(11) DEFAULT NULL,
-  KEY `ID_PATH` (`ID_PATH`)
+  `ID_PATH` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -443,10 +438,9 @@ INSERT INTO `photo` (`PATH_IMG`, `ID_PATH`) VALUES
 --
 
 DROP TABLE IF EXISTS `role`;
-CREATE TABLE IF NOT EXISTS `role` (
+CREATE TABLE `role` (
   `ID_ROLE` int(11) NOT NULL,
-  `ROLE` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID_ROLE`)
+  `ROLE` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -467,12 +461,10 @@ INSERT INTO `role` (`ID_ROLE`, `ROLE`) VALUES
 --
 
 DROP TABLE IF EXISTS `soustheme`;
-CREATE TABLE IF NOT EXISTS `soustheme` (
+CREATE TABLE `soustheme` (
   `ID_SOUS_THEME` int(11) NOT NULL,
   `NOM_SOUS_THEME` varchar(255) DEFAULT NULL,
-  `ID_THEME` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID_SOUS_THEME`),
-  KEY `ID_THEME` (`ID_THEME`)
+  `ID_THEME` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -493,10 +485,9 @@ INSERT INTO `soustheme` (`ID_SOUS_THEME`, `NOM_SOUS_THEME`, `ID_THEME`) VALUES
 --
 
 DROP TABLE IF EXISTS `statut`;
-CREATE TABLE IF NOT EXISTS `statut` (
+CREATE TABLE `statut` (
   `ID_STATUT` int(11) NOT NULL,
-  `NOM_STATUT` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID_STATUT`)
+  `NOM_STATUT` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -516,11 +507,10 @@ INSERT INTO `statut` (`ID_STATUT`, `NOM_STATUT`) VALUES
 --
 
 DROP TABLE IF EXISTS `theme`;
-CREATE TABLE IF NOT EXISTS `theme` (
-  `ID_THEME` int(11) NOT NULL AUTO_INCREMENT,
-  `NOM_THEME` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID_THEME`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `theme` (
+  `ID_THEME` int(11) NOT NULL,
+  `NOM_THEME` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `theme`
@@ -546,8 +536,8 @@ INSERT INTO `theme` (`ID_THEME`, `NOM_THEME`) VALUES
 --
 
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `ID_USER` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `ID_USER` int(11) NOT NULL,
   `NOM` varchar(255) DEFAULT NULL,
   `D_NAISS` date DEFAULT NULL,
   `SEXE` tinyint(4) DEFAULT NULL,
@@ -562,11 +552,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `MDP` varchar(255) DEFAULT NULL,
   `PRENOM` varchar(255) DEFAULT NULL,
   `ID_NATIONALITE` varchar(3) NOT NULL DEFAULT 'FR',
-  `ID_ROLE` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`ID_USER`),
-  KEY `ID_NATIONALITE` (`ID_NATIONALITE`),
-  KEY `ID_ROLE` (`ID_ROLE`)
-) ENGINE=InnoDB AUTO_INCREMENT=314 DEFAULT CHARSET=utf8mb4;
+  `ID_ROLE` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `user`
@@ -576,7 +563,102 @@ INSERT INTO `user` (`ID_USER`, `NOM`, `D_NAISS`, `SEXE`, `ADRESSE`, `TEL`, `COUR
 (310, 'admin', NULL, NULL, NULL, NULL, 'admin@admin.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$m8K1sriuJsMxB7WYNroxw.lO/9Xj0.a43nd783TJnGf7CnJ90V6yO', NULL, 'FR', 3),
 (311, 'recrut', NULL, NULL, NULL, NULL, 'recrut@recrut.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$BmdWXdz9v9WYKZ7cToDW0OI8My6MJgj2V1WLG631jgQLqS2i5/Y/a', NULL, 'FR', 2),
 (312, 'gestcandidat', NULL, NULL, NULL, NULL, 'gc@gc.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$chZiYu/9Yqu9d28A.QIgre78S4JukCZxAJ2XpnBekqcmcq8ZSKYTi', NULL, 'FR', 1),
-(313, 'candidat', NULL, NULL, NULL, NULL, 'candidat@candidat.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$TAitNZwRg0xOJ4Md//FilONybrWeycJypfKK7v2SXWoZqka1vxnia', NULL, 'FR', 0);
+(313, 'candidat', NULL, NULL, NULL, NULL, 'candidat@candidat.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$TAitNZwRg0xOJ4Md//FilONybrWeycJypfKK7v2SXWoZqka1vxnia', NULL, 'FR', 0),
+(314, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 4),
+(315, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 4),
+(316, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 4);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `concours`
+--
+ALTER TABLE `concours`
+  ADD PRIMARY KEY (`ID_CONCOURS`),
+  ADD KEY `ID_SOUS_THEME` (`ID_SOUS_THEME`);
+
+--
+-- Index pour la table `inscription`
+--
+ALTER TABLE `inscription`
+  ADD KEY `ID_USER` (`ID_USER`),
+  ADD KEY `ID_STATUT` (`ID_STATUT`),
+  ADD KEY `ID_CONCOURS` (`ID_CONCOURS`);
+
+--
+-- Index pour la table `log`
+--
+ALTER TABLE `log`
+  ADD KEY `ID_USER` (`ID_USER`);
+
+--
+-- Index pour la table `nationalité`
+--
+ALTER TABLE `nationalité`
+  ADD PRIMARY KEY (`ID_NATIONALITE`);
+
+--
+-- Index pour la table `photo`
+--
+ALTER TABLE `photo`
+  ADD KEY `ID_PATH` (`ID_PATH`);
+
+--
+-- Index pour la table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`ID_ROLE`);
+
+--
+-- Index pour la table `soustheme`
+--
+ALTER TABLE `soustheme`
+  ADD PRIMARY KEY (`ID_SOUS_THEME`),
+  ADD KEY `ID_THEME` (`ID_THEME`);
+
+--
+-- Index pour la table `statut`
+--
+ALTER TABLE `statut`
+  ADD PRIMARY KEY (`ID_STATUT`);
+
+--
+-- Index pour la table `theme`
+--
+ALTER TABLE `theme`
+  ADD PRIMARY KEY (`ID_THEME`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`ID_USER`),
+  ADD KEY `ID_NATIONALITE` (`ID_NATIONALITE`),
+  ADD KEY `ID_ROLE` (`ID_ROLE`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `concours`
+--
+ALTER TABLE `concours`
+  MODIFY `ID_CONCOURS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT pour la table `theme`
+--
+ALTER TABLE `theme`
+  MODIFY `ID_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
 
 --
 -- Contraintes pour les tables déchargées
