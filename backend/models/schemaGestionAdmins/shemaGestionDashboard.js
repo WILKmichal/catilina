@@ -27,7 +27,7 @@ dash.gestionDashboard = (data) => {
 
     const schema = Joi.object({
 
-        ID_STATUT : Joi.boolean().required(),
+        ID_STATUT : Joi.number().required(),
 
     })
 
