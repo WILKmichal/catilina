@@ -128,7 +128,20 @@ localhost:3001/maxiconcours/searchAdmin => POST
 
 
 localhost:3001/maxiconcours/InscriptionConcours => POST
-	COURRIEL -string -obligatoire
+	COURRIEL -string
+	NOM -string
+	D_NAISS -date 
+	SEXE -boolean
+	ADRESSE -string
+	TEL -number
+	ETAT_CIVIL -string
+	ID_P -string
+	FACEBOOK -string
+	TWITTER -string
+	INSTAGRAM -string
+	ID_NATIONALITE -string -2
+	PATH_IMG -string
+	ID_CONCOURS -number -obligatoire
 
 
 	
