@@ -14,7 +14,7 @@ router.get('/gestionDashboard',mid, async (req, res) => {
      const value = dash.gestionDashboard(jsonData)
 
     if (value.error) {
-        res.status(400).json()
+        res.status(400).json(value.error.details[0].message)
         return
     }
 
