@@ -155,5 +155,24 @@ localhost:3001/maxiconcours/profil => POST
 
 	retour le profil ce user (token obligatoire)
 
+localhost:3001/maxiconcours/profil => OPTIONS
+
+	COURRIEL -string -obligatoire
+	NOM -string -obligatoire
+	D_NAISS -date  -obligatoire
+	SEXE -boolean -obligatoire
+	ADRESSE -string -obligatoire
+	TEL -number -obligatoire
+	ETAT_CIVIL -string -obligatoire
+	ID_P -string -obligatoire
+	FACEBOOK -string -obligatoire
+	TWITTER -string -obligatoire
+	INSTAGRAM -string -obligatoire
+	ID_NATIONALITE -string -2 -obligatoire
+
+	modifie le profil du user (token obligatoire)
+
+	
+
 
 	
