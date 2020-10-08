@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Axios from 'axios';
 
-export function useAxiosGet(url) {
+export function useAxiosGet() {
 
     const [requests, setRequests] = useState({
         loading: false,
@@ -9,6 +9,7 @@ export function useAxiosGet(url) {
         error: false
     })
 
+    
     useEffect(() => {
         let mounted = true
 
@@ -17,7 +18,8 @@ export function useAxiosGet(url) {
             data: null,
             error: false
         })
-        Axios.get(url).then(response => {
+
+        Axios.get('https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/Dashboard').then(response => {
             if (mounted) {
                 setRequests({
                     loading: false,
@@ -26,7 +28,8 @@ export function useAxiosGet(url) {
                 })
             }
         })
-            .catch(() => {
+            
+        .catch(() => {
                 if (mounted) {
                     setRequests({
                         loading: false,
@@ -37,7 +40,7 @@ export function useAxiosGet(url) {
             })
 
         return () => mounted = false;
-    }, [url])
+    }, ['https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/Dashboard'])
 
     return requests
 

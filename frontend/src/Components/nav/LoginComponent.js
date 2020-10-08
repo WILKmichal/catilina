@@ -11,12 +11,11 @@ function Login() {
 
     const [COURRIEL, setCourriel] = useState(undefined);
     const [MDP, setMdp] = useState(undefined);
-
     const { setUserData } = useContext(UserContext);
-
     const history = useHistory();
 
     const submit = async (e) => {
+        
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
 
         const newUser = { "COURRIEL": COURRIEL, "MDP": MDP };
