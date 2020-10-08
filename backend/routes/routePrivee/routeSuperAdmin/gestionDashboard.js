@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const db = require('../../../db/gestionAdminDb/gestionDashboard')
 const mid = require('../../../middleware/verifToken')
-// const dash = require("../../models/shemaGestionAdmins/shemaGestionDashboard")
+ const dash = require("../../../models/schemaGestionAdmins/shemaGestionDashboard")
 
 
 router.get('/gestionDashboard',mid, async (req, res) => {
@@ -11,12 +11,12 @@ router.get('/gestionDashboard',mid, async (req, res) => {
     jsonData = req.body
     
     //jsonData = req.body
-    // const value = dash.gestionDashboard(jsonData)
+     const value = dash.gestionDashboard(jsonData)
 
-    // if (value.error) {
-    //     res.status(400).json()
-    //     return
-    // }
+    if (value.error) {
+        res.status(400).json()
+        return
+    }
 
     // let gestionDashboard = await db.gestionDashboard(jsonData.ID_STATUT)
 
