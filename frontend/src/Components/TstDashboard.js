@@ -14,7 +14,7 @@ function Dash() {
 
 
     return (
-        <div>
+        <div className="md:.absolute">
 
 
             <div className=" bg-white-300 flex-1 p-3 overflow-hidden">

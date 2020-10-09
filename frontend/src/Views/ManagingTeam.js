@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function ManagingTeam() {
     return (
         <div className="italic border-b p-3">

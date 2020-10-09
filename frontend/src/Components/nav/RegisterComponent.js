@@ -22,7 +22,7 @@ function Register() {
         
         let err 
         let res
-        await Axios.post("http://localhost:3001/maxiconcours/register",newUser)
+        await Axios.post("http://localhost:3000/maxiconcours/register",newUser)
         .then(res => { console.log(res.data) })
             .catch(err => { console.log(err) })
         // console.log(response)
