@@ -28,4 +28,19 @@ data.concours = (idSousTheme) => {
 
 }
 
+
+data.toutConcours = () => {
+    return new Promise((resolve, reject) => {
+        con.query  ("SELECT * FROM concours" ,(err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve( results )
+
+        })
+    })
+
+}
+
+
 module.exports = data;
