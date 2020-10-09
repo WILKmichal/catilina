@@ -38,4 +38,14 @@ router.post('/concours', async (req, res) => {
     return
 });
 
+router.copy('/concours', async (req, res) => {
+    
+    
+    // TODO try catch a ajouter
+    let toutConcours = await db.toutConcours()
+
+    res.json(toutConcours)
+    return
+});
+
 module.exports = router;

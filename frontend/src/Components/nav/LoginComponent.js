@@ -17,6 +17,7 @@ function Login() {
     const history = useHistory();
 
     const submit = async (e) => {
+        
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
 
         const loginUser = { "COURRIEL": COURRIEL, "MDP": MDP };

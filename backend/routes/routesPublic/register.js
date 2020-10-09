@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 const registerValidation = require("../../models/schemaPublic/schemaRegister");
 
 router.post('/register', async (req, res) => { //req l'objet reçu du front , res ce qui est renvoyé
-
+    //TODO remove image from this route not neccesary
 
     let jsonData = req.body
 
@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
     //renvoie un select du le courriel
 
     // TODO try catch a ajouter
-    
+
     let verifDuplicataUser = await db.verifDuplicataUser(jsonData.COURRIEL)
 
     // console.log(verifDuplicataUser.length)
@@ -53,7 +53,7 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
         }
     }
 
-    
+
 
 
     //recupere les valeures du req.body et les places dans une string
@@ -61,14 +61,14 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
 
 
     //valeur  de PATH_IMG
-    if(positionImgTableau){
-    PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]
-    //remove IMG path from array of values
-    onlyValuesOfJsonData.splice(positionImgTableau, 1)
-    //recupere les keys du req.body remove l'image et les places dans une string
-    keyReqArray.splice(positionImgTableau, 1)
+    if (positionImgTableau) {
+        PATH_IMGVal = onlyValuesOfJsonData[positionImgTableau]
+        //remove IMG path from array of values
+        onlyValuesOfJsonData.splice(positionImgTableau, 1)
+        //recupere les keys du req.body remove l'image et les places dans une string
+        keyReqArray.splice(positionImgTableau, 1)
     }
-  
+
     let keysReq = keyReqArray.toString()
 
 
@@ -83,13 +83,13 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
 
         await db.removeConstrain()
         await db.register(keysReq, stringData)
+        let idUser = await db.getID(jsonData.COURRIEL)
 
         if (positionImgTableau) {
-            let idUser = await db.getID(jsonData.COURRIEL)
             await db.photoInsert(idUser[0].ID_USER, PATH_IMGVal)
         }
 
-        res.json("user cree")
+        res.json({"message":"user cree","userID":idUser[0].ID_USER})
         return
     } catch (e) {
         res.status(200).json(e)
