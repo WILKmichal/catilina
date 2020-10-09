@@ -6,13 +6,11 @@ import Axios from "axios" ;
 
 function Dash() {
 
-    const Statut = {"ID_STATUT":1}
+    const bouf = {"ID_STATUT":1}
+    const [dashboard, setDashboard] = useState("0")
 
     let loul =Axios.get("91.168.142.9:32777/maxiconcours/gestionDashboard", bouf)
     .then(res => {res = setDashboard(res.data)}).catch(err => {console.log("lel")})
-
-
-    const [dashboard, setDashboard] = useState("0")
 
 
     return (

@@ -11,7 +11,6 @@ function Login() {
 
     const [COURRIEL, setCourriel] = useState(undefined);
     const [MDP, setMdp] = useState(undefined);
-    const { setUserData } = useContext(UserContext);
 
     const { userData, setUserData } = useContext(UserContext);
 
