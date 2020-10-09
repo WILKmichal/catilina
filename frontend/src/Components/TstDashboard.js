@@ -4,11 +4,11 @@ import { useAxiosGet } from "../Hooks/GetRequest";
 import Axios from "axios" ; 
 
 
-async function Dash() {
+function Dash() {
 
     const bouf = {"ID_STATUT":1}
 
-    let loul = await Axios.get("91.168.142.9:32777/maxiconcours/gestionDashboard", bouf)
+    let loul =Axios.get("91.168.142.9:32777/maxiconcours/gestionDashboard", bouf)
     .then(res => {res = setDashboard(res.data)}).catch(err => {console.log("lel")})
 
 
