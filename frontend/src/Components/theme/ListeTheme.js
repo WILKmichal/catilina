@@ -5,7 +5,7 @@ import { useAxiosGet } from '../../Hooks/GetRequest'
 
 function ListTheme() {
 
-    const url = `https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/theme`
+    const url = `http://localhost:3001/maxiconcours/theme`
 
     let themes = useAxiosGet(url)
 
@@ -23,9 +23,9 @@ function ListTheme() {
 
     if (themes.data) {
         content =
-            themes.data.map((theme, key) =>
+            themes.data.map((NOM_THEME, key) =>
                 <div key={key}>
-                    <ThemeBoutton theme={theme} />
+                    <ThemeBoutton theme={NOM_THEME} />
                 </div>
             )
     }
@@ -34,12 +34,12 @@ function ListTheme() {
     return (
         <div>
             <div>
-                <h1 className="p-5">THEME</h1>
+                <h1 className="items-center	">THEMES</h1>
             </div>
             <div className="centered">
                 {loader}
             </div>
-            <div className="w-full flex overflow-hidden p-4" >
+            <div className="grid-cols-4 w-full flex flex-wrap overflow-hidden p-4" >
                 {content}
             </div>
         </div>

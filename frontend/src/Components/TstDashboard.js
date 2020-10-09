@@ -4,7 +4,13 @@ import { useAxiosGet } from "../Hooks/GetRequest";
 import Axios from "axios" ; 
 
 
-function Dash() {
+ function Dash() {
+
+    const bouf = {"ID_STATUT":1}
+
+    let loul =  Axios.get("91.168.142.9:32777/maxiconcours/gestionDashboard", bouf)
+    .then(res => {res = setDashboard(res.data)}).catch(err => {console.log("lel")})
+
 
     const tst = {"ID_STATUT":1}
     const [dashboard, setDashboard] = useState("0")
@@ -149,7 +155,7 @@ function Dash() {
                                             <td>10000</td>
                                             <td>3000</td>
                                             <td>
-                                                <span className="text-green-500"><i classNameName="fas fa-arrow-up"></i>65%</span>
+                                                <span className="text-green-500"><i className="fas fa-arrow-up"></i>65%</span>
                                             </td>
                                         </tr>
 

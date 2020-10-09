@@ -3,15 +3,12 @@ const app = express()
 var bodyParser = require("body-parser")
 var cors = require('cors');
 
-var corsOptions = {
-    exposeHeaders : 'Content-Range, X-Content-Range'
-};
+// create application/json parser
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //TODO whitlister seulment les routes necessaire
 app.use(cors());
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 const routeLogin = require('./routes/routesPublic/login.js')
 const routerRegister = require('./routes/routesPublic/register.js')
@@ -28,26 +25,32 @@ const gestionDashbord = require ('./routes/routePrivee/routeSuperAdmin/gestionDa
 const sauvegarde = require('./routes/routePrivee/routeEtudiante/sauvegarde.js')
 const archive = require('./routes/routePrivee/routeEtudiante/archive.js')
 const profil = require('./routes/routePrivee/routeEtudiante/profil.js')
+const uploadPhoto = require("./routes/routesPublic/pictureUpload")
 
-// const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
+ const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
  const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
 
-app.use('/maxiconcours', routeLogin)
-app.use('/maxiconcours', routerRegister)
-app.use('/maxiconcours', theme)
-app.use('/maxiconcours', soustheme)
-app.use('/maxiconcours', concours)
-app.use('/maxiconcours', gestionTheme)
-app.use('/maxiconcours', gestionSousTheme)
-app.use('/maxiconcours', gestionConcours)
-app.use('/maxiconcours', InscriptionConcours)
-app.use('/maxiconcours',gestionDashbord)
-app.use('/maxiconcours', sauvegarde)
-app.use('/maxiconcours', archive)
-app.use('/maxiconcours', profil)
+app.use('/maxiconcours',urlencodedParser,jsonParser, routeLogin)
+app.use('/maxiconcours',jsonParser,urlencodedParser, routerRegister)
+app.use('/maxiconcours',urlencodedParser,jsonParser, theme)
+app.use('/maxiconcours',urlencodedParser,jsonParser, soustheme)
+app.use('/maxiconcours',urlencodedParser,jsonParser, concours)
+app.use('/maxiconcours',urlencodedParser,jsonParser, gestionTheme)
+app.use('/maxiconcours',urlencodedParser,jsonParser, gestionSousTheme)
+app.use('/maxiconcours',urlencodedParser,jsonParser, gestionConcours)
+app.use('/maxiconcours',urlencodedParser,jsonParser, InscriptionConcours)
+app.use('/maxiconcours',urlencodedParser,jsonParser, gestionDashbord)
+app.use('/maxiconcours',urlencodedParser,jsonParser, sauvegarde)
+app.use('/maxiconcours',urlencodedParser,jsonParser, archive)
+app.use('/maxiconcours',urlencodedParser,jsonParser, profil)
 
-// app.use('/maxiconcours',gestionAdmin)
- app.use('/maxiconcours',searchAdmin)
+ app.use('/maxiconcours',urlencodedParser,jsonParser, gestionAdmin)
+ app.use('/maxiconcours',urlencodedParser,jsonParser, searchAdmin)
+
+ app.use(express.static("./img"))
+
+
+ app.use('/maxiconcours', uploadPhoto)
 
 app.listen(3001,"0.0.0.0", () => console.log('server lancé sur le port 3001'))
 

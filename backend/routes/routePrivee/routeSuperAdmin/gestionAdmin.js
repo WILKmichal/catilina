@@ -1,11 +1,12 @@
 const router = require("express").Router();
-<<<<<<< HEAD
-const verified = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
+
 const verif = require("../../../middleware/verifToken")
-=======
+
 const verification = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
 const verified = require('../../../middleware/verifToken')
->>>>>>> origin/master
+
+
+
 const db = require("../../../db/gestionAdminDb/gestionAdminDb")
 
 router.post('/gestionAdmin', verif, async (req, res) => {
