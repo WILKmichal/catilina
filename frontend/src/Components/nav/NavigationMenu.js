@@ -1,4 +1,5 @@
-import React from 'react';
+import React ,{ useContext, useState } from 'react';
+import UserContext from "../../Context/UserContext";
 import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar";
 import logo2 from '../img/LogoMaxiconcourHibou3.png';
@@ -17,40 +18,44 @@ import GestionEqGestConcoursButton from "./role3/GestionEqGestConcoursButton";
 
 function NavigationMenu(props) {
 
+  const { userData, setUserData } = useContext(UserContext);
+
   let affBouton
-  function setRole1() {
-    props.setRole("1")
-  }
+  // function setRole1() {
+  //   props.setRole("1")
+  // }
 
-  function setRole0() {
-    props.setRole("0")
-  }
+  // function setRole0() {
+  //   props.setRole("0")
+  // }
 
-  function setRole2() {
-    props.setRole("2")
-  }
+  // function setRole2() {
+  //   props.setRole("2")
+  // }
 
-  function setRole3() {
-    props.setRole("3")
-  }
-
-  if (props.role === null) {
+  // function setRole3() {
+  //   props.setRole("3")
+  // }
+  if (userData.role == "3")
+  {
     affBouton =
-    <div className="flex justify-center col-start-8 col-end-12 md:pt-4">
-        <LoginSliderRight showL={props.showLog} setShowL={props.setShowLog} />
-        <RegisterSliderRight show={props.showR} setShow={props.setShowR}/>
+      <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
+        <GestionEqRecrutButton />
+        <GestionEqGestConcoursButton />
+        <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
+      
   }
-
-  if (props.role === "0") {
+  if (userData.role == "2")
+  {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
-        <ArchiveButton />
-        <SaveButton />
+        <GestionCandidatButton />
         <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
-  if (props.role === "1") {
+  if (userData.role == "1")
+  {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
         <GestionThemeButton />
@@ -58,21 +63,65 @@ function NavigationMenu(props) {
         <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
-  if (props.role === "2") {
+  if (userData.role == "0")
+  {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
-        <GestionCandidatButton />
+        <ArchiveButton />
+        <SaveButton />
         <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
-  if (props.role === "3") {
+  if (userData.role == null)
+   {
     affBouton =
-      <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
-        <GestionEqRecrutButton />
-        <GestionEqGestConcoursButton />
-        <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
+    <div className="flex justify-center col-start-8 col-end-12 md:pt-4">
+        <LoginSliderRight showL={props.showLog} setShowL={props.setShowLog} />
+        <RegisterSliderRight show={props.showR} setShow={props.setShowR}/>
       </div>
   }
+  console.log(userData.role)
+
+  // console.log(userData.role)
+  // if (props.role === null) {
+  //   affBouton =
+  //   <div className="flex justify-center col-start-8 col-end-12 md:pt-4">
+  //       <LoginSliderRight showL={props.showLog} setShowL={props.setShowLog} />
+  //       <RegisterSliderRight show={props.showR} setShow={props.setShowR}/>
+  //     </div>
+  // }
+
+  // if (props.role === "0") {
+  //   affBouton =
+  //   <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
+  //       <ArchiveButton />
+  //       <SaveButton />
+  //       <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
+  //     </div>
+  // }
+  // if (props.role === "1") {
+  //   affBouton =
+  //   <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
+  //       <GestionThemeButton />
+  //       <GestionConcoursButton />
+  //       <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
+  //     </div>
+ // }
+  // if (props.role === "2") {
+  //   affBouton =
+  //   <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
+  //       <GestionCandidatButton />
+  //       <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
+  //     </div>
+  // }
+  // if (props.role === "3") {
+  //   affBouton =
+  //     <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
+  //       <GestionEqRecrutButton />
+  //       <GestionEqGestConcoursButton />
+  //       <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
+  //     </div>
+  // }
   return (
 
     <div className="w-full relative z-40 bg-teal-100 text-white p-1 md:items-center md:grid grid-cols-12">
@@ -83,12 +132,12 @@ function NavigationMenu(props) {
         <span className="my-4 text-teal-500 md:w-3/4  lg:w-full"><SearchBar /></span>
       </div>
       {affBouton}
-      <div className="absolute">
+      {/* <div className="absolute">
         <button onClick={setRole0} className="bg-gray-500 rounded mx-2">candidat</button>
         <button onClick={setRole1} className="bg-gray-500 rounded mx-2">concours</button>
         <button onClick={setRole2} className="bg-gray-500 rounded mx-2">recrut</button>
         <button onClick={setRole3} className="bg-gray-500 rounded mx-2">admin</button>
-      </div>
+      </div> */}
     </div>
   );
 }
