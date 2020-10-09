@@ -44,6 +44,7 @@ function NavigationMenu(props) {
         <GestionEqGestConcoursButton />
         <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
+      
   }
   if (userData.role == "2")
   {

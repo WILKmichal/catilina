@@ -11,7 +11,7 @@ function ProfilButton(props) {
 
     const [state, setState] = useState(false);
 
-    const {userData, setUserData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
 
     // const logout = () => {
     //     setUserData({
@@ -22,24 +22,28 @@ function ProfilButton(props) {
 
     let affBtn
 
-    
 
-   let logout = () => localStorage.clear("token");
-   history.push("/");
 
-   //Completer le logout avec remise a null du role
-   
-console.log(userData.role)
-//         token: undefined
-//          }),
-//     console.log(userData.token),
-//     console.log(userData.role),
-// localStorage.clear("token"),
-// console.log(userData.token)}
-//         className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white">Logout
-//         </button>
+    let logout = () => (
+        setUserData({
+        role: null
+    }),
+   localStorage.clear("token"),
+    history.push("/"))
 
-        
+    //Completer le logout avec remise a null du role
+
+    console.log(userData.role)
+    //         token: undefined
+    //          }),
+    //     console.log(userData.token),
+    //     console.log(userData.role),
+    // localStorage.clear("token"),
+    // console.log(userData.token)}
+    //         className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white">Logout
+    //         </button>
+
+
 
 
     if (state === false) {
@@ -51,8 +55,8 @@ console.log(userData.role)
             <div className="absolute right-0 bg-white text-teal-500 rounded border border-teal-500 text-xs">
                 <button className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white"
                     onClick={profil}>Profil</button>
-                <button className = "block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white"
-                onClick = {logout} >Logout
+                <button className="block px-4 py-2 border-1 w-24 text-xs font-medium hover:bg-teal-300 hover:text-white"
+                    onClick={logout} >Logout
         </button>
             </div>
     }
