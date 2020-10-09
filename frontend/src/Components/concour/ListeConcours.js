@@ -6,9 +6,10 @@ import { useAxiosGet } from '../../Hooks/GetRequest'
 
 function ListeAleatoirConcours() {
 
-        const url = `https://5f3be1fcfff8550016ae5d56.mockapi.io/Projet/concours?page=1&limit=10`
+        const url = `http://localhost:3001/maxiconcours/concours`
 
         let concours = useAxiosGet(url)
+        console.log(concours)
 
 
         let content = null
