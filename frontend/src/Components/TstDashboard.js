@@ -6,11 +6,11 @@ import Axios from "axios" ;
 
 function Dash() {
 
-    const bouf = {"ID_STATUT":1}
+    const tst = {"ID_STATUT":1}
     const [dashboard, setDashboard] = useState("0")
 
-    let loul =Axios.get("91.168.142.9:32777/maxiconcours/gestionDashboard", bouf)
-    .then(res => {res = setDashboard(res.data)}).catch(err => {console.log("lel")})
+    let dash = Axios.get("http://91.168.142.9:32777/maxiconcours/gestionDashboard", tst)
+    .then(res => {res = setDashboard(res.data)}).catch(err => {console.log("tst")})
 
 
     return (
@@ -115,7 +115,7 @@ function Dash() {
                                             <th scope="row">2</th>
                                             <td>
                                                 <button className="bg-blue-500 hover:bg-primary-dark text-white font-light py-1 px-2 rounded-full">
-                                                    Data Analyst
+                                                    Data Analyst {}
                                 </button>
                                             </td>
                                             <td>10000</td>
@@ -129,7 +129,7 @@ function Dash() {
                                             <th scope="row">3</th>
                                             <td>
                                                 <button className="bg-blue-500 hover:bg-success-dark text-white font-light py-1 px-2 rounded-full">
-                                                    Developer Web
+                                                    Developer Web {}
                                 </button>
                                             </td>
                                             <td>10000</td>
@@ -143,7 +143,7 @@ function Dash() {
                                             <th scope="row">4</th>
                                             <td>
                                                 <button className="bg-blue-500 hover:bg-blue-800 text-white font-light py-1 px-2 rounded-full">
-                                                    Scrum Master
+                                                    Scrum Master {}
                                 </button>
                                             </td>
                                             <td>10000</td>
