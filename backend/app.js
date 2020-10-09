@@ -3,15 +3,11 @@ const app = express()
 var bodyParser = require("body-parser")
 var cors = require('cors');
 
-var corsOptions = {
-    exposeHeaders : 'Content-Range, X-Content-Range'
-};
+// create application/json parser
+var jsonParser = bodyParser.json()
 
 //TODO whitlister seulment les routes necessaire
 app.use(cors());
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 const routeLogin = require('./routes/routesPublic/login.js')
 const routerRegister = require('./routes/routesPublic/register.js')
@@ -29,25 +25,25 @@ const sauvegarde = require('./routes/routePrivee/routeEtudiante/sauvegarde.js')
 const archive = require('./routes/routePrivee/routeEtudiante/archive.js')
 const profil = require('./routes/routePrivee/routeEtudiante/profil.js')
 
-// const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
+ const gestionAdmin = require('./routes/routePrivee/routeSuperAdmin/gestionAdmin')
  const searchAdmin = require("./routes/routePrivee/routeSuperAdmin/searchAdmin")
 
-app.use('/maxiconcours', routeLogin)
-app.use('/maxiconcours', routerRegister)
-app.use('/maxiconcours', theme)
-app.use('/maxiconcours', soustheme)
-app.use('/maxiconcours', concours)
-app.use('/maxiconcours', gestionTheme)
-app.use('/maxiconcours', gestionSousTheme)
-app.use('/maxiconcours', gestionConcours)
-app.use('/maxiconcours', InscriptionConcours)
-app.use('/maxiconcours',gestionDashbord)
-app.use('/maxiconcours', sauvegarde)
-app.use('/maxiconcours', archive)
-app.use('/maxiconcours', profil)
+app.use('/maxiconcours',jsonParser, routeLogin)
+app.use('/maxiconcours',jsonParser, routerRegister)
+app.use('/maxiconcours',jsonParser, theme)
+app.use('/maxiconcours',jsonParser, soustheme)
+app.use('/maxiconcours',jsonParser, concours)
+app.use('/maxiconcours',jsonParser, gestionTheme)
+app.use('/maxiconcours',jsonParser, gestionSousTheme)
+app.use('/maxiconcours',jsonParser, gestionConcours)
+app.use('/maxiconcours',jsonParser, InscriptionConcours)
+app.use('/maxiconcours',jsonParser, gestionDashbord)
+app.use('/maxiconcours',jsonParser, sauvegarde)
+app.use('/maxiconcours',jsonParser, archive)
+app.use('/maxiconcours',jsonParser, profil)
 
-// app.use('/maxiconcours',gestionAdmin)
- app.use('/maxiconcours',searchAdmin)
+ app.use('/maxiconcours',jsonParser, gestionAdmin)
+ app.use('/maxiconcours',jsonParser, searchAdmin)
 
 app.listen(3001,"0.0.0.0", () => console.log('server lancé sur le port 3001'))
 
