@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const verified = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
+const verification = require("../../../models/schemaGestionAdmins/schemaRegisterAdmin")
 const verif = require("../../../middleware/verifToken")
 const db = require("../../../db/gestionAdminDb/gestionAdminDb")
 
