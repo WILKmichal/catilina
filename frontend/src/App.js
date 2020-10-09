@@ -2,7 +2,10 @@ import React, { useEffect, useState} from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Archive from "./Views/Archive"
-import Profil from "./Views/Profil"
+import Profil from "./Views/Profil" 
+import AdminAccueil from "./Views/AdminAccueil"
+import RecrutAccueil from "./Views/RecrutAccueil"
+import GCAccueil from "./Views/GCAccueil"
 import Sauvegarde from "./Views/Sauvegarde"
 import GestionTheme from "./Views/GestionTheme"
 import GestionConcours from "./Views/GestionConcours"
@@ -173,6 +176,9 @@ function App() {
           <Route path="/gestioncandidat" component={GestionCandidat} />
           <Route path="/recruitementteam" component={RecruitementTeam} />
           <Route path="/managingteam" component={ManagingTeam} />
+          <Route path="/adminaccueil" component={AdminAccueil} />
+          <Route path="/recrutaccueil" component={RecrutAccueil} />
+          <Route path="/gcaccueil" component={GCAccueil} />
            
         </Switch>
         <Footer />
