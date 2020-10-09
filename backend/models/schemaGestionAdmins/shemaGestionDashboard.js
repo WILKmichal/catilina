@@ -4,8 +4,6 @@
 
 // validation.dashboard = (data) => {
 
-
-
 //     const schema = Joi.object({
 
 //         ID_STATUT: Joi.valid("1", "2", "3").required()
@@ -13,6 +11,7 @@
 //     });
 
 //     return schema.validate(data);
+
 // }
 
 // module.exports = validation
