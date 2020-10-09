@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Axios from 'axios';
 
-export function useAxiosGet(url) {
+export function useAxiosPut(url) {
 
     const [requests, setRequests] = useState({
         loading: false,
@@ -19,7 +19,7 @@ export function useAxiosGet(url) {
             error: false
         })
 
-        Axios.get(url).then(response => {
+        Axios.put(url).then(response => {
             if (mounted) {
                 setRequests({
                     loading: false,

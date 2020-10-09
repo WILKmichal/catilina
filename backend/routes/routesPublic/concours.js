@@ -38,7 +38,7 @@ router.post('/concours', async (req, res) => {
     return
 });
 
-router.copy('/concours', async (req, res) => {
+router.put('/concours', async (req, res) => {
     
     
     // TODO try catch a ajouter

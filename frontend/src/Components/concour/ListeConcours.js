@@ -1,15 +1,15 @@
 import React from 'react';
 import Loader from '../Loader'
 import ConcoursCard from './ConcoursCard';
-import { useAxiosGet } from '../../Hooks/GetRequest'
+import { useAxiosPut } from '../../Hooks/PutRequest'
 
 
 function ListeAleatoirConcours() {
 
         const url = `http://localhost:3001/maxiconcours/concours`
 
-        let concours = useAxiosGet(url)
-        console.log(concours)
+        let concours = useAxiosPut(url)
+     console.log(concours)
 
 
         let content = null
