@@ -184,10 +184,7 @@ function App() {
         <Footer />
         </UserContext.Provider>
       </Router>
-      <TstDashboard/>
-      <TstListeUsers showPro={showProfil} setShowPro={setShowProfil}/>
-      <Postuler />
-    </div>
+      </div>
   );
 }
 
