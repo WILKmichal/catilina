@@ -1,8 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import RegisterButton from './RegisterButton.js';
 import Graduation from './img/Graduation.jpg'
+import UserContext from "../Context/UserContext";
 
 function LandingPage(props) {
+
+    const { userData, setUserData } = useContext(UserContext);
+
+    let regButton
+
+    if (userData.role != null) 
+    regButton = "";
+    else
+    regButton=
+    <RegisterButton show={props.showR} setShow={props.setShowR}/>;
+
     return (
         <div className="bg-cover bg-center opacity-50" style={{ backgroundImage:`url(${Graduation})` }}>
             <div className="text-center text-white font-sans">
@@ -16,8 +28,8 @@ function LandingPage(props) {
                 <a className="text-2xl tracking-tight font-semibold">Votre avenir à la portée d'un clic</a>
                 <div className="h-24"></div>
                
-                    
-                   <RegisterButton show={props.showR} setShow={props.setShowR}/>
+               
+                   {regButton}
                 
                 <div className="h-32"></div>
             </div>
