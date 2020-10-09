@@ -12,38 +12,42 @@ function Login() {
     const [COURRIEL, setCourriel] = useState(undefined);
     const [MDP, setMdp] = useState(undefined);
     const { setUserData } = useContext(UserContext);
+
+    const { userData, setUserData } = useContext(UserContext);
+
     const history = useHistory();
 
     const submit = async (e) => {
         
         e.preventDefault(); //pour éviter le rechargerment de la page lors du submit
 
-        const newUser = { "COURRIEL": COURRIEL, "MDP": MDP };
-        let res
-        let err
-        const loginRes = await Axios.post("http://localhost:3001/maxiconcours/login", newUser)
-            .then(res => { console.log(res.data) })
-            .catch(err => { console.log(err) })
+        const loginUser = { "COURRIEL": COURRIEL, "MDP": MDP };
 
-
-        // setUserData({
-        //     token: loginRes.data.token,
-        //     role: loginRes.data.role
-        // })
-        // localStorage.setItem("token", loginRes.data.token);
-        
-        history.push("/");
+        await Axios.post("http://localhost:3001/maxiconcours/login", loginUser)
+            .then(res => {
+                setUserData({
+                    token: res.data.token,
+                    role: res.data.role,
+                })
+                localStorage.setItem("token", res.data.token)
+            }
+            )
+            .catch(err => { console.log(err) });
+                // localStorage.setItem("token", JSON.stringify(userData.token));
+       
     };
+    
+    if (userData.role == "3")
+    history.push("/adminaccueil");
+    if (userData.role == "2")
+    history.push("/recrutaccueil");
+    if (userData.role == "1")
+    history.push("/gcaccueil");
+    if (userData.role == "0")
+    history.push("/");
+    console.log(userData.role)
 
-
-    // let login = useAxiosPost(url,{'COURRIEL': COURRIEL, 'MDP': MDP } );
-    //Faire un useState + condition + 
-
-    // function loginFunction(e) {  
-
-    // console.log(login)
-
-    // }
+    
 
     return (
         <div className="p-4">
