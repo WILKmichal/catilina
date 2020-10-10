@@ -7,7 +7,6 @@ import Loader from '../Components/Loader'
 function GestionTheme() {
 
     let response = useAxiosGet("http://localhost:3001/maxiconcours/theme")
-    console.log(response)
 
 
     let content = null
@@ -21,6 +20,7 @@ function GestionTheme() {
         loader = <Loader></Loader>
     }
 
+    console.log(response.data)
     if (response.data) {
         content = response.data.map((theme, key) =>
             <div key={key}>

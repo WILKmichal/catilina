@@ -1,56 +1,98 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"
 import TstFormBody from '../Components/TstFormBody'
 import TstFormHeader from '../Components/TstFormHeader'
-import Loader from '../Components/Loader'
+// import Loader from '../Components/Loader'
 import Axios from "axios";
 
 function RecruitementTeam(props) {
-    const { user, setUser } = useState({
-        NOM: null,
-        COURRIEL: null
-    })
+    // const { user, setUser } = useState({
+    //     NOM: null,
+    //     COURRIEL: null
+    // })
 
 
-    let loader = null;
-
+    // let loader = null;
+    //!  Axios.post("http://localhost:3001/maxiconcours/searchAdmin"
     const data =
     {
         "ID_ROLE": "1",
         "TOKEN": localStorage.getItem("token")
     };
 
-    console.log(data)
-    
+    const [requests, setRequests] = useState([])
 
-    let dataRes = Axios.post("http://localhost:3001/maxiconcours/searchAdmin", data)
-        .then(res => {
-            
+    useEffect(() => {
+        const fetchData = async () => {
+            Axios.post("http://localhost:3001/maxiconcours/searchAdmin", data)
+                .then(res => { setRequests(res.data) })
+                .catch(err => { console.log(err) })
 
-            if (res.error) {
-                content = <p>erreur pas d'employés</p>
+        }
+
+        fetchData()
+    }, [])
+
+    // content ={"fetching",'getching'}
+
+    console.log(requests)
+
+    var chartData = [];
+
+    for (var i in requests) {
+        var item = requests[i];
+        var outer = [];
+        // skip over items in the outer object that aren't nested objects themselves
+        if (typeof item === "object") {
+            for (var j in item) {
+                var temp = [];
+                temp.push(j);
+                temp.push(item[j]);
+                outer.push(temp);
             }
+        }
+        if (outer.length) {
+            chartData.push(outer);
+        }
+    }
+    console.log(chartData)
 
-            if (res.loading) {
-                loader = <Loader></Loader>
-            }
+    let content = null
 
-            if (res.data) {
-                content =
-                res.data.map((data, key) =>
-                        <div key={key}>
-                            <TstFormBody user={data} showP={props.showPro} setShowP={props.setShowPro} />
-                        </div>
-                    )
-            }
-            console.log(res.data)
-            return
-        })
-        .catch(err => { console.log(err) });
+
+    content = chartData.map((user, key) =>
+        <div key={key}>
+            {user}
+        </div>
+    )
+
+
     // localStorage.setItem("token", JSON.stringify(userData.token));
-    console.log(dataRes)
-    ;
-    let content = JSON.stringify(dataRes)
-console.log(content)
+
+
+    // if (res.error) {
+    //     content = <p>erreur pas d'employés</p>
+    // }
+
+    // if (res.loading) {
+    //     loader = <Loader></Loader>
+    // }
+
+    // if (res.data) {
+    // let content = requests.data.map((data, key) =>
+    //     <div key={key}>
+    //         <TstFormBody user={data} showP={props.showPro} setShowP={props.setShowPro} />
+    //     </div>
+    // )
+    // let content = null;
+    // }
+    // if (requests) {
+    //     content = requests.map((theme, key) =>
+    //         <a key={key}>
+    //             theme={theme}
+    //         </a>
+    //     )
+    // }
+
     return (
         <div>
             <div className="italic border-b p-3">
@@ -66,9 +108,7 @@ console.log(content)
                         <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
 
                             <TstFormHeader />
-                            {loader}
                             {content}
-
 
 
                             <div
