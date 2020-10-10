@@ -5,7 +5,7 @@ data = {}
 data.searchRole = (id_role) => {
     return new Promise((resolve, reject) => {
 
-        con.query("SELECT * FROM `user` WHERE `ID_ROLE`="+ id_role, (err, results) => {
+        con.query("SELECT * FROM `user` WHERE ID_ROLE="+ id_role, (err, results) => {
             if (err) {
                 return reject(err)
             }

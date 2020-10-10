@@ -22,7 +22,7 @@ router.post('/searchAdmin', verified, async (req, res) => {
     }
 
     try {
-        let usersRoleX = db.searchRole(jsonData.ID_ROLE)
+        let usersRoleX = await db.searchRole(jsonData.ID_ROLE)
         res.json(usersRoleX)
     return
 
