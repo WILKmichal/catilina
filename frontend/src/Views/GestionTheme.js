@@ -1,37 +1,33 @@
 import React from "react";
-import SearchBar from "../Components/GCcomponents/SearchBar"
+// import SearchBar from "../Components/GCcomponents/SearchBar"
 import ThemeDiv from "../Components/GCcomponents/ThemeDiv"
-import Axios from "axios";
+import { useAxiosGet } from "../Hooks/GetRequest"
+import Loader from '../Components/Loader'
 
 function GestionTheme() {
 
-    let themeL = null
-    let response
+    let response = useAxiosGet("http://localhost:3001/maxiconcours/theme")
+    console.log(response)
 
 
-    Axios.get("http://localhost:3001/maxiconcours/theme")
-        .then(res => {
+    let content = null
+    let loader = null
 
-            // console.log(res.data)
-            
-            response = res.data
-            console.log(response)
+    if (response.error) {
+        content = <p>erreur pas de theme</p>
+    }
 
+    if (response.loading) {
+        loader = <Loader></Loader>
+    }
 
-        })
-        .catch(err => { console.log(err) });
-
-        console.log(response)
-
-    // themeL = response.data.map((theme, key) =>
-    //     // console.log(theme)
-
-    //     <div key={key}>
-    //         <ThemeDiv theme={theme} />
-    //     </div>
-    //     // <div>lel</div>
-    // )
-
+    if (response.data) {
+        content = response.data.map((theme, key) =>
+            <div key={key}>
+                <ThemeDiv theme={theme} />
+            </div>
+        )
+    }
 
     return (
         <div className="flex-1 bg-gray-200 p-4 flex justify-center items-center">
@@ -39,7 +35,8 @@ function GestionTheme() {
                 <div className="p-6 ">
                     <button className="p-4 bg-green-400 hover:bg-green-500 w-full rounded-lg shadow text-xl font-medium uppercase text-white">New theme</button>
                 </div>
-                {themeL}
+                {content}
+                {loader}
                 {/* ici */}
             </div>
         </div>

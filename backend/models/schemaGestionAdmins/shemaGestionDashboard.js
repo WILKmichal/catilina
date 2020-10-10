@@ -27,6 +27,8 @@ dash.gestionDashboard = (data) => {
 
     const schema = Joi.object({
 
+        TOKEN : Joi.string().required(),
+
         ID_STATUT : Joi.number().required(),
 
     })
