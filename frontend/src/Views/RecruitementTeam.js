@@ -1,52 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import TstFormBody from '../Components/TstFormBody'
 import TstFormHeader from '../Components/TstFormHeader'
 import Loader from '../Components/Loader'
 import Axios from "axios";
 
 function RecruitementTeam(props) {
+    const { user, setUser } = useState({
+        NOM: null,
+        COURRIEL: null
+    })
+
 
     let loader = null;
+
+    const data =
+    {
+        "ID_ROLE": "1",
+        "TOKEN": localStorage.getItem("token")
+    };
+
+    console.log(data)
     
-    const content = async (e) => {
 
-        const data = {
-             "ID_ROLE": "1",
-             "TOKEN": localStorage.getItem()
-     };
-        
-        e.preventDefault();
-    let emp = await Axios.post("http://localhost:3001/maxiconcours/searchAdmin", data)
-    console.log(emp)
-            // .then(res => 
-            //     {console.log(emp.data)
-                    
-                // if (res.user.error) {
-                //     content = <p>erreur pas d'employé</p>
-                // }
+    let dataRes = Axios.post("http://localhost:3001/maxiconcours/searchAdmin", data)
+        .then(res => {
             
-                // if (res.user.loading) {
-                //     loader = <Loader></Loader>
-                // }
-            
-                // if (res.user.data) {
-                //     content =
-                //         user.data.map((ID_ROLE, key) =>
-                //             <div key={key}>
-                //                 <TstFormBody user={ID_ROLE} showP={props.showPro} setShowP={props.setShowPro} />
-                //             </div>
-                //         )
-                        
-                // }
-            //     console.log(res.data)
-            // },
-            // console.log(emp.data)
-            // )
-            // .catch(err => { console.log(err) });
-    }
 
+            if (res.error) {
+                content = <p>erreur pas d'employés</p>
+            }
 
-    
+            if (res.loading) {
+                loader = <Loader></Loader>
+            }
+
+            if (res.data) {
+                content =
+                res.data.map((data, key) =>
+                        <div key={key}>
+                            <TstFormBody user={data} showP={props.showPro} setShowP={props.setShowPro} />
+                        </div>
+                    )
+            }
+            console.log(res.data)
+            return
+        })
+        .catch(err => { console.log(err) });
+    // localStorage.setItem("token", JSON.stringify(userData.token));
+    console.log(dataRes)
+    ;
+    let content = JSON.stringify(dataRes)
+console.log(content)
     return (
         <div>
             <div className="italic border-b p-3">

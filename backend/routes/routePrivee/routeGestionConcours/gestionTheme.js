@@ -18,7 +18,7 @@ router.post('/gestionTheme', verified, async (req, res) => {
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
-        res.status(200).json("vous n'avez pas les droits")
+        res.status(201).json("vous n'avez pas les droits")
         return
     }
 
@@ -49,8 +49,8 @@ router.delete('/gestionTheme', verified, async (req, res) => {
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
-    if (MiddlePass.role != 1) {
-        res.status(200).json("vous n'avez pas les droits")
+    if (MiddlePass.role != 0) {
+        res.status(201).json("vous n'avez pas les droits")
         return
     }
 

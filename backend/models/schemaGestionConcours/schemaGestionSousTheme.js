@@ -6,6 +6,8 @@ verif.sousThemeCreation = (data) => {
 
     const schema = Joi.object({
 
+        TOKEN: Joi.string().required(),
+
         NOM_SOUS_THEME: Joi.string().required(),
 
         ID_THEME: Joi.string().required()
@@ -19,6 +21,8 @@ verif.sousThemeCreation = (data) => {
 verif.sousThemeSuppr = (data) => {
 
     const schema = Joi.object({
+
+        TOKEN: Joi.string().required(),
 
         ID_SOUS_THEME: Joi.string().required()
             

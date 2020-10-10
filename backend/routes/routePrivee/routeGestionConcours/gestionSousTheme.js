@@ -11,13 +11,13 @@ router.post('/gestionSousTheme', verified, async (req, res) => {
     const value = validation.sousThemeCreation(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+        res.status(201).json("vous n'avez pas les droits")
         return
     }
 
@@ -41,13 +41,13 @@ router.delete('/gestionSousTheme', verified, async (req, res) => {
     const value = validation.sousThemeSuppr(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+        res.status(201).json("vous n'avez pas les droits")
         return
     }
 
