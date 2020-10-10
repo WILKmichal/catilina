@@ -5,6 +5,8 @@ import React from "react";
 
 function TstFormBody(props) {
     // console.log(props)   
+    console.log(props.user.ID_USER)
+    
 
 
 
@@ -24,9 +26,9 @@ function TstFormBody(props) {
                     <td className="py-5 border-b border-gray-200 bg-white text-sm col-span-1 ">
                         <div className="flex pl-5 pt-3">
                             <p className="text-gray-900 text-center">
-                                {props.user.ID}
+                                {props.user.ID_USER}
                             </p>
-                            console.log(props.user.ID)
+                           
                         </div>
                     </td>
                     <td className=" py-5 border-b border-gray-200 bg-white text-sm col-span-1" >
@@ -37,7 +39,7 @@ function TstFormBody(props) {
 
                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm col-span-2 md:col-span-3">
 
-                        <div className="flex items-start md:pt-3 ">{props.user.name}</div>
+                        <div className="flex items-start md:pt-3 ">{props.user.NOM}</div>
 
 
                     </td>
