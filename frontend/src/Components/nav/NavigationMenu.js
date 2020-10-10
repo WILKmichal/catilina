@@ -82,7 +82,6 @@ function NavigationMenu(props) {
         <RegisterSliderRight show={props.showR} setShow={props.setShowR}/>
       </div>
   }
-  console.log(userData.role)
 
   // console.log(userData.role)
   // if (props.role === null) {
