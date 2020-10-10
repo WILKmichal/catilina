@@ -2,34 +2,51 @@ import React from "react";
 import TstFormBody from '../Components/TstFormBody'
 import TstFormHeader from '../Components/TstFormHeader'
 import Loader from '../Components/Loader'
-import { useAxiosPost } from '../Hooks/PostRequest'
+import Axios from "axios";
 
 function RecruitementTeam(props) {
 
-    const url = `http://localhost:3001/maxiconcours/searchAdmin`
+    let loader = null;
+    
+    const content = async (e) => {
 
-    let user = useAxiosPost(url)
-
-
-    let content = null
-    let loader = null
-
-    if (user.error) {
-        content = <p>erreur pas d'employé</p>
+        const data = {
+             "ID_ROLE": "1",
+             "TOKEN": localStorage.getItem()
+     };
+        
+        e.preventDefault();
+    let emp = await Axios.post("http://localhost:3001/maxiconcours/searchAdmin", data)
+    console.log(emp)
+            // .then(res => 
+            //     {console.log(emp.data)
+                    
+                // if (res.user.error) {
+                //     content = <p>erreur pas d'employé</p>
+                // }
+            
+                // if (res.user.loading) {
+                //     loader = <Loader></Loader>
+                // }
+            
+                // if (res.user.data) {
+                //     content =
+                //         user.data.map((ID_ROLE, key) =>
+                //             <div key={key}>
+                //                 <TstFormBody user={ID_ROLE} showP={props.showPro} setShowP={props.setShowPro} />
+                //             </div>
+                //         )
+                        
+                // }
+            //     console.log(res.data)
+            // },
+            // console.log(emp.data)
+            // )
+            // .catch(err => { console.log(err) });
     }
 
-    if (user.loading) {
-        loader = <Loader></Loader>
-    }
 
-    if (user.data) {
-        content =
-            user.data.map((ID_ROLE, key) =>
-                <div key={key}>
-                    <TstFormBody user={ID_ROLE} showP={props.showPro} setShowP={props.setShowPro} />
-                </div>
-            )
-    }
+    
     return (
         <div>
             <div className="italic border-b p-3">

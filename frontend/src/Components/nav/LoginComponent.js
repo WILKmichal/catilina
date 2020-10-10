@@ -43,7 +43,6 @@ function Login() {
     history.push("/gcaccueil");
     if (userData.role === 0)
     history.push("/");
-    console.log(userData.role)
 
     
 

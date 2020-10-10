@@ -9,7 +9,7 @@ function ListeAleatoirConcours() {
         const url = `http://localhost:3001/maxiconcours/concours`
 
         let concours = useAxiosPut(url)
-     console.log(concours)
+//      console.log(concours)
 
 
         let content = null

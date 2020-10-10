@@ -32,7 +32,7 @@ function ProfilButton(props) {
 
     //Completer le logout avec remise a null du role
 
-    console.log(userData.role)
+
     //         token: undefined
     //          }),
     //     console.log(userData.token),
