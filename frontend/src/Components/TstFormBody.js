@@ -24,8 +24,9 @@ function TstFormBody(props) {
                     <td className="py-5 border-b border-gray-200 bg-white text-sm col-span-1 ">
                         <div className="flex pl-5 pt-3">
                             <p className="text-gray-900 text-center">
-                                {props.user.id}
+                                {props.user.ID}
                             </p>
+                            console.log(props.user.ID)
                         </div>
                     </td>
                     <td className=" py-5 border-b border-gray-200 bg-white text-sm col-span-1" >

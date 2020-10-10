@@ -151,7 +151,7 @@ import Axios from "axios" ;
                                             <td>10000</td>
                                             <td>3000</td>
                                             <td>
-                                                <span className="text-green-500"><i classNameName="fas fa-arrow-up"></i>65%</span>
+                                                <span className="text-green-500"><i className="fas fa-arrow-up"></i>65%</span>
                                             </td>
                                         </tr>
 

@@ -6,7 +6,7 @@
   "scripts": {
     "folderFront": "cd backend",
     "inst": "npm i",
-    "folderback":"cd ..",
+    "folderback": "cd ..",
     "start": "nodemon backend/app.js"
   },
   "repository": {
