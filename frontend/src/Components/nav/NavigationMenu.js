@@ -1,4 +1,4 @@
-import React ,{ useContext, useState } from 'react';
+import React ,{ useContext } from 'react';
 import UserContext from "../../Context/UserContext";
 import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar";
@@ -18,7 +18,9 @@ import GestionEqGestConcoursButton from "./role3/GestionEqGestConcoursButton";
 
 function NavigationMenu(props) {
 
+  // eslint-disable-next-line
   const { userData, setUserData } = useContext(UserContext);
+  // setUserData(useContext(UserContext))
 
   let affBouton
   // function setRole1() {
@@ -36,7 +38,7 @@ function NavigationMenu(props) {
   // function setRole3() {
   //   props.setRole("3")
   // }
-  if (userData.role == "3")
+  if (userData.role === 3)
   {
     affBouton =
       <div className="flex justify-center col-start-8 col-end-12 right-align md:pt-4">
@@ -46,7 +48,7 @@ function NavigationMenu(props) {
       </div>
       
   }
-  if (userData.role == "2")
+  if (userData.role === 2)
   {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
@@ -54,7 +56,7 @@ function NavigationMenu(props) {
         <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
-  if (userData.role == "1")
+  if (userData.role === 1)
   {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">
@@ -63,7 +65,7 @@ function NavigationMenu(props) {
         <ProfilButton roleB={props.role} setRoleB={props.setRole}/>
       </div>
   }
-  if (userData.role == "0")
+  if (userData.role === 0)
   {
     affBouton =
     <div className="flex justify-center col-start-8 col-end-12 right-align  md:pt-4">

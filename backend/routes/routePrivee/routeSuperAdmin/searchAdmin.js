@@ -11,18 +11,18 @@ router.post('/searchAdmin', verified, async (req, res) => {
     const value = verification.roleSearch(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO changer le 0 en role admin (3 ? possible)
-    if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+    if (MiddlePass.role != 3) {
+        res.status(200).json("vous n'avez pas les droits")
         return
     }
 
     try {
-        let usersRoleX = db.searchRole(jsonData.ID_ROLE)
+        let usersRoleX = await db.searchRole(jsonData.ID_ROLE)
         res.json(usersRoleX)
     return
 

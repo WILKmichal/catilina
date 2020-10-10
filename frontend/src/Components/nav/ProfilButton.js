@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 
 function ProfilButton(props) {
@@ -27,9 +27,8 @@ function ProfilButton(props) {
     let logout = () => (
         setUserData({
         role: null
-    }),
-   localStorage.clear("token"),
-    history.push("/"))
+        // eslint-disable-next-line
+    }),localStorage.clear("token"),history.push("/"))
 
     //Completer le logout avec remise a null du role
 
@@ -64,7 +63,7 @@ function ProfilButton(props) {
 
     return (
         <div className="relative">
-            <button onClick={() => setState(!state)} className="h-10 text-center w-24 content-center h-55 w-20 text-xs mx-2 bg-white text-teal-500 font-medium border-gray-100 rounded border border-teal-500 hover:border-teal-500 hover:bg-gray-100 shadow-xl">Profil</button>
+            <button onClick={() => setState(!state)} className="h-10 text-center content-center h-55 w-20 text-xs mx-2 bg-white text-teal-500 font-medium rounded border border-teal-500 hover:border-teal-500 hover:bg-gray-100 shadow-xl">Profil</button>
 
             {affBtn}
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import './tailwind.css';
 import Home from "./Views/Home"
 import Archive from "./Views/Archive"
@@ -13,11 +13,11 @@ import GestionCandidat from "./Views/GestionCandidat"
 import RecruitementTeam from "./Views/RecruitementTeam"
 import ManagingTeam from "./Views/ManagingTeam"
 import NavigationMenu from './Components/nav/NavigationMenu';
-import Postuler from './Components/Postuler';
+// import Postuler from './Components/Postuler';
 import Footer from "./Components/Footer";
 import InfoProfil from "./Components/InfoProfil";
-import TstListeUsers from "./Components/TstListeUsers"
-import TstDashboard from "./Components/TstDashboard";
+// import TstListeUsers from "./Components/TstListeUsers"
+// import TstDashboard from "./Components/TstDashboard";
 import UserContext from "./Context/UserContext"
 import {
   BrowserRouter as Router,

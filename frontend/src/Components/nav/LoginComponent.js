@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import logo2 from '../img/LogoMaxiconcourHibou3.png';
 import { Link } from "react-router-dom"
-import { useAxiosPost } from "../../Hooks/PostRequest";
 import Axios from "axios";
 import UserContext from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
@@ -36,13 +35,13 @@ function Login() {
        
     };
     
-    if (userData.role == "3")
+    if (userData.role === 3)
     history.push("/adminaccueil");
-    if (userData.role == "2")
+    if (userData.role === 2)
     history.push("/recrutaccueil");
-    if (userData.role == "1")
+    if (userData.role === 1)
     history.push("/gcaccueil");
-    if (userData.role == "0")
+    if (userData.role === 0)
     history.push("/");
     console.log(userData.role)
 

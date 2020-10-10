@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import logo2 from '../img/LogoMaxiconcourHibou3.png';
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Axios from "axios";
-import UserContext from "../../Context/UserContext";
+// import UserContext from "../../Context/UserContext";
 
 function Register() {
 
@@ -10,9 +10,9 @@ function Register() {
     const [COURRIEL, setCourriel] = useState(undefined);
     const [MDP, setMdp] = useState(undefined);
 
-    const { setUserData } = useContext(UserContext);
+    // const { setUserData } = useContext(UserContext);
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const submit = async (e) => {
 
@@ -20,8 +20,8 @@ function Register() {
         const newUser = { "COURRIEL": COURRIEL, "MDP": MDP, "NOM": NOM };
         console.log(newUser)
         
-        let err 
-        let res
+        // let err 
+        // let res
         await Axios.post("http://localhost:3001/maxiconcours/register",newUser)
         .then(res => { console.log(res.data) })
             .catch(err => { console.log(err) })

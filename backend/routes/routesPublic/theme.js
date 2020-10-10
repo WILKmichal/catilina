@@ -7,7 +7,6 @@ router.get('/theme', async (req, res) => {
 
     // TODO try catch a ajouter
     let listeTheme = await db.listeTheme()
-    console.log(listeTheme)
 
     res.json(listeTheme)
     return
