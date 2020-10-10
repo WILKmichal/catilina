@@ -1,11 +1,12 @@
 import React from "react";
 
-function Tst() {
+function searchBar() {
 
   return (
     <div>
+        <h1>lel</h1>
     </div>
   )
 }
 
-export default Tst
+export default searchBar

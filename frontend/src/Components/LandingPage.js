@@ -5,7 +5,9 @@ import UserContext from "../Context/UserContext";
 
 function LandingPage(props) {
 
+    // eslint-disable-next-line
     const { userData, setUserData } = useContext(UserContext);
+    // setUserData(useContext(UserContext))
 
     let regButton
 
