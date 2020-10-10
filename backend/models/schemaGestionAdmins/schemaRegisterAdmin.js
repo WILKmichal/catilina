@@ -7,6 +7,9 @@ validation.registerValidation = (data) => {
 
 
     const schema = Joi.object({
+
+        TOKEN : Joi.string().required(),
+        
         COURRIEL: Joi.string()
             .required()
             .email(),
