@@ -10,7 +10,7 @@ function ThemeDiv(props) {
         const token = localStorage.getItem('token')
         console.log(token)
 
-        await Axios.post("http://localhost:3001/maxiconcours/gestionTheme",{header:{"token":token}})
+        await Axios.post("http://localhost:3001/maxiconcours/gestionTheme",{header:{"TOKEN":token, "ID_THEME:"}})
             .then(res => {
                 console.log(res.data)
             }

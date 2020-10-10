@@ -12,13 +12,13 @@ router.post('/gestionTheme', verified, async (req, res) => {
     const value = validation.creationDeTheme(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+        res.status(200).json("vous n'avez pas les droits")
         return
     }
 
@@ -44,13 +44,13 @@ router.delete('/gestionTheme', verified, async (req, res) => {
     const value = validation.deleteTheme(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
-    if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+    if (MiddlePass.role != 1) {
+        res.status(200).json("vous n'avez pas les droits")
         return
     }
 
