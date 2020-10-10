@@ -8,6 +8,8 @@ validation.roleSearch = (data) => {
 
     const schema = Joi.object({
 
+        TOKEN: Joi.string().required(),
+
         ID_ROLE: Joi.any().valid("1", '2').required()
 
     });

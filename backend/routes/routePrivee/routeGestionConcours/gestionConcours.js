@@ -11,13 +11,13 @@ router.post('/gestionConcours', verified, async (req, res) => {
     const value = validation.concoursValidationCreation(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+        res.status(200).json("vous n'avez pas les droits")
         return
     }
     //TODO tst si insert marche (probablement pas importer dbUtil pour retirer  LES PUTAINS DE VERIFIACTION DE FoReIgN KeY)
@@ -52,13 +52,13 @@ router.delete('/gestionConcours', verified, async (req, res) => {
     const value = validation.concoursValidationSuppr(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
     if (MiddlePass.role != 0) {
-        res.status(401).json("vous n'avez pas les droits")
+        res.status(201).json("vous n'avez pas les droits")
         return
     }
 

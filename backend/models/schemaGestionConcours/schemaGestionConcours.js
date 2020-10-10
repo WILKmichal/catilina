@@ -6,6 +6,8 @@ verif.concoursValidationCreation = (data) => {
 
     const schema = Joi.object({
 
+        TOKEN: Joi.string().required(),
+
         LIBEL_SH: Joi.string().required(),
 
         LIBEL_L: Joi.string().required(),
@@ -28,6 +30,8 @@ verif.concoursValidationCreation = (data) => {
 verif.concoursValidationSuppr = (data) => {
 
     const schema = Joi.object({
+
+        TOKEN: Joi.string().required(),
 
         ID_CONCOURS: Joi.string().required()
         
