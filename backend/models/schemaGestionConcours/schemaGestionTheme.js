@@ -23,7 +23,7 @@ verif.deleteTheme = (data) => {
 
         TOKEN: Joi.string().required(),
 
-        ID_THEME: Joi.string().required()
+        ID_THEME: Joi.number().required()
         
     })
 

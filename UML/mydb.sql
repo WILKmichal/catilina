@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 08 oct. 2020 à 13:06
+-- Généré le : Dim 11 oct. 2020 à 23:57
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.4.7
 
@@ -38,29 +38,6 @@ CREATE TABLE `concours` (
   `DATE_FIN` date DEFAULT NULL,
   `ID_SOUS_THEME` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `concours`
---
-
-INSERT INTO `concours` (`ID_CONCOURS`, `LIBEL_SH`, `LIBEL_L`, `DATE_FIN`, `ID_SOUS_THEME`) VALUES
-(1, 'Internal Quality Liaison', 'synthesizing the alarm won\'t do anything, we need to hack the redundant THX circuit!', '2020-08-24', 1),
-(2, 'Legacy Program Specialist', 'I\'ll override the primary ADP interface, that should sensor the XSS matrix!', '2021-07-16', 1),
-(3, 'Lead Identity Orchestrator', 'Try to synthesize the AI sensor, maybe it will back up the back-end array!', '2020-10-05', 1),
-(4, 'Internal Quality Liaison', 'synthesizing the alarm won\'t do anything, we need to hack the redundant THX circuit!', '2020-08-24', 2),
-(5, 'Legacy Program Specialist', 'I\'ll override the primary ADP interface, that should sensor the XSS matrix!', '2021-07-16', 2),
-(6, 'Lead Identity Orchestrator', 'Try to synthesize the AI sensor, maybe it will back up the back-end array!', '2020-10-05', 2),
-(7, 'Internal Quality Liaison', 'synthesizing the alarm won\'t do anything, we need to hack the redundant THX circuit!', '2020-08-24', 3),
-(8, 'Internal Quality Liaison', 'synthesizing the alarm won\'t do anything, we need to hack the redundant THX circuit!', '2020-08-24', 3),
-(9, 'Legacy Program Specialist', 'I\'ll override the primary ADP interface, that should sensor the XSS matrix!', '2021-07-16', 3),
-(10, 'Lead Identity Orchestrator', 'Try to synthesize the AI sensor, maybe it will back up the back-end array!', '2020-10-05', 3),
-(11, 'Internal Quality Liaison', 'synthesizing the alarm won\'t do anything, we need to hack the redundant THX circuit!', '2020-08-24', 4),
-(12, 'Legacy Program Specialist', 'I\'ll override the primary ADP interface, that should sensor the XSS matrix!', '2021-07-16', 4),
-(13, 'Lead Identity Orchestrator', 'Try to synthesize the AI sensor, maybe it will back up the back-end array!', '2020-10-05', 4),
-(14, 'Internal Quality Liaison', 'synthesizing the alarm won\'t do anything, we need to hack the redundant THX circuit!', '2020-08-24', 5),
-(15, 'Legacy Program Specialist', 'I\'ll override the primary ADP interface, that should sensor the XSS matrix!', '2021-07-16', 5),
-(16, 'Lead Identity Orchestrator', 'Try to synthesize the AI sensor, maybe it will back up the back-end array!', '2020-10-05', 5),
-(17, 'elle', 'FNIZFNZINZNIFNZIFZINZNF', '0000-00-00', 3);
 
 -- --------------------------------------------------------
 
@@ -472,11 +449,8 @@ CREATE TABLE `soustheme` (
 --
 
 INSERT INTO `soustheme` (`ID_SOUS_THEME`, `NOM_SOUS_THEME`, `ID_THEME`) VALUES
-(1, 'sous theme n°1 pompier', 1),
-(2, 'sous theme n°2 infirmier', 1),
-(3, 'sous theme n°3 random', 2),
-(4, 'sous theme n°4 dev', 2),
-(5, 'sous theme n°5 reseau', 3);
+(0, 'fefefefefef', 24),
+(2, 'fefefefefef', 24);
 
 -- --------------------------------------------------------
 
@@ -517,17 +491,13 @@ CREATE TABLE `theme` (
 --
 
 INSERT INTO `theme` (`ID_THEME`, `NOM_THEME`) VALUES
-(0, 'elle'),
-(1, 'theme aide a la personne'),
-(2, 'theme dev'),
-(3, ' theme reseau'),
-(17, 'elle'),
 (18, 'elle'),
 (19, 'elle'),
 (20, 'elle'),
 (21, 'elle'),
 (22, 'elle'),
-(23, 'elle');
+(24, 'eeee'),
+(25, 'ddd');
 
 -- --------------------------------------------------------
 
@@ -560,13 +530,25 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID_USER`, `NOM`, `D_NAISS`, `SEXE`, `ADRESSE`, `TEL`, `COURRIEL`, `ETAT_CIVIL`, `ID_P`, `FACEBOOK`, `TWITTER`, `INSTAGRAM`, `MDP`, `PRENOM`, `ID_NATIONALITE`, `ID_ROLE`) VALUES
+(76, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 2),
+(80, 'candidat', NULL, NULL, NULL, NULL, 'candidat@candidat.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$TAitNZwRg0xOJ4Md//FilONybrWeycJypfKK7v2SXWoZqka1vxnia', NULL, 'FR', 0),
 (310, 'admin', NULL, NULL, NULL, NULL, 'admin@admin.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$m8K1sriuJsMxB7WYNroxw.lO/9Xj0.a43nd783TJnGf7CnJ90V6yO', NULL, 'FR', 3),
 (311, 'recrut', NULL, NULL, NULL, NULL, 'recrut@recrut.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$BmdWXdz9v9WYKZ7cToDW0OI8My6MJgj2V1WLG631jgQLqS2i5/Y/a', NULL, 'FR', 2),
 (312, 'gestcandidat', NULL, NULL, NULL, NULL, 'gc@gc.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$chZiYu/9Yqu9d28A.QIgre78S4JukCZxAJ2XpnBekqcmcq8ZSKYTi', NULL, 'FR', 1),
-(313, 'candidat', NULL, NULL, NULL, NULL, 'candidat@candidat.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$TAitNZwRg0xOJ4Md//FilONybrWeycJypfKK7v2SXWoZqka1vxnia', NULL, 'FR', 0),
 (314, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 4),
 (315, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 4),
-(316, NULL, NULL, 0, NULL, NULL, 'michal@gmail.co', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FR', 4);
+(317, 'michal', NULL, NULL, NULL, NULL, 'lel@lel.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$IYnihsn8ZU6NIWb0kx4x4u0iA3lswgxGo2J6W2zvBaW7PZA/S1iye', NULL, 'FR', 1),
+(318, NULL, NULL, NULL, NULL, NULL, 'micw@hotmail.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$1zEg/ia.S8hyvULJj3ZT7O93DptffqW6LEgJzV.dRjWTw.UzTMo2y', NULL, 'FR', 1),
+(319, NULL, NULL, NULL, NULL, NULL, 'micw@hotmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$OWcfoNGpcyDpFQqGK1f/W.HyN4DQaP3CKZ6Q0AG4krOI5itQ2Kzby', NULL, 'FR', 0),
+(320, NULL, NULL, NULL, NULL, NULL, 'micwi@hotmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$cswbgzVYa0IkwcXdtZgqtuGO.oFylJbCYTY7WPDo7iScRJD.zQgSG', NULL, 'FR', 0),
+(321, NULL, NULL, NULL, NULL, NULL, 'micwi@hotkmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$tVXV3L8LtXa5HPV8750UFOiPWnRMwxUCQ5OSrr4oDt7ySXygvagvu', NULL, 'FR', 0),
+(322, NULL, NULL, NULL, NULL, NULL, 'micwi@hotklmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$QRNgqluEo9.5Fk0cQn2g/OuereO6zNf7zj50L/EgLC2MTxPD9XFb6', NULL, 'FR', 0),
+(323, NULL, NULL, NULL, NULL, NULL, 'micwi@hotkllmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$uGis6FYeBafVHAPrLzb2sO.tcM5pyyR5AElRRESf1lkxUjt9ihOZ6', NULL, 'FR', 0),
+(324, NULL, NULL, NULL, NULL, NULL, 'micwi@hotkllgmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$TxffIIqONOP6WAwnXu8qFu0jnOuM23FZF3isGjCJ2rztmPnEFjBC2', NULL, 'FR', 0),
+(325, NULL, NULL, NULL, NULL, NULL, 'micpwi@hotkllgmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$ont4NbzzKv8s3ietzDEcoe0XKw3vZxPvEbi.3CvKzaEz28G0G/dTK', NULL, 'FR', 0),
+(326, NULL, NULL, NULL, NULL, NULL, 'micpwi@hoptkllgmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$LCJss4A4w0kcPqFWHbYD.O0fBQAOJ/75I1TIkpZaeVZpcaUma809O', NULL, 'FR', 0),
+(327, NULL, NULL, NULL, NULL, NULL, 'micpwi@hopmtkllgmaoil.fr', NULL, NULL, NULL, NULL, NULL, '$2a$10$b5hv4ZTRsUepgK3Pc2ZHS.bCvX/JOdPDnHSkLLX2zOeilDwO3tE5G', NULL, 'FR', 0),
+(328, NULL, NULL, NULL, NULL, NULL, 'etudiant@etudiant.com', NULL, NULL, NULL, NULL, NULL, '$2a$10$OTJH1pr8TDWtADw57GMq3eaU1jfTjaXYqGsNc5PEJqWDfAy4GJAHW', NULL, 'FR', 0);
 
 --
 -- Index pour les tables déchargées
@@ -647,18 +629,19 @@ ALTER TABLE `user`
 --
 ALTER TABLE `concours`
   MODIFY `ID_CONCOURS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  
 
 --
 -- AUTO_INCREMENT pour la table `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `ID_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
 -- Contraintes pour les tables déchargées
@@ -669,6 +652,8 @@ ALTER TABLE `user`
 --
 ALTER TABLE `concours`
   ADD CONSTRAINT `concours_ibfk_1` FOREIGN KEY (`ID_SOUS_THEME`) REFERENCES `soustheme` (`ID_SOUS_THEME`);
+
+  
 
 --
 -- Contraintes pour la table `inscription`
@@ -696,6 +681,9 @@ ALTER TABLE `photo`
 --
 ALTER TABLE `soustheme`
   ADD CONSTRAINT `soustheme_ibfk_1` FOREIGN KEY (`ID_THEME`) REFERENCES `theme` (`ID_THEME`);
+
+  ALTER TABLE `soustheme`
+  MODIFY `ID_SOUS_THEME` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour la table `user`

@@ -17,7 +17,7 @@ router.post('/gestionTheme', verified, async (req, res) => {
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
-    if (MiddlePass.role != 0) {
+    if (MiddlePass.role != 1) {
         res.status(201).json("vous n'avez pas les droits")
         return
     }
@@ -37,7 +37,7 @@ router.post('/gestionTheme', verified, async (req, res) => {
 
 //TODO tester que cq delete beien le theme les sousthemes de ce theme et les concours des sousthemes
 
-router.delete('/gestionTheme', verified, async (req, res) => {
+router.put('/gestionTheme', verified, async (req, res) => {
     MiddlePass = req.user
     jsonData = req.body
 
@@ -49,7 +49,7 @@ router.delete('/gestionTheme', verified, async (req, res) => {
     }
 
     //TODO pour le live build changer en 1 (0 pour tester)
-    if (MiddlePass.role != 0) {
+    if (MiddlePass.role != 1) {
         res.status(201).json("vous n'avez pas les droits")
         return
     }

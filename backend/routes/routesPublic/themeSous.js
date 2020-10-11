@@ -10,7 +10,7 @@ router.get('/sousTheme', async (req, res) => {
     const value = sousThemeValidation(jsonData)
 
     if (value.error) {
-        res.status(400).json(value.error.details[0].message)
+        res.status(200).json(value.error.details[0].message)
         return
     }
 
