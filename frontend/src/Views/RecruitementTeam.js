@@ -54,14 +54,14 @@ function RecruitementTeam(props) {
             chartData.push(outer);
         }
     }
-    console.log(chartData)
+    console.log(chartData )
 
     let content = null
 
 
     content = chartData.map((user, key) =>
         <div key={key}>
-            {user}
+           <TstFormBody data={user} showP={props.showPro} setShowP={props.setShowPro} />
         </div>
     )
 
