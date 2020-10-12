@@ -57,7 +57,7 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
 
 
     //recupere les valeures du req.body et les places dans une string
-    onlyValuesOfJsonData = Object.values(jsonData)
+    let onlyValuesOfJsonData = Object.values(jsonData)
 
 
     //valeur  de PATH_IMG
@@ -82,7 +82,7 @@ router.post('/register', async (req, res) => { //req l'objet reçu du front , re
     try {
 
         await db.removeConstrain()
-        await db.register(keysReq, stringData)
+        await db.register(keysReq, stringData) 
         let idUser = await db.getID(jsonData.COURRIEL)
 
         if (positionImgTableau) {
